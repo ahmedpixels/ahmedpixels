@@ -179,7 +179,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-hero-text/40 text-sm flex items-center gap-1"
           >
-            © {currentYear} AHMED. All rights reserved. Built with{" "}
+            Copyright © 2026 All rights reserved. Built with{" "}
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
