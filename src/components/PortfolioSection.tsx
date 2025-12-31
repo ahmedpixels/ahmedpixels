@@ -71,23 +71,12 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
         
         {/* Screen */}
         <div className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
-          {/* Scrolling Screenshot */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.img
-              src={project.screenshot}
-              alt={project.title}
-              animate={{ y: ["0%", "-50%"] }}
-              transition={{
-                y: {
-                  duration: 15,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  ease: "linear",
-                },
-              }}
-              className="w-full object-cover object-top"
-            />
-          </div>
+          {/* Full Screenshot */}
+          <img
+            src={project.screenshot}
+            alt={project.title}
+            className="w-full h-full object-cover object-top"
+          />
           
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
