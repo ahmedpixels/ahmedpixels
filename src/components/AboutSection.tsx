@@ -78,7 +78,7 @@ const AboutSection = () => {
                 helped businesses establish powerful online presences that drive real results.
               </p>
               <p>
-                My journey began at <strong className="text-foreground">UAY Brains College, Baghwanpura</strong>, where 
+                My journey began at <strong className="text-foreground">Brains College, Baghwanpura</strong>, where 
                 I mastered the intricacies of web development and search engine optimization. Since then, 
                 I've been transforming ideas into high-performing websites.
               </p>

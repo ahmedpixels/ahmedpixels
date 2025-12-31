@@ -73,7 +73,7 @@ const AboutPage = () => {
                   not only look stunning but also perform exceptionally well.
                 </p>
                 <p>
-                  My journey began at UAY Brains College, Baghwanpura, where I learned the fundamentals of 
+                  My journey began at Brains College, Baghwanpura, where I learned the fundamentals of 
                   web development. Since then, I've worked with numerous clients across various industries, 
                   helping them establish their digital presence.
                 </p>
@@ -98,7 +98,7 @@ const AboutPage = () => {
                     <GraduationCap className="text-primary-foreground" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-hero-text">UAY Brains College</h3>
+                    <h3 className="font-bold text-hero-text">Brains College</h3>
                     <p className="text-hero-text/60 text-sm">Baghwanpura, Lahore</p>
                     <p className="text-hero-text/50 text-sm mt-2">WordPress & Web Development</p>
                   </div>
