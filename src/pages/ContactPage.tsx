@@ -32,10 +32,10 @@ const ContactPage = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "0321-6479192" },
-    { icon: Mail, label: "Email", value: "ahmedpixelspro@gmail.com" },
-    { icon: MapPin, label: "Location", value: "Lahore, Pakistan" },
-    { icon: Clock, label: "Response Time", value: "Within 24 hours" },
+    { icon: Phone, label: "Phone", value: "+923216479192", href: "https://wa.me/923216479192?text=HI%20AHMED%20%21" },
+    { icon: Mail, label: "Email", value: "ahmedpixelspro@gmail.com", href: "mailto:ahmedpixelspro@gmail.com" },
+    { icon: MapPin, label: "Location", value: "Lahore, Pakistan", href: null },
+    { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
   ];
 
   return (
@@ -87,7 +87,18 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="text-hero-text/50 text-sm">{item.label}</p>
-                    <p className="text-hero-text font-medium">{item.value}</p>
+                    {item.href ? (
+                      <a 
+                        href={item.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-hero-text font-medium hover:text-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-hero-text font-medium">{item.value}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
