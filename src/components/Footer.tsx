@@ -145,11 +145,23 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="text-primary mt-1 flex-shrink-0" size={18} />
-                <span className="text-hero-text/60">0321-6479192</span>
+                <a 
+                  href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-hero-text/60 hover:text-primary transition-colors"
+                >
+                  +923216479192
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="text-primary mt-1 flex-shrink-0" size={18} />
-                <span className="text-hero-text/60">ahmedpixelspro@gmail.com</span>
+                <a 
+                  href="mailto:ahmedpixelspro@gmail.com"
+                  className="text-hero-text/60 hover:text-primary transition-colors"
+                >
+                  ahmedpixelspro@gmail.com
+                </a>
               </li>
             </ul>
 
