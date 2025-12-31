@@ -159,12 +159,14 @@ const Footer = () => {
               whileTap={{ scale: 0.98 }}
               className="mt-6"
             >
-              <Link
-                to="/contact"
+              <a
+                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-orange text-primary-foreground rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow"
               >
                 Let's Talk
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         </div>
