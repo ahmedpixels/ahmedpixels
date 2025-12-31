@@ -2,11 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
 
-import pixelhashtech from "@/assets/projects/pixelhashtech.png";
-import shinewallstone from "@/assets/projects/shinewallstone.png";
-import silkspool from "@/assets/projects/silkspool.png";
-import jeddahautospareparts from "@/assets/projects/jeddahautospareparts.png";
-import eleevaadhesives from "@/assets/projects/eleevaadhesives.png";
+import pixelhashtech from "@/assets/projects/pixelhashtech-mobile.png";
+import shinewallstone from "@/assets/projects/shinewallstone-mobile.png";
+import silkspool from "@/assets/projects/silkspool-mobile.png";
+import jeddahautospareparts from "@/assets/projects/jeddahautospareparts-mobile.png";
+import eleevaadhesives from "@/assets/projects/eleevaadhesives-mobile.png";
 
 const projects = [
   {
@@ -71,20 +71,20 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
         
         {/* Screen */}
         <div className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
-          {/* Scrolling Screenshot */}
+          {/* Full-page Scroll Preview */}
           <motion.img
             src={project.screenshot}
-            alt={project.title}
-            animate={{ y: ["0%", "-70%", "0%"] }}
+            alt={`${project.title} website preview`}
+            animate={{ y: ["0%", "-85%", "0%"] }}
             transition={{
               y: {
-                duration: 12,
+                duration: 18,
                 repeat: Infinity,
                 repeatType: "loop",
                 ease: "easeInOut",
               },
             }}
-            className="w-full object-cover object-top"
+            className="w-full h-auto"
           />
           
           {/* Hover Overlay */}
