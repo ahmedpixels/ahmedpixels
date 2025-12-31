@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useAnimationControls } from "framer-motion";
+import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 import pixelhashtech from "@/assets/projects/pixelhashtech-mobile.png";
@@ -52,6 +52,8 @@ const projects = [
 ];
 
 const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <motion.a
       href={project.url}
@@ -65,7 +67,11 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
       className="group relative block cursor-pointer"
     >
       {/* Phone Frame */}
-      <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px]">
+      <div 
+        className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px]"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-foreground rounded-b-2xl z-20" />
         
@@ -75,7 +81,7 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
           <motion.img
             src={project.screenshot}
             alt={`${project.title} website preview`}
-            animate={{ y: ["0%", "-85%", "0%"] }}
+            animate={isPaused ? {} : { y: ["0%", "-85%", "0%"] }}
             transition={{
               y: {
                 duration: 30,
