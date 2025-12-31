@@ -54,7 +54,7 @@ const HeroSection = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-8 md:px-12 lg:px-16 xl:px-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-screen py-32">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
