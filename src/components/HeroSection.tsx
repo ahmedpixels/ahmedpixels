@@ -113,7 +113,7 @@ const HeroSection = () => {
               className="heading-xl text-hero-text mb-4"
             >
               Hi, I'm{" "}
-              <span className="text-gradient">Ahmed</span>
+              <span className="text-gradient">AHMED</span>
             </motion.h1>
 
             <motion.h2
