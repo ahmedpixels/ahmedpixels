@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Phone, MapPin, Mail, Send, CheckCircle, Linkedin, Instagram, MessageCircle } from "lucide-react";
-import { toast } from "sonner";
+import { useRef } from "react";
+import { Phone, MapPin, Mail, CheckCircle, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
 const contactInfo = [
   {
@@ -27,24 +26,6 @@ const contactInfo = [
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,27 +72,17 @@ const ContactSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-16"
+          className="max-w-2xl mx-auto"
         >
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-hero-text mb-4">
-                Contact Information
-              </h3>
-              <p className="text-hero-text/60 leading-relaxed">
-                Feel free to reach out through any of these channels. 
-                I typically respond within 24 hours.
-              </p>
-            </div>
-
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info) => (
                 <motion.div
                   key={info.label}
                   variants={itemVariants}
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4"
+                  className="flex items-center gap-4 p-4 bg-hero-bg/50 border border-border/10 rounded-2xl"
                 >
                   <div className="w-14 h-14 bg-gradient-orange rounded-xl flex items-center justify-center flex-shrink-0">
                     <info.icon className="text-primary-foreground" size={24} />
@@ -121,6 +92,8 @@ const ContactSection = () => {
                     {info.href ? (
                       <a
                         href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-hero-text font-semibold text-lg hover:text-primary transition-colors"
                       >
                         {info.value}
@@ -135,10 +108,23 @@ const ContactSection = () => {
               ))}
             </div>
 
+            {/* WhatsApp CTA Button */}
+            <motion.div variants={itemVariants} className="pt-4">
+              <a
+                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 bg-gradient-orange text-primary-foreground rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg glow-orange hover:shadow-2xl transition-shadow"
+              >
+                <MessageCircle size={24} />
+                Chat on WhatsApp
+              </a>
+            </motion.div>
+
             {/* Social Links */}
-            <motion.div variants={itemVariants} className="mt-8">
-              <h4 className="text-hero-text font-semibold mb-4">Connect With Me</h4>
-              <div className="flex gap-3">
+            <motion.div variants={itemVariants} className="pt-6">
+              <h4 className="text-hero-text font-semibold text-center mb-4">Connect With Me</h4>
+              <div className="flex justify-center gap-4">
                 {[
                   { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
                   { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
@@ -151,16 +137,16 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300"
+                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon size={20} />
+                    <social.icon size={24} />
                   </motion.a>
                 ))}
               </div>
             </motion.div>
 
-            {/* Decorative Element */}
+            {/* Why Work With Me */}
             <motion.div
               variants={itemVariants}
               className="mt-8 p-6 border border-primary/20 rounded-2xl bg-primary/5"
@@ -180,103 +166,6 @@ const ContactSection = () => {
                 </div>
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div variants={itemVariants}>
-            <form
-              onSubmit={handleSubmit}
-              className="bg-hero-bg/50 backdrop-blur-sm border border-border/10 rounded-2xl p-8"
-            >
-              <div className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-hero-text font-medium mb-2"
-                  >
-                    Your Name
-                  </label>
-                  <motion.input
-                    whileFocus={{ scale: 1.01 }}
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                    className="w-full px-5 py-4 bg-section-dark border border-border/20 rounded-xl text-hero-text placeholder-hero-text/30 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-hero-text font-medium mb-2"
-                  >
-                    Email Address
-                  </label>
-                  <motion.input
-                    whileFocus={{ scale: 1.01 }}
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                    className="w-full px-5 py-4 bg-section-dark border border-border/20 rounded-xl text-hero-text placeholder-hero-text/30 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-hero-text font-medium mb-2"
-                  >
-                    Your Message
-                  </label>
-                  <motion.textarea
-                    whileFocus={{ scale: 1.01 }}
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    required
-                    rows={5}
-                    className="w-full px-5 py-4 bg-section-dark border border-border/20 rounded-xl text-hero-text placeholder-hero-text/30 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"
-                    placeholder="Tell me about your project..."
-                  />
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 bg-gradient-orange text-primary-foreground rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg glow-orange hover:shadow-2xl transition-shadow disabled:opacity-70"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
-                      />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send size={18} />
-                    </>
-                  )}
-                </motion.button>
-              </div>
-            </form>
           </motion.div>
         </motion.div>
       </div>
