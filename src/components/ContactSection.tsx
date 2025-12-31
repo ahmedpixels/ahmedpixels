@@ -7,8 +7,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "0321-6479192",
-    href: "tel:+923216479192",
+    value: "+923216479192",
+    href: "https://wa.me/923216479192?text=HI%20AHMED%20%21",
   },
   {
     icon: MapPin,
