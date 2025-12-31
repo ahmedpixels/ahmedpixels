@@ -7,45 +7,43 @@ import { ExternalLink, Globe } from "lucide-react";
 const projects = [
   {
     id: 1,
-    name: "TechVenture Pro",
+    name: "PixelHash Tech",
     type: "Tech Website",
-    description: "A cutting-edge technology company website with modern design and seamless user experience.",
-    color: "from-blue-500 to-purple-600",
+    description: "Digital agency website with modern design and seamless user experience.",
+    color: "from-orange-500 to-amber-500",
+    url: "https://pixelhashtech.com/",
   },
   {
     id: 2,
-    name: "ShopStyle Elite",
-    type: "E-commerce",
-    description: "Full-featured e-commerce platform with advanced product filtering and secure checkout.",
-    color: "from-primary to-orange-400",
+    name: "Shine Wall Stone",
+    type: "Business Website",
+    description: "Premium stone and marble company showcase with elegant product displays.",
+    color: "from-blue-500 to-cyan-500",
+    url: "https://shinewallstone.com/",
   },
   {
     id: 3,
-    name: "Corporate Solutions",
-    type: "B2B Website",
-    description: "Professional B2B website designed to generate leads and showcase enterprise solutions.",
-    color: "from-emerald-500 to-teal-600",
+    name: "Silks Pool",
+    type: "E-commerce",
+    description: "Luxury fabric and textile online store with advanced product filtering.",
+    color: "from-amber-600 to-orange-600",
+    url: "https://silkspool.com/",
   },
   {
     id: 4,
-    name: "Product Showcase",
-    type: "Catalogue",
-    description: "Interactive product catalogue with advanced search and category management.",
-    color: "from-pink-500 to-rose-600",
+    name: "Jeddah Auto Spare Parts",
+    type: "E-commerce",
+    description: "Auto parts e-commerce store with comprehensive catalog and secure checkout.",
+    color: "from-purple-500 to-pink-500",
+    url: "https://jeddahautospareparts.com/",
   },
   {
     id: 5,
-    name: "StartUp Launch",
-    type: "Single Page",
-    description: "High-converting landing page for a tech startup with optimized performance.",
-    color: "from-violet-500 to-indigo-600",
-  },
-  {
-    id: 6,
-    name: "Fashion Store",
-    type: "Shopify",
-    description: "Custom Shopify store with unique branding and optimized checkout flow.",
-    color: "from-amber-500 to-yellow-600",
+    name: "Eleeva Adhesives",
+    type: "Corporate Website",
+    description: "Industrial adhesives manufacturer website with product specifications.",
+    color: "from-emerald-500 to-teal-500",
+    url: "https://eleevaadhesives.com/",
   },
 ];
 
@@ -95,15 +93,20 @@ const ProjectsPage = () => {
                     </div>
                     
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <motion.button
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    >
+                      <motion.span
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="px-6 py-3 bg-white text-black rounded-full font-semibold flex items-center gap-2"
                       >
                         View Project <ExternalLink size={16} />
-                      </motion.button>
-                    </div>
+                      </motion.span>
+                    </a>
                   </div>
 
                   {/* Project Info */}

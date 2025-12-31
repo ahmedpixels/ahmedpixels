@@ -4,58 +4,59 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "TechVerse Store",
-    type: "E-commerce Website",
-    description: "Full-featured online electronics store with advanced filtering",
+    title: "PixelHash Tech",
+    type: "Tech Website",
+    description: "Digital agency website with modern design",
     color: "from-orange-500 to-amber-500",
     mockupBg: "bg-gradient-to-b from-slate-900 to-slate-800",
+    url: "https://pixelhashtech.com/",
   },
   {
-    title: "GlobalTrade B2B",
-    type: "B2B Platform",
-    description: "Enterprise solution for international trade management",
+    title: "Shine Wall Stone",
+    type: "Business Website",
+    description: "Premium stone and marble company showcase",
     color: "from-blue-500 to-cyan-500",
     mockupBg: "bg-gradient-to-b from-blue-900 to-slate-800",
+    url: "https://shinewallstone.com/",
   },
   {
-    title: "CraftBrew Shop",
-    type: "Shopify Store",
-    description: "Artisan coffee brand with subscription service",
+    title: "Silks Pool",
+    type: "E-commerce Website",
+    description: "Luxury fabric and textile online store",
     color: "from-amber-600 to-orange-600",
     mockupBg: "bg-gradient-to-b from-amber-900 to-stone-800",
+    url: "https://silkspool.com/",
   },
   {
-    title: "InnovateTech Hub",
-    type: "Tech Website",
-    description: "SaaS company website with interactive demos",
+    title: "Jeddah Auto Spare Parts",
+    type: "E-commerce Website",
+    description: "Auto parts store with advanced filtering",
     color: "from-purple-500 to-pink-500",
     mockupBg: "bg-gradient-to-b from-purple-900 to-slate-800",
+    url: "https://jeddahautospareparts.com/",
   },
   {
-    title: "LuxeHome Catalog",
-    type: "Catalogue Website",
-    description: "Premium furniture showcase with 360° views",
+    title: "Eleeva Adhesives",
+    type: "Corporate Website",
+    description: "Industrial adhesives manufacturer website",
     color: "from-emerald-500 to-teal-500",
     mockupBg: "bg-gradient-to-b from-emerald-900 to-slate-800",
-  },
-  {
-    title: "FinanceFlow Pro",
-    type: "Corporate Website",
-    description: "Financial services firm with client portal",
-    color: "from-cyan-500 to-blue-500",
-    mockupBg: "bg-gradient-to-b from-cyan-900 to-slate-800",
+    url: "https://eleevaadhesives.com/",
   },
 ];
 
 const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   return (
-    <motion.div
+    <motion.a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className="group relative"
+      className="group relative block cursor-pointer"
     >
       {/* Phone Frame */}
       <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px]">
@@ -149,7 +150,7 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
           {project.description}
         </p>
       </motion.div>
-    </motion.div>
+    </motion.a>
   );
 };
 
