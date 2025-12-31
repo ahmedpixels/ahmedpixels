@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { MapPin, GraduationCap, Briefcase, Target, Heart, Zap } from "lucide-react";
+import { MapPin, GraduationCap, Briefcase, Target, Heart, Zap, Award, Rocket, Users, Code } from "lucide-react";
 
 const AboutPage = () => {
   const highlights = [
@@ -10,6 +10,37 @@ const AboutPage = () => {
     { icon: Target, title: "50+", subtitle: "Projects Done" },
     { icon: Heart, title: "100%", subtitle: "Client Satisfaction" },
     { icon: Zap, title: "Fast", subtitle: "Delivery" },
+  ];
+
+  const timeline = [
+    {
+      year: "2023",
+      title: "Senior WordPress Developer",
+      description: "Started taking on complex e-commerce and enterprise-level projects. Expanded expertise to Shopify development.",
+      icon: Rocket,
+      achievements: ["50+ Projects Completed", "Enterprise Clients"],
+    },
+    {
+      year: "2022",
+      title: "Freelance Developer & SEO Specialist",
+      description: "Launched freelance career, focusing on WordPress development and SEO optimization for small businesses.",
+      icon: Code,
+      achievements: ["First 20 Clients", "SEO Mastery"],
+    },
+    {
+      year: "2022",
+      title: "Completed Web Development Training",
+      description: "Graduated from Brains College, Baghwanpura with comprehensive knowledge in WordPress and web development.",
+      icon: GraduationCap,
+      achievements: ["Certification", "Technical Foundation"],
+    },
+    {
+      year: "2021",
+      title: "Started Learning Journey",
+      description: "Began learning HTML, CSS, JavaScript, and WordPress development. Discovered passion for creating websites.",
+      icon: Award,
+      achievements: ["Self-Learning", "First Website"],
+    },
   ];
 
   return (
@@ -59,7 +90,7 @@ const AboutPage = () => {
           </motion.div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 mb-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -119,6 +150,79 @@ const AboutPage = () => {
                 </div>
               </div>
             </motion.div>
+          </div>
+
+          {/* Timeline Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10"
+          >
+            <h2 className="text-3xl font-bold text-hero-text text-center mb-4">
+              Career <span className="text-gradient">Timeline</span>
+            </h2>
+            <p className="text-hero-text/60 text-center max-w-xl mx-auto mb-12">
+              My professional journey and key milestones along the way
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-primary/20 rounded-full hidden md:block" />
+            
+            {/* Timeline Items */}
+            <div className="space-y-12">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`flex flex-col md:flex-row items-center gap-8 ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Content Card */}
+                  <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      className="bg-card/50 border border-border/20 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-bold mb-3">
+                        {item.year}
+                      </span>
+                      <h3 className="text-xl font-bold text-hero-text mb-2">{item.title}</h3>
+                      <p className="text-hero-text/60 text-sm mb-4">{item.description}</p>
+                      <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}>
+                        {item.achievements.map((achievement, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-hero-bg border border-border/20 rounded-full text-xs text-hero-text/70"
+                          >
+                            {achievement}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Center Icon */}
+                  <div className="relative z-10">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="w-16 h-16 bg-gradient-orange rounded-2xl flex items-center justify-center shadow-lg"
+                    >
+                      <item.icon className="text-primary-foreground" size={28} />
+                    </motion.div>
+                  </div>
+
+                  {/* Empty Space for Alternating Layout */}
+                  <div className="flex-1 hidden md:block" />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
