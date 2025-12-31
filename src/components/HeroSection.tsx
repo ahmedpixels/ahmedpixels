@@ -153,31 +153,77 @@ const HeroSection = () => {
           {/* Right Content - Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
+              {/* Background Geometric Shapes */}
+              <motion.div
+                initial={{ opacity: 0, rotate: -10 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl rotate-6"
+              />
+              <motion.div
+                initial={{ opacity: 0, rotate: 10 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="absolute -inset-8 bg-gradient-to-tl from-primary/15 via-transparent to-primary/5 rounded-3xl -rotate-3"
+              />
+              
               {/* Glow Effect */}
               <div
                 ref={glowRef}
-                className="absolute inset-0 bg-gradient-orange rounded-full blur-3xl opacity-40 scale-110"
+                className="absolute inset-0 bg-gradient-orange rounded-3xl blur-3xl opacity-30 scale-110"
               />
               
               {/* Image Container */}
               <motion.div
                 ref={imageRef}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
                 className="relative"
               >
-                <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl">
-                  <img
-                    src={ahmedPortrait}
-                    alt="Ahmed - WordPress Developer & SEO Specialist"
-                    className="w-full h-full object-cover"
-                  />
+                {/* Main Image Frame */}
+                <div className="relative w-72 h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem]">
+                  {/* Orange accent border */}
+                  <div className="absolute inset-0 bg-gradient-orange rounded-3xl transform rotate-3 opacity-80" />
+                  
+                  {/* Image wrapper */}
+                  <div className="absolute inset-1 bg-hero-bg rounded-3xl overflow-hidden shadow-2xl">
+                    <img
+                      src={ahmedPortrait}
+                      alt="Ahmed - WordPress Developer & SEO Specialist"
+                      className="w-full h-full object-cover object-top"
+                    />
+                    
+                    {/* Gradient overlay at bottom */}
+                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-hero-bg/80 via-hero-bg/40 to-transparent" />
+                  </div>
+                  
+                  {/* Floating badge */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground px-4 py-2 rounded-xl shadow-lg font-bold text-sm"
+                  >
+                    Available for Work
+                  </motion.div>
+                  
+                  {/* Tech stack floating icons */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 1.2 }}
+                    className="absolute -right-4 top-1/4 bg-hero-bg/90 backdrop-blur-sm border border-primary/20 px-3 py-2 rounded-xl shadow-lg"
+                  >
+                    <div className="text-xs text-hero-text/60">Expert in</div>
+                    <div className="text-sm font-bold text-primary">WordPress & SEO</div>
+                  </motion.div>
                 </div>
                 
                 {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-primary/30 rounded-full" />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-primary/20 rounded-full" />
+                <div className="absolute -top-6 -right-6 w-16 h-16 border-2 border-primary/40 rounded-xl rotate-12" />
+                <div className="absolute -bottom-8 -right-8 w-20 h-20 border-2 border-primary/20 rounded-full" />
+                <div className="absolute top-1/2 -left-10 w-4 h-4 bg-primary rounded-full animate-pulse" />
               </motion.div>
             </div>
           </div>
