@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Phone, MapPin, Mail, Send, CheckCircle } from "lucide-react";
+import { Phone, MapPin, Mail, Send, CheckCircle, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const contactInfo = [
@@ -135,10 +135,35 @@ const ContactSection = () => {
               ))}
             </div>
 
+            {/* Social Links */}
+            <motion.div variants={itemVariants} className="mt-8">
+              <h4 className="text-hero-text font-semibold mb-4">Connect With Me</h4>
+              <div className="flex gap-3">
+                {[
+                  { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
+                  { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
+                  { icon: MessageCircle, href: "https://wa.me/933216479192?text=HI%20AHMED%20%21", label: "WhatsApp" },
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-12 h-12 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
             {/* Decorative Element */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 p-6 border border-primary/20 rounded-2xl bg-primary/5"
+              className="mt-8 p-6 border border-primary/20 rounded-2xl bg-primary/5"
             >
               <div className="flex items-start gap-4">
                 <CheckCircle className="text-primary flex-shrink-0 mt-1" size={24} />

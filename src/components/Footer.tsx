@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Heart, ArrowUp, MapPin, Phone, Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { Heart, ArrowUp, MapPin, Phone, Mail, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -58,9 +58,9 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-3">
               {[
-                { icon: Linkedin, href: "#" },
-                { icon: Github, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
+                { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
+                { icon: MessageCircle, href: "https://wa.me/933216479192?text=HI%20AHMED%20%21", label: "WhatsApp" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
