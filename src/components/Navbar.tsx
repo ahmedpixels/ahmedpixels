@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,8 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <motion.nav
@@ -33,41 +36,47 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container-custom">
+      <div className="container-custom px-8 md:px-12 lg:px-16 xl:px-24">
         <div className="flex items-center justify-between h-20">
-          <motion.a
-            href="#"
-            className="text-2xl font-bold text-hero-text font-space"
-            whileHover={{ scale: 1.05 }}
-          >
-            Ahmed<span className="text-primary">.</span>
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link to="/" className="text-2xl font-bold text-hero-text font-space">
+              AHMED<span className="text-primary">.</span>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
-              <motion.a
+              <motion.div
                 key={link.name}
-                href={link.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
-                className="text-hero-text/70 hover:text-primary transition-colors duration-300 font-medium"
               >
-                {link.name}
-              </motion.a>
+                <Link
+                  to={link.href}
+                  className={`font-medium transition-colors duration-300 ${
+                    isActive(link.href)
+                      ? "text-primary"
+                      : "text-hero-text/70 hover:text-primary"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
-            <motion.a
-              href="#contact"
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2.5 bg-gradient-orange text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
             >
-              Get In Touch
-            </motion.a>
+              <Link
+                to="/contact"
+                className="px-6 py-2.5 bg-gradient-orange text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
+              >
+                Get In Touch
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,24 +98,28 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-hero-bg/95 backdrop-blur-xl border-t border-border/10"
           >
-            <div className="container-custom py-6 flex flex-col gap-4">
+            <div className="container-custom px-8 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-hero-text/70 hover:text-primary transition-colors py-2 font-medium"
+                  className={`py-2 font-medium transition-colors ${
+                    isActive(link.href)
+                      ? "text-primary"
+                      : "text-hero-text/70 hover:text-primary"
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-6 py-3 bg-gradient-orange text-primary-foreground rounded-full font-semibold text-center mt-2"
               >
                 Get In Touch
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
