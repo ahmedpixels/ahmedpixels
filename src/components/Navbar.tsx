@@ -70,12 +70,14 @@ const Navbar = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
             >
-              <Link
-                to="/contact"
+              <a
+                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-2.5 bg-gradient-orange text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
               >
                 Get In Touch
-              </Link>
+              </a>
             </motion.div>
           </div>
 
@@ -113,13 +115,15 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/contact"
+              <a
+                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-6 py-3 bg-gradient-orange text-primary-foreground rounded-full font-semibold text-center mt-2"
               >
                 Get In Touch
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
