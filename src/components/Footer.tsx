@@ -179,14 +179,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-hero-text/40 text-sm flex items-center gap-1"
           >
-            Copyright © 2026 All rights reserved. Built with{" "}
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <Heart className="text-primary inline" size={14} fill="currentColor" />
-            </motion.span>{" "}
-            in Lahore
+            Copyright © 2026 All rights reserved.
           </motion.p>
 
           {/* Scroll to Top */}
