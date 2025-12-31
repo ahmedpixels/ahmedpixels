@@ -33,7 +33,7 @@ const ContactPage = () => {
 
   const contactInfo = [
     { icon: Phone, label: "Phone", value: "0321-6479192" },
-    { icon: Mail, label: "Email", value: "contact@ahmed.dev" },
+    { icon: Mail, label: "Email", value: "ahmedpixelspro@gmail.com" },
     { icon: MapPin, label: "Location", value: "Lahore, Pakistan" },
     { icon: Clock, label: "Response Time", value: "Within 24 hours" },
   ];
