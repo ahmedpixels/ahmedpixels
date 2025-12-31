@@ -32,7 +32,7 @@ const ContactPage = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "+923216479192", href: "https://wa.me/923216479192?text=HI%20AHMED%20%21" },
+    { icon: Phone, label: "Phone", value: "+923216479192", href: "https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed" },
     { icon: Mail, label: "Email", value: "ahmedpixelspro@gmail.com", href: "mailto:ahmedpixelspro@gmail.com" },
     { icon: MapPin, label: "Location", value: "Lahore, Pakistan", href: null },
     { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },

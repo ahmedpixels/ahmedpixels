@@ -8,7 +8,7 @@ const contactInfo = [
     icon: Phone,
     label: "Phone",
     value: "+923216479192",
-    href: "https://wa.me/923216479192?text=HI%20AHMED%20%21",
+    href: "https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed",
   },
   {
     icon: MapPin,
@@ -142,7 +142,7 @@ const ContactSection = () => {
                 {[
                   { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
                   { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
-                  { icon: MessageCircle, href: "https://wa.me/933216479192?text=HI%20AHMED%20%21", label: "WhatsApp" },
+                  { icon: MessageCircle, href: "https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed", label: "WhatsApp" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
