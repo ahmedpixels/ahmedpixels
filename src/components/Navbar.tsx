@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { useQuoteModal } from "@/contexts/QuoteModalContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { openQuoteModal } = useQuoteModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,14 +74,12 @@ const Navbar = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
             >
-              <a
-                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openQuoteModal}
                 className="px-6 py-2.5 bg-gradient-orange text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
               >
                 Get In Touch
-              </a>
+              </button>
             </motion.div>
           </div>
 
@@ -117,15 +117,15 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <a
-                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openQuoteModal();
+                }}
                 className="px-6 py-3 bg-gradient-orange text-primary-foreground rounded-full font-semibold text-center mt-2"
               >
                 Get In Touch
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
