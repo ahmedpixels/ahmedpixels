@@ -16,25 +16,40 @@ export type Database = {
     Tables: {
       contact_messages: {
         Row: {
+          budget: string | null
           created_at: string
           email: string
           id: string
           message: string
           name: string
+          phone: string | null
+          reference_url: string | null
+          service: string | null
+          timeline: string | null
         }
         Insert: {
+          budget?: string | null
           created_at?: string
           email: string
           id?: string
           message: string
           name: string
+          phone?: string | null
+          reference_url?: string | null
+          service?: string | null
+          timeline?: string | null
         }
         Update: {
+          budget?: string | null
           created_at?: string
           email?: string
           id?: string
           message?: string
           name?: string
+          phone?: string | null
+          reference_url?: string | null
+          service?: string | null
+          timeline?: string | null
         }
         Relationships: []
       }
