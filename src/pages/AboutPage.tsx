@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { MapPin, GraduationCap, Briefcase, Target, Heart, Zap, Award, Rocket, Users, Code } from "lucide-react";
+import { useQuoteModal } from "@/contexts/QuoteModalContext";
 
 const AboutPage = () => {
+  const { openQuoteModal } = useQuoteModal();
   const highlights = [
     { icon: Briefcase, title: "2+ Years", subtitle: "Experience" },
     { icon: Target, title: "50+", subtitle: "Projects Done" },
@@ -243,17 +245,15 @@ const AboutPage = () => {
                   Get a free consultation today!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                  <motion.a
-                    href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed,%20I%20want%20to%20get%20a%20quote%20for%20my%20project"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <motion.button
+                    onClick={openQuoteModal}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center justify-center gap-2 bg-gradient-orange text-primary-foreground font-bold px-8 py-4 rounded-full glow-orange"
                   >
                     Get a Free Quote
                     <Rocket size={20} />
-                  </motion.a>
+                  </motion.button>
                   <motion.a
                     href="/contact"
                     whileHover={{ scale: 1.05 }}

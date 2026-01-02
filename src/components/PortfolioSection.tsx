@@ -1,6 +1,7 @@
 import { motion, useInView, useAnimationControls } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Rocket } from "lucide-react";
+import { useQuoteModal } from "@/contexts/QuoteModalContext";
 
 import pixelhashtech from "@/assets/projects/pixelhashtech-mobile.png";
 import shinewallstone from "@/assets/projects/shinewallstone-mobile.png";
@@ -125,6 +126,7 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <section id="portfolio" className="section-padding bg-section-light" ref={ref}>
@@ -162,17 +164,15 @@ const PortfolioSection = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <motion.a
-            href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            onClick={openQuoteModal}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-orange text-primary-foreground rounded-full font-bold shadow-lg glow-orange hover:shadow-2xl transition-shadow"
           >
             Start Your Project
-            <ExternalLink size={18} />
-          </motion.a>
+            <Rocket size={18} />
+          </motion.button>
         </motion.div>
       </div>
     </section>

@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useQuoteModal } from "@/contexts/QuoteModalContext";
 
 const services = [
   {
@@ -160,6 +161,7 @@ const ServicesPage = () => {
   const servicesInView = useInView(servicesRef, { once: true, margin: "-100px" });
   const processInView = useInView(processRef, { once: true, margin: "-100px" });
   const highlightsInView = useInView(highlightsRef, { once: true, margin: "-100px" });
+  const { openQuoteModal } = useQuoteModal();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -213,17 +215,15 @@ const ServicesPage = () => {
                 drive results. From custom development to ongoing maintenance, I've got you
                 covered.
               </p>
-              <motion.a
-                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed,%20I'm%20interested%20in%20your%20WordPress%20services"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={openQuoteModal}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 bg-gradient-orange text-primary-foreground font-bold px-8 py-4 rounded-full mt-8 glow-orange"
               >
                 Get a Free Quote
                 <ArrowRight size={20} />
-              </motion.a>
+              </motion.button>
             </motion.div>
           </div>
         </section>
