@@ -125,7 +125,7 @@ const ContactSection = () => {
           <h2 className="heading-lg text-hero-text mt-4">
             Let's <span className="text-gradient">Work Together</span>
           </h2>
-          <p className="body-lg text-hero-text/60 max-w-2xl mx-auto mt-4">
+          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
             Have a project in mind? Let's discuss how I can help bring your vision to life.
             I'm always excited to work on new challenges.
           </p>
@@ -151,7 +151,7 @@ const ContactSection = () => {
                     <info.icon className="text-primary-foreground" size={24} />
                   </div>
                   <div>
-                    <p className="text-hero-text/50 text-sm">{info.label}</p>
+                    <p className="text-hero-muted text-sm">{info.label}</p>
                     {info.href ? (
                       <a
                         href={info.href}
@@ -230,7 +230,7 @@ const ContactSection = () => {
 
             {/* WhatsApp CTA Button */}
             <motion.div variants={itemVariants} className="pt-2">
-              <p className="text-hero-text/50 text-center text-sm mb-3">Or reach out directly</p>
+              <p className="text-hero-muted text-center text-sm mb-3">Or reach out directly</p>
               <a
                 href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
                 target="_blank"
@@ -258,7 +258,7 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300"
+                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-muted hover:text-primary transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon size={24} />
@@ -278,7 +278,7 @@ const ContactSection = () => {
                   <h4 className="text-hero-text font-semibold mb-2">
                     Why Work With Me?
                   </h4>
-                  <ul className="text-hero-text/60 text-sm space-y-2">
+                  <ul className="text-hero-muted text-sm space-y-2">
                     <li>• Clean, maintainable code</li>
                     <li>• SEO-optimized from the ground up</li>
                     <li>• Mobile-first responsive design</li>

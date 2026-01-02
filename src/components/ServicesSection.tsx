@@ -93,7 +93,7 @@ const ServicesSection = () => {
           <h2 className="heading-lg text-hero-text mt-4">
             Service <span className="text-gradient">Packages</span>
           </h2>
-          <p className="body-lg text-hero-text/60 max-w-2xl mx-auto mt-4">
+          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
             Transparent pricing for quality work. Choose a package that fits your needs 
             or contact me for a custom quote.
           </p>
@@ -133,7 +133,7 @@ const ServicesSection = () => {
                   <pkg.icon className="text-primary-foreground" size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-hero-text">{pkg.name}</h3>
-                <p className="text-hero-text/50 text-sm mt-2">{pkg.description}</p>
+                <p className="text-hero-muted text-sm mt-2">{pkg.description}</p>
                 <div className="mt-4">
                   <span className="text-4xl font-bold text-primary">{pkg.price}</span>
                 </div>
@@ -143,7 +143,7 @@ const ServicesSection = () => {
                 {pkg.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check className="text-primary mt-0.5 flex-shrink-0" size={18} />
-                    <span className="text-hero-text/70 text-sm">{feature}</span>
+                    <span className="text-hero-muted text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>

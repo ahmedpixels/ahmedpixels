@@ -64,7 +64,7 @@ const AboutPage = () => {
             <h1 className="heading-xl text-hero-text mb-6">
               Know More <span className="text-gradient">About Me</span>
             </h1>
-            <div className="flex items-center justify-center gap-2 text-hero-text/60">
+            <div className="flex items-center justify-center gap-2 text-hero-muted">
               <MapPin size={18} className="text-primary" />
               <span>Lahore, Pakistan</span>
             </div>
@@ -84,7 +84,7 @@ const AboutPage = () => {
               >
                 <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-2xl font-bold text-hero-text">{item.title}</div>
-                <div className="text-hero-text/50 text-sm">{item.subtitle}</div>
+                <div className="text-hero-muted text-sm">{item.subtitle}</div>
               </div>
             ))}
           </motion.div>
@@ -97,7 +97,7 @@ const AboutPage = () => {
               transition={{ delay: 0.3 }}
             >
               <h2 className="text-2xl font-bold text-hero-text mb-6">My Journey</h2>
-              <div className="space-y-4 text-hero-text/70 leading-relaxed">
+              <div className="space-y-4 text-hero-muted leading-relaxed">
                 <p>
                   I'm Ahmed, a passionate WordPress Developer and SEO Specialist based in Lahore, Pakistan. 
                   With over 2 years of hands-on experience, I've dedicated myself to creating websites that 
@@ -130,8 +130,8 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-hero-text">Brains College</h3>
-                    <p className="text-hero-text/60 text-sm">Baghwanpura, Lahore</p>
-                    <p className="text-hero-text/50 text-sm mt-2">WordPress & Web Development</p>
+                    <p className="text-hero-muted text-sm">Baghwanpura, Lahore</p>
+                    <p className="text-hero-muted text-sm mt-2">WordPress & Web Development</p>
                   </div>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const AboutPage = () => {
             <h2 className="text-3xl font-bold text-hero-text text-center mb-4">
               Career <span className="text-gradient">Timeline</span>
             </h2>
-            <p className="text-hero-text/60 text-center max-w-xl mx-auto mb-12">
+            <p className="text-hero-muted text-center max-w-xl mx-auto mb-12">
               My professional journey and key milestones along the way
             </p>
           </motion.div>
@@ -194,12 +194,12 @@ const AboutPage = () => {
                         {item.year}
                       </span>
                       <h3 className="text-xl font-bold text-hero-text mb-2">{item.title}</h3>
-                      <p className="text-hero-text/60 text-sm mb-4">{item.description}</p>
+                      <p className="text-hero-muted text-sm mb-4">{item.description}</p>
                       <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}>
                         {item.achievements.map((achievement, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 bg-hero-bg border border-border/20 rounded-full text-xs text-hero-text/70"
+                            className="px-3 py-1 bg-hero-bg border border-border/20 rounded-full text-xs text-hero-muted"
                           >
                             {achievement}
                           </span>

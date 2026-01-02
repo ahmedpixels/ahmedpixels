@@ -110,7 +110,7 @@ const SkillsSection = () => {
           <h2 className="heading-lg text-hero-text mt-4">
             What I <span className="text-gradient">Bring to the Table</span>
           </h2>
-          <p className="body-lg text-hero-text/60 max-w-2xl mx-auto mt-4">
+          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
             From concept to deployment, I deliver comprehensive web solutions 
             that help businesses thrive in the digital landscape.
           </p>
@@ -146,7 +146,7 @@ const SkillsSection = () => {
               {/* Content */}
               <h3 className="font-bold text-hero-text text-lg mb-1">{skill.title}</h3>
               <span className="text-primary text-sm font-medium">{skill.level}</span>
-              <p className="text-hero-text/50 text-sm mt-3 leading-relaxed">
+              <p className="text-hero-muted text-sm mt-3 leading-relaxed">
                 {skill.description}
               </p>
             </motion.div>
