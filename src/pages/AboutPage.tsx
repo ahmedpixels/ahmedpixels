@@ -224,6 +224,48 @@ const AboutPage = () => {
               ))}
             </div>
           </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20"
+          >
+            <div className="bg-card/50 border border-border/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
+              <div className="relative z-10">
+                <h2 className="heading-lg text-hero-text">
+                  Ready to Start Your <span className="text-gradient">Project?</span>
+                </h2>
+                <p className="text-hero-muted mt-4 max-w-xl mx-auto">
+                  Let's discuss your requirements and create something amazing together.
+                  Get a free consultation today!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <motion.a
+                    href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed,%20I%20want%20to%20get%20a%20quote%20for%20my%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-orange text-primary-foreground font-bold px-8 py-4 rounded-full glow-orange"
+                  >
+                    Get a Free Quote
+                    <Rocket size={20} />
+                  </motion.a>
+                  <motion.a
+                    href="/contact"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center justify-center gap-2 border-2 border-hero-text/20 text-hero-text font-bold px-8 py-4 rounded-full hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Contact Me
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </main>
 
