@@ -91,6 +91,7 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
               },
             }}
             className="w-full h-auto"
+            style={{ imageRendering: 'crisp-edges' }}
           />
           
           {/* Hover Overlay */}
