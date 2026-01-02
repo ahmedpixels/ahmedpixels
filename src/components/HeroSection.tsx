@@ -3,12 +3,10 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ArrowDown, MapPin } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.jpg";
-import { useQuoteModal } from "@/contexts/QuoteModalContext";
 
 const HeroSection = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
-  const { openQuoteModal } = useQuoteModal();
 
   useEffect(() => {
     // GSAP floating animation for the image
@@ -147,14 +145,16 @@ const HeroSection = () => {
               variants={textVariants}
               className="flex flex-wrap gap-4"
             >
-              <motion.button
-                onClick={openQuoteModal}
+              <motion.a
+                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-orange text-primary-foreground rounded-full font-bold text-lg shadow-lg glow-orange hover:shadow-2xl transition-shadow"
               >
-                Get a Free Quote
-              </motion.button>
+                Get In Touch
+              </motion.a>
               <motion.a
                 href="#portfolio"
                 whileHover={{ scale: 1.05 }}
