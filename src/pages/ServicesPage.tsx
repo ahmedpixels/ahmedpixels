@@ -112,6 +112,8 @@ const processSteps = [
     title: "Requirement Gathering",
     description:
       "We discuss your goals, target audience, and project requirements to create a clear roadmap.",
+    gradient: "from-violet-500 to-purple-500",
+    glowColor: "rgba(139, 92, 246, 0.3)",
   },
   {
     number: "02",
@@ -119,6 +121,8 @@ const processSteps = [
     title: "Design & Development",
     description:
       "I design and build your website with attention to detail, keeping you updated at every step.",
+    gradient: "from-orange-500 to-amber-500",
+    glowColor: "rgba(249, 115, 22, 0.3)",
   },
   {
     number: "03",
@@ -126,6 +130,8 @@ const processSteps = [
     title: "Testing & Launch",
     description:
       "Rigorous testing across devices and browsers before a smooth, successful launch.",
+    gradient: "from-emerald-500 to-teal-500",
+    glowColor: "rgba(16, 185, 129, 0.3)",
   },
   {
     number: "04",
@@ -133,6 +139,8 @@ const processSteps = [
     title: "Support & Maintenance",
     description:
       "Ongoing support to keep your website secure, updated, and performing at its best.",
+    gradient: "from-pink-500 to-rose-500",
+    glowColor: "rgba(236, 72, 153, 0.3)",
   },
 ];
 
@@ -311,20 +319,34 @@ const ServicesPage = () => {
                 <motion.div
                   key={step.title}
                   variants={itemVariants}
-                  className="relative text-center"
+                  whileHover={{ y: -5 }}
+                  className="relative text-center group"
                 >
-                  <div className="relative inline-block mb-6">
-                    <span className="absolute -top-2 -left-2 text-6xl font-black text-primary/10">
-                      {step.number}
-                    </span>
-                    <div className="relative w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center">
-                      <step.icon className="text-primary-foreground" size={28} />
+                  {/* Card Container */}
+                  <div className="relative bg-hero-bg/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-white/20 transition-all duration-300 overflow-hidden">
+                    {/* Gradient accent at top */}
+                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient}`} />
+                    
+                    {/* Hover glow */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                    
+                    <div className="relative z-10">
+                      <div className="relative inline-block mb-4">
+                        <span className={`absolute -top-3 -left-3 text-5xl font-black bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent opacity-30`}>
+                          {step.number}
+                        </span>
+                        <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                          <step.icon className="text-white" size={24} />
+                        </div>
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                      <p className="text-white/60 text-sm">{step.description}</p>
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-white/70 text-sm">{step.description}</p>
+                  
+                  {/* Connecting line */}
                   {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-primary/20" />
+                    <div className={`hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r ${step.gradient} opacity-30`} />
                   )}
                 </motion.div>
               ))}
