@@ -17,19 +17,28 @@ const contactInfo = [
     label: "Phone",
     value: "+923216479192",
     href: "https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed",
+    gradient: "from-emerald-500 to-teal-500",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Lahore, Pakistan",
     href: null,
+    gradient: "from-violet-500 to-purple-500",
   },
   {
     icon: Mail,
     label: "Email",
     value: "ahmedpixelspro@gmail.com",
     href: "mailto:ahmedpixelspro@gmail.com",
+    gradient: "from-pink-500 to-rose-500",
   },
+];
+
+const socialLinks = [
+  { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn", gradient: "from-blue-500 to-cyan-500" },
+  { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram", gradient: "from-pink-500 to-rose-500" },
+  { icon: MessageCircle, href: "https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed", label: "WhatsApp", gradient: "from-emerald-500 to-teal-500" },
 ];
 
 const ContactSection = () => {
@@ -145,24 +154,30 @@ const ContactSection = () => {
                   key={info.label}
                   variants={itemVariants}
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 p-4 bg-hero-bg/50 border border-border/10 rounded-2xl"
+                  className="relative flex items-center gap-4 p-4 bg-hero-bg/50 border border-white/10 rounded-2xl overflow-hidden group hover:border-white/20 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-gradient-orange rounded-xl flex items-center justify-center flex-shrink-0">
-                    <info.icon className="text-primary-foreground" size={24} />
+                  {/* Gradient accent on left */}
+                  <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${info.gradient} opacity-60 group-hover:opacity-100 transition-opacity`} />
+                  
+                  {/* Hover glow */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${info.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  
+                  <div className={`relative z-10 w-14 h-14 bg-gradient-to-br ${info.gradient} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                    <info.icon className="text-white" size={24} />
                   </div>
-                  <div>
-                    <p className="text-hero-muted text-sm">{info.label}</p>
+                  <div className="relative z-10">
+                    <p className="text-white/60 text-sm">{info.label}</p>
                     {info.href ? (
                       <a
                         href={info.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-hero-text font-semibold text-lg hover:text-primary transition-colors"
+                        className="text-white font-semibold text-lg hover:text-white/80 transition-colors"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-hero-text font-semibold text-lg">
+                      <p className="text-white font-semibold text-lg">
                         {info.value}
                       </p>
                     )}
@@ -175,9 +190,12 @@ const ContactSection = () => {
             <motion.form
               variants={itemVariants}
               onSubmit={handleSubmit}
-              className="space-y-4 p-6 bg-hero-bg/50 border border-border/10 rounded-2xl"
+              className="relative space-y-4 p-6 bg-hero-bg/50 border border-white/10 rounded-2xl overflow-hidden group"
             >
-              <h4 className="text-hero-text font-semibold text-lg mb-4">Send a Message</h4>
+              {/* Gradient accent at top */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500" />
+              
+              <h4 className="text-white font-semibold text-lg mb-4">Send a Message</h4>
               
               <div>
                 <input
@@ -185,7 +203,7 @@ const ContactSection = () => {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-hero-bg border border-border/20 rounded-xl text-hero-text placeholder:text-hero-text/40 focus:border-primary/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors"
                 />
                 {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
               </div>
@@ -196,7 +214,7 @@ const ContactSection = () => {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-hero-bg border border-border/20 rounded-xl text-hero-text placeholder:text-hero-text/40 focus:border-primary/50 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors"
                 />
                 {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
               </div>
@@ -207,7 +225,7 @@ const ContactSection = () => {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 bg-hero-bg border border-border/20 rounded-xl text-hero-text placeholder:text-hero-text/40 focus:border-primary/50 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors resize-none"
                 />
                 {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
               </div>
@@ -215,7 +233,7 @@ const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-gradient-orange text-primary-foreground rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg glow-orange hover:shadow-2xl transition-shadow disabled:opacity-70"
+                className="w-full py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 text-white rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <Loader2 size={24} className="animate-spin" />
@@ -244,13 +262,9 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <motion.div variants={itemVariants} className="pt-6">
-              <h4 className="text-hero-text font-semibold text-center mb-4">Connect With Me</h4>
+              <h4 className="text-white font-semibold text-center mb-4">Connect With Me</h4>
               <div className="flex justify-center gap-4">
-                {[
-                  { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
-                  { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
-                  { icon: MessageCircle, href: "https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed", label: "WhatsApp" },
-                ].map((social, index) => (
+                {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
@@ -258,10 +272,11 @@ const ContactSection = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-muted hover:text-primary transition-all duration-300"
+                    className={`relative w-14 h-14 bg-gradient-to-br ${social.gradient} rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group`}
                     aria-label={social.label}
                   >
-                    <social.icon size={24} />
+                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
+                    <social.icon size={24} className="relative z-10" />
                   </motion.a>
                 ))}
               </div>
@@ -270,15 +285,23 @@ const ContactSection = () => {
             {/* Why Work With Me */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 p-6 border border-primary/20 rounded-2xl bg-primary/5"
+              className="relative mt-8 p-6 border border-white/10 rounded-2xl bg-hero-bg/50 overflow-hidden group"
             >
-              <div className="flex items-start gap-4">
-                <CheckCircle className="text-primary flex-shrink-0 mt-1" size={24} />
+              {/* Gradient accent at top */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-purple-500" />
+              
+              {/* Hover glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500 to-purple-500 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
+              
+              <div className="relative z-10 flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="text-white" size={24} />
+                </div>
                 <div>
-                  <h4 className="text-hero-text font-semibold mb-2">
+                  <h4 className="text-white font-semibold mb-2">
                     Why Work With Me?
                   </h4>
-                  <ul className="text-hero-muted text-sm space-y-2">
+                  <ul className="text-white/60 text-sm space-y-2">
                     <li>• Clean, maintainable code</li>
                     <li>• SEO-optimized from the ground up</li>
                     <li>• Mobile-first responsive design</li>
