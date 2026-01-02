@@ -241,15 +241,15 @@ const ServicesPage = () => {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <service.icon className="text-primary-foreground" size={28} />
                   </div>
-                  <h3 className="text-xl font-bold text-hero-text mb-3">
+                  <h3 className="text-xl font-bold text-white mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-hero-muted text-sm mb-4">{service.description}</p>
+                  <p className="text-white/70 text-sm mb-4">{service.description}</p>
                   <ul className="space-y-2">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-2 text-hero-muted text-sm"
+                        className="flex items-center gap-2 text-white/70 text-sm"
                       >
                         <CheckCircle className="text-primary flex-shrink-0" size={16} />
                         {feature}
@@ -299,8 +299,8 @@ const ServicesPage = () => {
                       <step.icon className="text-primary-foreground" size={28} />
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-hero-text mb-2">{step.title}</h3>
-                  <p className="text-hero-muted text-sm">{step.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                  <p className="text-white/70 text-sm">{step.description}</p>
                   {index < processSteps.length - 1 && (
                     <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-primary/20" />
                   )}
@@ -344,7 +344,7 @@ const ServicesPage = () => {
                     className="flex items-center gap-3 glass-card p-4 rounded-xl"
                   >
                     <CheckCircle className="text-primary flex-shrink-0" size={20} />
-                    <span className="text-hero-text font-medium">{highlight}</span>
+                    <span className="text-white font-medium">{highlight}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -364,10 +364,10 @@ const ServicesPage = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
               <div className="relative z-10">
-                <h2 className="heading-lg text-hero-text">
+                <h2 className="heading-lg text-white">
                   Ready to Start Your <span className="text-gradient">Project?</span>
                 </h2>
-                <p className="text-hero-muted mt-4 max-w-xl mx-auto">
+                <p className="text-white/70 mt-4 max-w-xl mx-auto">
                   Let's discuss your requirements and create something amazing together.
                   Get a free consultation today!
                 </p>

@@ -235,10 +235,10 @@ const AboutPage = () => {
             <div className="bg-card/50 border border-border/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
               <div className="relative z-10">
-                <h2 className="heading-lg text-hero-text">
+                <h2 className="heading-lg text-white">
                   Ready to Start Your <span className="text-gradient">Project?</span>
                 </h2>
-                <p className="text-hero-muted mt-4 max-w-xl mx-auto">
+                <p className="text-white/70 mt-4 max-w-xl mx-auto">
                   Let's discuss your requirements and create something amazing together.
                   Get a free consultation today!
                 </p>
