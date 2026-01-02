@@ -52,7 +52,7 @@ const ContactPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="flex items-center gap-4 p-5 bg-card/50 border border-border/20 rounded-2xl"
+                className="flex items-center gap-4 p-5 bg-card/50 border border-border/20 rounded-2xl hover:border-primary/30 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300"
               >
                 <div className="w-14 h-14 bg-gradient-orange rounded-xl flex items-center justify-center flex-shrink-0">
                   <item.icon className="text-primary-foreground" size={24} />
@@ -106,7 +106,7 @@ const ContactPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="mt-8 p-6 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl"
+              className="mt-8 p-6 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300"
             >
               <h3 className="font-bold text-white mb-4">Why Work With Me?</h3>
               <ul className="space-y-3">
