@@ -60,7 +60,7 @@ const Navbar = () => {
                   className={`font-medium transition-colors duration-300 ${
                     isActive(link.href)
                       ? "text-primary"
-                      : "text-hero-muted hover:text-primary"
+                      : "text-white hover:text-primary"
                   }`}
                 >
                   {link.name}
