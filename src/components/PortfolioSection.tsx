@@ -84,7 +84,7 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
             animate={isPaused ? {} : { y: ["0%", "-85%", "0%"] }}
             transition={{
               y: {
-                duration: 30,
+                duration: 60,
                 repeat: Infinity,
                 repeatType: "loop",
                 ease: "easeInOut",
