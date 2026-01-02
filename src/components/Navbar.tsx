@@ -34,14 +34,14 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-hero-bg/95 backdrop-blur-xl border-b border-border/10"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/10"
           : "bg-transparent"
       }`}
     >
       <div className="container-custom px-8 md:px-12 lg:px-16 xl:px-24">
         <div className="flex items-center justify-between h-20">
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/" className="text-2xl font-bold text-hero-text font-space">
+            <Link to="/" className="text-2xl font-bold text-foreground font-space">
               AHMED<span className="text-primary">.</span>
             </Link>
           </motion.div>
@@ -60,7 +60,7 @@ const Navbar = () => {
                   className={`font-medium transition-colors duration-300 ${
                     isActive(link.href)
                       ? "text-primary"
-                      : "text-hero-muted hover:text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -88,7 +88,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-hero-text p-2"
+            className="md:hidden text-foreground p-2"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
