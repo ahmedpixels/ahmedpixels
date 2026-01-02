@@ -30,6 +30,8 @@ const services = [
       "SEO-friendly",
       "Secure architecture",
     ],
+    gradient: "from-orange-500 to-amber-500",
+    iconBg: "bg-gradient-to-br from-orange-500 to-amber-500",
   },
   {
     icon: ShoppingCart,
@@ -42,6 +44,8 @@ const services = [
       "Order management",
       "Inventory tracking",
     ],
+    gradient: "from-violet-500 to-purple-500",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-500",
   },
   {
     icon: Palette,
@@ -54,6 +58,8 @@ const services = [
       "Modern design",
       "Brand consistency",
     ],
+    gradient: "from-pink-500 to-rose-500",
+    iconBg: "bg-gradient-to-br from-pink-500 to-rose-500",
   },
   {
     icon: Wrench,
@@ -66,6 +72,8 @@ const services = [
       "Security monitoring",
       "Bug fixing",
     ],
+    gradient: "from-cyan-500 to-blue-500",
+    iconBg: "bg-gradient-to-br from-cyan-500 to-blue-500",
   },
   {
     icon: Rocket,
@@ -78,6 +86,8 @@ const services = [
       "Caching setup",
       "Core Web Vitals",
     ],
+    gradient: "from-emerald-500 to-teal-500",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-teal-500",
   },
   {
     icon: Target,
@@ -90,6 +100,8 @@ const services = [
       "Form integration",
       "A/B testing ready",
     ],
+    gradient: "from-amber-500 to-orange-600",
+    iconBg: "bg-gradient-to-br from-amber-500 to-orange-600",
   },
 ];
 
@@ -236,26 +248,36 @@ const ServicesPage = () => {
                   key={service.title}
                   variants={itemVariants}
                   whileHover={{ y: -10 }}
-                  className="glass-card p-8 rounded-3xl group hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300"
+                  className="relative bg-hero-bg/80 backdrop-blur-sm border border-white/10 p-8 rounded-3xl group hover:border-white/20 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <service.icon className="text-primary-foreground" size={28} />
+                  {/* Gradient accent line at top */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`} />
+                  
+                  {/* Hover glow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  
+                  <div className="relative z-10">
+                    <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                      <service.icon className="text-white" size={28} />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-white/60 text-sm mb-5">{service.description}</p>
+                    <ul className="space-y-2.5">
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-center gap-2.5 text-white/70 text-sm"
+                        >
+                          <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center flex-shrink-0`}>
+                            <CheckCircle className="text-white" size={12} />
+                          </div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center gap-2 text-white/70 text-sm"
-                      >
-                        <CheckCircle className="text-primary flex-shrink-0" size={16} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
                 </motion.div>
               ))}
             </motion.div>
