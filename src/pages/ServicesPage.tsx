@@ -5,7 +5,6 @@ import {
   Globe,
   ShoppingCart,
   Palette,
-  Puzzle,
   Wrench,
   Rocket,
   Target,
@@ -54,18 +53,6 @@ const services = [
       "Mobile optimization",
       "Modern design",
       "Brand consistency",
-    ],
-  },
-  {
-    icon: Puzzle,
-    title: "Plugin Development & Integration",
-    description:
-      "Extend your website's functionality with custom plugins or seamless third-party integrations.",
-    features: [
-      "Custom plugins",
-      "Plugin configuration",
-      "Functionality extension",
-      "API integrations",
     ],
   },
   {
