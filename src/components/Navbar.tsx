@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -34,14 +33,14 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-border/10"
+          ? "bg-hero-bg/95 backdrop-blur-xl border-b border-border/10"
           : "bg-transparent"
       }`}
     >
       <div className="container-custom px-8 md:px-12 lg:px-16 xl:px-24">
         <div className="flex items-center justify-between h-20">
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/" className="text-2xl font-bold text-foreground font-space">
+            <Link to="/" className="text-2xl font-bold text-hero-text font-space">
               AHMED<span className="text-primary">.</span>
             </Link>
           </motion.div>
@@ -60,7 +59,7 @@ const Navbar = () => {
                   className={`font-medium transition-colors duration-300 ${
                     isActive(link.href)
                       ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      : "text-hero-muted hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -71,9 +70,7 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex items-center gap-2"
             >
-              <ThemeToggle />
               <a
                 href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
                 target="_blank"
@@ -88,7 +85,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-hero-text p-2"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -102,7 +99,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/10"
+            className="md:hidden bg-hero-bg/95 backdrop-blur-xl border-t border-border/10"
           >
             <div className="container-custom px-8 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -113,16 +110,12 @@ const Navbar = () => {
                   className={`py-2 font-medium transition-colors ${
                     isActive(link.href)
                       ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      : "text-hero-muted hover:text-primary"
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="flex items-center justify-between pt-2 border-t border-border/20">
-                <span className="text-sm text-muted-foreground">Theme</span>
-                <ThemeToggle />
-              </div>
               <a
                 href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
                 target="_blank"
