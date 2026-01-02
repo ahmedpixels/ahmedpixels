@@ -146,14 +146,14 @@ const HeroSection = () => {
               className="flex flex-wrap gap-4"
             >
               <motion.a
-                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                href="https://api.whatsapp.com/send?phone=923216479192&text=Hello%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-orange text-primary-foreground rounded-full font-bold text-lg shadow-lg glow-orange hover:shadow-2xl transition-shadow"
               >
-                Get In Touch
+                Let's Talk
               </motion.a>
               <motion.a
                 href="#portfolio"
