@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Heart, ArrowUp, MapPin, Phone, Mail, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import { useQuoteModal } from "@/contexts/QuoteModalContext";
 
 const Footer = () => {
+  const { openQuoteModal } = useQuoteModal();
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -171,14 +173,12 @@ const Footer = () => {
               whileTap={{ scale: 0.98 }}
               className="mt-6"
             >
-              <a
-                href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openQuoteModal}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-orange text-primary-foreground rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow"
               >
-                Let's Talk
-              </a>
+                Get a Free Quote
+              </button>
             </motion.div>
           </motion.div>
         </div>
