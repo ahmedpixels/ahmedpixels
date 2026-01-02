@@ -55,6 +55,7 @@ export default {
         hero: {
           bg: "hsl(var(--hero-bg))",
           text: "hsl(var(--hero-text))",
+          muted: "hsl(var(--hero-text-muted))",
         },
         section: {
           dark: "hsl(var(--section-dark))",

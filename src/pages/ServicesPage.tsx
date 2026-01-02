@@ -201,7 +201,7 @@ const ServicesPage = () => {
                 Professional WordPress{" "}
                 <span className="text-gradient">Development Services</span>
               </h1>
-              <p className="body-lg text-hero-text/60 mt-6 max-w-2xl mx-auto">
+              <p className="body-lg text-hero-muted mt-6 max-w-2xl mx-auto">
                 I help businesses build powerful, fast, and secure WordPress websites that
                 drive results. From custom development to ongoing maintenance, I've got you
                 covered.
@@ -257,12 +257,12 @@ const ServicesPage = () => {
                   <h3 className="text-xl font-bold text-hero-text mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-hero-text/60 text-sm mb-4">{service.description}</p>
+                  <p className="text-hero-muted text-sm mb-4">{service.description}</p>
                   <ul className="space-y-2">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-2 text-hero-text/70 text-sm"
+                        className="flex items-center gap-2 text-hero-muted text-sm"
                       >
                         <CheckCircle className="text-primary flex-shrink-0" size={16} />
                         {feature}
@@ -313,7 +313,7 @@ const ServicesPage = () => {
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-hero-text mb-2">{step.title}</h3>
-                  <p className="text-hero-text/60 text-sm">{step.description}</p>
+                  <p className="text-hero-muted text-sm">{step.description}</p>
                   {index < processSteps.length - 1 && (
                     <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-primary/20" />
                   )}
@@ -338,7 +338,7 @@ const ServicesPage = () => {
                 <h2 className="heading-lg text-hero-text mt-4">
                   Your Success is My <span className="text-gradient">Priority</span>
                 </h2>
-                <p className="text-hero-text/60 mt-4">
+                <p className="text-hero-muted mt-4">
                   With years of experience in WordPress development and a passion for
                   delivering quality work, I ensure every project exceeds expectations.
                 </p>
@@ -380,7 +380,7 @@ const ServicesPage = () => {
                 <h2 className="heading-lg text-hero-text">
                   Ready to Start Your <span className="text-gradient">Project?</span>
                 </h2>
-                <p className="text-hero-text/60 mt-4 max-w-xl mx-auto">
+                <p className="text-hero-muted mt-4 max-w-xl mx-auto">
                   Let's discuss your requirements and create something amazing together.
                   Get a free consultation today!
                 </p>
