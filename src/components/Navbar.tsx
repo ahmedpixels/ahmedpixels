@@ -25,6 +25,7 @@ const Navbar = () => {
   }, []);
 
   const isActive = (href: string) => location.pathname === href;
+  const isHomePage = location.pathname === "/";
 
   return (
     <motion.nav
@@ -32,7 +33,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || !isHomePage
           ? "bg-hero-bg/95 backdrop-blur-xl border-b border-border/10"
           : "bg-transparent"
       }`}
