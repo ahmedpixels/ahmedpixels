@@ -95,7 +95,7 @@ const ProjectsPage = () => {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-card/50 border border-border/20 rounded-3xl overflow-hidden hover:border-primary/30 transition-all duration-300">
+                <div className="bg-card/50 border border-border/20 rounded-3xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300">
                   {/* Project Preview */}
                   <div className="h-48 relative overflow-hidden">
                     <img 

@@ -236,7 +236,7 @@ const ServicesPage = () => {
                   key={service.title}
                   variants={itemVariants}
                   whileHover={{ y: -10 }}
-                  className="glass-card p-8 rounded-3xl group"
+                  className="glass-card p-8 rounded-3xl group hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <service.icon className="text-primary-foreground" size={28} />
@@ -341,7 +341,7 @@ const ServicesPage = () => {
                   <motion.div
                     key={highlight}
                     variants={itemVariants}
-                    className="flex items-center gap-3 glass-card p-4 rounded-xl"
+                    className="flex items-center gap-3 glass-card p-4 rounded-xl hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] transition-all duration-300"
                   >
                     <CheckCircle className="text-primary flex-shrink-0" size={20} />
                     <span className="text-white font-medium">{highlight}</span>
