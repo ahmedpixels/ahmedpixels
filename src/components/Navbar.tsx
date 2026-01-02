@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -70,7 +71,9 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
+              className="flex items-center gap-2"
             >
+              <ThemeToggle />
               <a
                 href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
                 target="_blank"
@@ -99,7 +102,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-hero-bg/95 backdrop-blur-xl border-t border-border/10"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/10"
           >
             <div className="container-custom px-8 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -110,12 +113,16 @@ const Navbar = () => {
                   className={`py-2 font-medium transition-colors ${
                     isActive(link.href)
                       ? "text-primary"
-                      : "text-hero-muted hover:text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
+              <div className="flex items-center justify-between pt-2 border-t border-border/20">
+                <span className="text-sm text-muted-foreground">Theme</span>
+                <ThemeToggle />
+              </div>
               <a
                 href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
                 target="_blank"
