@@ -125,8 +125,8 @@ const ProjectsPage = () => {
                   {/* Project Info */}
                   <div className="p-6">
                     <span className="text-primary text-sm font-medium">{project.type}</span>
-                    <h3 className="text-xl font-bold text-hero-text mt-2 mb-3">{project.name}</h3>
-                    <p className="text-hero-muted text-sm leading-relaxed">{project.description}</p>
+                    <h3 className="text-xl font-bold text-white mt-2 mb-3">{project.name}</h3>
+                    <p className="text-white/70 text-sm leading-relaxed">{project.description}</p>
                   </div>
                 </div>
               </motion.div>

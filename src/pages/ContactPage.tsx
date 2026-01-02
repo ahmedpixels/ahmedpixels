@@ -58,18 +58,18 @@ const ContactPage = () => {
                   <item.icon className="text-primary-foreground" size={24} />
                 </div>
                 <div>
-                  <p className="text-hero-muted text-sm">{item.label}</p>
+                  <p className="text-white/70 text-sm">{item.label}</p>
                   {item.href ? (
                     <a 
                       href={item.href} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-hero-text font-medium text-lg hover:text-primary transition-colors"
+                      className="text-white font-medium text-lg hover:text-primary transition-colors"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-hero-text font-medium text-lg">{item.value}</p>
+                    <p className="text-white font-medium text-lg">{item.value}</p>
                   )}
                 </div>
               </motion.div>
@@ -82,7 +82,7 @@ const ContactPage = () => {
               transition={{ delay: 0.6 }}
               className="pt-6"
             >
-              <h3 className="text-hero-text font-semibold text-center mb-4">Connect With Me</h3>
+              <h3 className="text-white font-semibold text-center mb-4">Connect With Me</h3>
               <div className="flex justify-center gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -108,10 +108,10 @@ const ContactPage = () => {
               transition={{ delay: 0.7 }}
               className="mt-8 p-6 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl"
             >
-              <h3 className="font-bold text-hero-text mb-4">Why Work With Me?</h3>
+              <h3 className="font-bold text-white mb-4">Why Work With Me?</h3>
               <ul className="space-y-3">
                 {["Fast & Reliable Delivery", "SEO-Optimized Websites", "100% Client Satisfaction", "Ongoing Support"].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-hero-muted">
+                  <li key={index} className="flex items-center gap-3 text-white/70">
                     <CheckCircle className="text-primary" size={18} />
                     {item}
                   </li>
