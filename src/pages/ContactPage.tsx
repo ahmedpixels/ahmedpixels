@@ -39,7 +39,7 @@ const ContactPage = () => {
             <h1 className="heading-xl text-hero-text mb-6">
               Let's Work <span className="text-gradient">Together</span>
             </h1>
-            <p className="text-hero-text/60 max-w-2xl mx-auto">
+            <p className="text-hero-muted max-w-2xl mx-auto">
               Have a project in mind? I'd love to hear about it. Reach out through any of the channels below.
             </p>
           </motion.div>
@@ -58,7 +58,7 @@ const ContactPage = () => {
                   <item.icon className="text-primary-foreground" size={24} />
                 </div>
                 <div>
-                  <p className="text-hero-text/50 text-sm">{item.label}</p>
+                  <p className="text-hero-muted text-sm">{item.label}</p>
                   {item.href ? (
                     <a 
                       href={item.href} 
@@ -92,7 +92,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300"
+                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-muted hover:text-primary transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon size={24} />
@@ -111,7 +111,7 @@ const ContactPage = () => {
               <h3 className="font-bold text-hero-text mb-4">Why Work With Me?</h3>
               <ul className="space-y-3">
                 {["Fast & Reliable Delivery", "SEO-Optimized Websites", "100% Client Satisfaction", "Ongoing Support"].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-hero-text/70">
+                  <li key={index} className="flex items-center gap-3 text-hero-muted">
                     <CheckCircle className="text-primary" size={18} />
                     {item}
                   </li>

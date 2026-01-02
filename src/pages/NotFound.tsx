@@ -25,7 +25,7 @@ const NotFound = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl text-hero-text/60 mb-8"
+          className="text-xl md:text-2xl text-hero-muted mb-8"
         >
           Oops! Page not found
         </motion.p>

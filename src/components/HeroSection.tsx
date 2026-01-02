@@ -131,7 +131,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className="text-lg text-hero-text/60 max-w-xl mb-10 leading-relaxed"
+              className="text-lg text-hero-muted max-w-xl mb-10 leading-relaxed"
             >
               I craft high-performance websites that rank and convert. 
               With 2 years of experience, I transform ideas into stunning 
@@ -185,15 +185,15 @@ const HeroSection = () => {
             >
               <div>
                 <div className="text-4xl font-bold text-primary">2+</div>
-                <div className="text-hero-text/50 text-sm mt-1">Years Experience</div>
+                <div className="text-hero-muted text-sm mt-1">Years Experience</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-primary">50+</div>
-                <div className="text-hero-text/50 text-sm mt-1">Projects Done</div>
+                <div className="text-hero-muted text-sm mt-1">Projects Done</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-primary">100%</div>
-                <div className="text-hero-text/50 text-sm mt-1">Client Satisfaction</div>
+                <div className="text-hero-muted text-sm mt-1">Client Satisfaction</div>
               </div>
             </motion.div>
           </div>

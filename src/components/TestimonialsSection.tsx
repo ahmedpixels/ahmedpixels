@@ -153,19 +153,19 @@ const TestimonialsSection = () => {
         >
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
-            <div className="text-hero-text/60 text-sm mt-1">Happy Clients</div>
+            <div className="text-hero-muted text-sm mt-1">Happy Clients</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-primary">100+</div>
-            <div className="text-hero-text/60 text-sm mt-1">Projects Completed</div>
+            <div className="text-hero-muted text-sm mt-1">Projects Completed</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-primary">5.0</div>
-            <div className="text-hero-text/60 text-sm mt-1">Average Rating</div>
+            <div className="text-hero-muted text-sm mt-1">Average Rating</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
-            <div className="text-hero-text/60 text-sm mt-1">Client Satisfaction</div>
+            <div className="text-hero-muted text-sm mt-1">Client Satisfaction</div>
           </div>
         </motion.div>
       </div>

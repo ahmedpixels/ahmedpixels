@@ -80,7 +80,7 @@ const ProjectsPage = () => {
             <h1 className="heading-xl text-hero-text mb-6">
               Featured <span className="text-gradient">Projects</span>
             </h1>
-            <p className="text-hero-text/60 max-w-2xl mx-auto">
+            <p className="text-hero-muted max-w-2xl mx-auto">
               A showcase of my best work across various industries and platforms
             </p>
           </motion.div>
@@ -126,7 +126,7 @@ const ProjectsPage = () => {
                   <div className="p-6">
                     <span className="text-primary text-sm font-medium">{project.type}</span>
                     <h3 className="text-xl font-bold text-hero-text mt-2 mb-3">{project.name}</h3>
-                    <p className="text-hero-text/60 text-sm leading-relaxed">{project.description}</p>
+                    <p className="text-hero-muted text-sm leading-relaxed">{project.description}</p>
                   </div>
                 </div>
               </motion.div>

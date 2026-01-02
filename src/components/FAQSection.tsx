@@ -54,7 +54,7 @@ const FAQSection = () => {
           <h2 className="heading-lg text-hero-text mt-4">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
-          <p className="body-lg text-hero-text/60 max-w-2xl mx-auto mt-4">
+          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
             Got questions? Here are answers to the most common ones. Feel free to reach out if you need more info!
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ const FAQSection = () => {
                 <AccordionTrigger className="text-left text-hero-text font-semibold hover:text-primary transition-colors py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-hero-text/60 pb-5 leading-relaxed">
+                <AccordionContent className="text-hero-muted pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -90,7 +90,7 @@ const FAQSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <p className="text-hero-text/60 mb-4">Still have questions?</p>
+          <p className="text-hero-muted mb-4">Still have questions?</p>
           <motion.a
             href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed,%20I%20have%20a%20question"
             target="_blank"
