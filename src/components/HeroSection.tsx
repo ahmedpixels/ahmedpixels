@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import gsap from "gsap";
-import { ArrowDown, MapPin, Sparkles, Zap, Code2, Rocket } from "lucide-react";
+import { ArrowDown, MapPin, Sparkles } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.jpg";
 
 const HeroSection = () => {
@@ -80,12 +80,6 @@ const HeroSection = () => {
     }),
   };
 
-  const floatingIcons = [
-    { Icon: Code2, delay: 0, x: -60, y: -80 },
-    { Icon: Zap, delay: 0.5, x: 80, y: -60 },
-    { Icon: Rocket, delay: 1, x: -80, y: 60 },
-    { Icon: Sparkles, delay: 1.5, x: 70, y: 80 },
-  ];
 
   return (
     <section 
@@ -235,14 +229,14 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-hero-text mb-4 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-hero-text mb-4 tracking-tight"
             >
               <span className="relative inline-block">
                 <span className="text-gradient">AHMED</span>
                 <motion.span
                   animate={{ scaleX: [0, 1, 0] }}
                   transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-orange-400 to-red-500 origin-left"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-orange-400 to-red-500 origin-left"
                 />
               </span>
             </motion.h1>
@@ -253,19 +247,19 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className="h-16 md:h-20 mb-8 overflow-hidden"
+              className="h-10 md:h-12 mb-6 overflow-hidden"
             >
               <div className="relative">
                 {roles.map((role, index) => (
                   <motion.h2
                     key={role}
-                    initial={{ y: 60, opacity: 0 }}
+                    initial={{ y: 40, opacity: 0 }}
                     animate={{
-                      y: currentRole === index ? 0 : currentRole > index ? -60 : 60,
+                      y: currentRole === index ? 0 : currentRole > index ? -40 : 40,
                       opacity: currentRole === index ? 1 : 0,
                     }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="text-2xl md:text-4xl lg:text-5xl font-bold text-hero-text/80 absolute top-0 left-0"
+                    className="text-xl md:text-2xl lg:text-3xl font-bold text-hero-text/80 absolute top-0 left-0"
                   >
                     {role}
                     <motion.span
@@ -285,7 +279,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className="text-lg md:text-xl text-hero-muted max-w-xl mb-10 leading-relaxed"
+              className="text-base md:text-lg text-hero-muted max-w-lg mb-8 leading-relaxed"
             >
               I craft <span className="text-primary font-semibold">high-performance</span> websites that rank and convert. 
               Transforming ideas into stunning digital experiences that drive <span className="text-cyan-400 font-semibold">real results</span>.
@@ -355,7 +349,7 @@ const HeroSection = () => {
                   className="group cursor-default"
                 >
                   <motion.div 
-                    className={`text-4xl md:text-5xl font-black ${stat.color}`}
+                    className={`text-3xl md:text-4xl font-black ${stat.color}`}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 1 + index * 0.2, type: "spring", stiffness: 200 }}
@@ -368,173 +362,123 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right Content - Image with 3D Effect */}
+          {/* Right Content - Clean Hexagonal Image Design */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <motion.div 
               style={{ x: parallaxX, y: parallaxY }}
               className="relative"
             >
-              {/* Floating Icons around image */}
-              {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ 
-                    opacity: [0.4, 0.8, 0.4],
-                    scale: 1,
-                    y: [y, y - 15, y],
-                  }}
-                  transition={{
-                    opacity: { duration: 3, repeat: Infinity, delay },
-                    scale: { delay: 1 + delay, type: "spring" },
-                    y: { duration: 4, repeat: Infinity, delay },
-                  }}
-                  className="absolute z-20"
-                  style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}
-                >
-                  <div className="p-3 bg-hero-bg/80 backdrop-blur-md rounded-xl border border-primary/30 shadow-[0_0_20px_5px_hsl(var(--primary)/0.2)]">
-                    <Icon size={20} className="text-primary" />
-                  </div>
-                </motion.div>
-              ))}
-
-              {/* Animated neon rings */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-40px] rounded-full"
-                style={{
-                  background: 'conic-gradient(from 0deg, transparent 0%, hsl(var(--primary)) 10%, transparent 20%)',
-                  padding: '2px',
-                }}
-              >
-                <div className="w-full h-full bg-hero-bg rounded-full" />
-              </motion.div>
-              
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-60px] rounded-full"
-                style={{
-                  background: 'conic-gradient(from 180deg, transparent 0%, rgba(6, 182, 212, 0.6) 5%, transparent 15%)',
-                  padding: '1px',
-                }}
-              >
-                <div className="w-full h-full bg-hero-bg rounded-full" />
-              </motion.div>
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-80px] rounded-full opacity-50"
-                style={{
-                  background: 'conic-gradient(from 90deg, transparent 0%, rgba(239, 68, 68, 0.4) 3%, transparent 10%)',
-                  padding: '1px',
-                }}
-              >
-                <div className="w-full h-full bg-hero-bg rounded-full" />
-              </motion.div>
-
-              {/* Floating neon particles */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ 
-                    y: [-15 + i * 3, 15 - i * 2, -15 + i * 3], 
-                    x: [i % 2 === 0 ? -5 : 5, i % 2 === 0 ? 5 : -5, i % 2 === 0 ? -5 : 5],
-                    opacity: [0.4, 1, 0.4] 
-                  }}
-                  transition={{ duration: 3 + i * 0.5, repeat: Infinity }}
-                  className="absolute w-2 h-2 rounded-full"
-                  style={{
-                    background: i % 3 === 0 ? "rgb(34, 211, 238)" : i % 3 === 1 ? "hsl(var(--primary))" : "rgb(239, 68, 68)",
-                    boxShadow: `0 0 15px 5px ${i % 3 === 0 ? "rgba(34,211,238,0.5)" : i % 3 === 1 ? "hsl(var(--primary) / 0.5)" : "rgba(239,68,68,0.5)"}`,
-                    top: `${10 + i * 15}%`,
-                    left: i % 2 === 0 ? "-5%" : "105%",
-                  }}
-                />
-              ))}
-
-              {/* Glow Effect - Enhanced */}
+              {/* Soft ambient glow */}
               <div
                 ref={glowRef}
-                className="absolute inset-[-20px] bg-gradient-to-br from-cyan-500/25 via-primary/35 to-red-500/25 rounded-full blur-[80px]"
+                className="absolute inset-[-40px] bg-gradient-to-br from-primary/20 via-orange-500/15 to-amber-500/10 rounded-full blur-[100px]"
               />
               
-              {/* Main Image Container */}
+              {/* Main Image Container - Clean Card Style */}
               <motion.div
                 ref={imageRef}
-                initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
-                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                transition={{ duration: 1.2, delay: 0.5, type: "spring" }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
                 className="relative"
-                style={{ perspective: "1000px" }}
               >
-                {/* Neon frame with enhanced glow */}
-                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
-                  {/* Multi-color gradient border */}
-                  <motion.div 
-                    animate={{
-                      boxShadow: [
-                        "0 0 40px 10px hsl(var(--primary) / 0.3)",
-                        "0 0 60px 20px hsl(var(--primary) / 0.4)",
-                        "0 0 40px 10px hsl(var(--primary) / 0.3)",
-                      ],
-                    }}
+                {/* Glassmorphism Card */}
+                <div className="relative w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[420px]">
+                  {/* Background decorative shapes */}
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="absolute -top-8 -right-8 w-24 h-24 border border-primary/20 rounded-full"
+                  />
+                  <motion.div
+                    animate={{ rotate: [360, 0] }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    className="absolute -bottom-6 -left-6 w-20 h-20 border border-cyan-400/20 rounded-full"
+                  />
+                  
+                  {/* Floating accent dots */}
+                  <motion.div
+                    animate={{ y: [-10, 10, -10], opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute -top-4 left-1/4 w-3 h-3 bg-primary rounded-full shadow-[0_0_12px_4px_hsl(var(--primary)/0.4)]"
+                  />
+                  <motion.div
+                    animate={{ y: [8, -8, 8], opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 3.5, repeat: Infinity }}
+                    className="absolute -bottom-3 right-1/4 w-2 h-2 bg-cyan-400 rounded-full shadow-[0_0_10px_3px_rgba(34,211,238,0.4)]"
+                  />
+                  <motion.div
+                    animate={{ x: [-5, 5, -5] }}
                     transition={{ duration: 3, repeat: Infinity }}
-                    className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-primary to-red-500 rounded-3xl p-[3px]"
+                    className="absolute top-1/3 -right-4 w-2.5 h-2.5 bg-orange-400 rounded-full shadow-[0_0_8px_3px_rgba(251,146,60,0.4)]"
+                  />
+
+                  {/* Main image card */}
+                  <motion.div 
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.4 }}
+                    className="relative w-full h-full bg-gradient-to-br from-hero-bg via-hero-bg to-hero-bg/90 rounded-3xl overflow-hidden shadow-2xl"
+                    style={{
+                      boxShadow: "0 25px 50px -12px hsl(var(--primary) / 0.25), 0 0 0 1px hsl(var(--primary) / 0.1)"
+                    }}
                   >
-                    <div className="w-full h-full bg-hero-bg rounded-[21px] overflow-hidden">
+                    {/* Gradient overlay border */}
+                    <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-primary/50 via-orange-400/30 to-transparent">
+                      <div className="w-full h-full bg-hero-bg rounded-[22px]" />
+                    </div>
+                    
+                    {/* Image */}
+                    <div className="absolute inset-[2px] rounded-[22px] overflow-hidden">
                       <motion.img
                         src={ahmedPortrait}
                         alt="Ahmed - WordPress Developer & SEO Specialist"
                         className="w-full h-full object-cover object-center"
-                        whileHover={{ scale: 1.08 }}
+                        whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
                       />
+                      
+                      {/* Subtle gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-hero-bg/60 via-transparent to-transparent" />
                     </div>
+                    
+                    {/* Bottom info bar */}
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2, duration: 0.5 }}
+                      className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-hero-bg via-hero-bg/95 to-transparent"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-hero-text font-bold text-sm">Ahmed</p>
+                          <p className="text-hero-muted text-xs">Developer & Designer</p>
+                        </div>
+                        <motion.div
+                          animate={{ scale: [1, 1.1, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 border border-green-400/30 rounded-full"
+                        >
+                          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                          <span className="text-green-400 text-xs font-semibold">Available</span>
+                        </motion.div>
+                      </div>
+                    </motion.div>
                   </motion.div>
                   
-                  {/* Animated corner accents */}
-                  {[
-                    { pos: "-top-3 -left-3", border: "border-l-4 border-t-4", color: "border-cyan-400", shadow: "rgba(34,211,238,0.6)", rounded: "rounded-tl-2xl" },
-                    { pos: "-top-3 -right-3", border: "border-r-4 border-t-4", color: "border-primary", shadow: "hsl(var(--primary) / 0.6)", rounded: "rounded-tr-2xl" },
-                    { pos: "-bottom-3 -left-3", border: "border-l-4 border-b-4", color: "border-primary", shadow: "hsl(var(--primary) / 0.6)", rounded: "rounded-bl-2xl" },
-                    { pos: "-bottom-3 -right-3", border: "border-r-4 border-b-4", color: "border-red-500", shadow: "rgba(239,68,68,0.6)", rounded: "rounded-br-2xl" },
-                  ].map((corner, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ 
-                        boxShadow: [
-                          `0 0 10px 2px ${corner.shadow}`,
-                          `0 0 20px 5px ${corner.shadow}`,
-                          `0 0 10px 2px ${corner.shadow}`,
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                      className={`absolute ${corner.pos} w-10 h-10 ${corner.border} ${corner.color} ${corner.rounded}`}
-                    />
-                  ))}
+                  {/* Decorative line accents */}
+                  <motion.div
+                    initial={{ scaleY: 0 }}
+                    animate={{ scaleY: 1 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="absolute -left-6 top-1/4 w-[2px] h-16 bg-gradient-to-b from-transparent via-primary to-transparent origin-top"
+                  />
+                  <motion.div
+                    initial={{ scaleY: 0 }}
+                    animate={{ scaleY: 1 }}
+                    transition={{ delay: 1, duration: 0.6 }}
+                    className="absolute -right-6 bottom-1/4 w-[2px] h-12 bg-gradient-to-b from-transparent via-cyan-400 to-transparent origin-bottom"
+                  />
                 </div>
-
-                {/* Enhanced Status badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.4, type: "spring" }}
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-hero-bg/95 backdrop-blur-md border-2 border-green-400 px-6 py-3 rounded-full"
-                  style={{ boxShadow: "0 0 30px 8px rgba(74,222,128,0.3)" }}
-                >
-                  <div className="flex items-center gap-2">
-                    <motion.span
-                      animate={{ scale: [1, 1.3, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                      className="w-2.5 h-2.5 bg-green-400 rounded-full shadow-[0_0_10px_3px_rgba(74,222,128,0.6)]"
-                    />
-                    <span className="text-green-400 font-bold text-sm whitespace-nowrap">Available for Hire</span>
-                  </div>
-                </motion.div>
               </motion.div>
             </motion.div>
           </div>
