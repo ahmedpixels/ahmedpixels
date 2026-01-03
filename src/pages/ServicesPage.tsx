@@ -233,7 +233,7 @@ const ServicesPage = () => {
                 covered.
               </p>
               <motion.a
-                href="https://wa.me/923216479192"
+                href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -436,7 +436,7 @@ const ServicesPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                   <motion.a
-                    href="https://wa.me/923216479192"
+                    href="https://wa.me/923216479192?text=Hi%20Ahmed"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}

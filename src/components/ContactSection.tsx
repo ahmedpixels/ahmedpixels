@@ -46,7 +46,7 @@ const contactInfo = [
     icon: Phone,
     label: "Phone",
     value: "+923216479192",
-    href: "https://wa.me/923216479192",
+    href: "https://wa.me/923216479192?text=Hi%20Ahmed",
     gradient: "from-emerald-500 to-teal-500",
   },
   {
@@ -68,7 +68,7 @@ const contactInfo = [
 const socialLinks = [
   { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn", gradient: "from-blue-500 to-cyan-500" },
   { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram", gradient: "from-pink-500 to-rose-500" },
-  { icon: MessageCircle, href: "https://wa.me/923216479192", label: "WhatsApp", gradient: "from-emerald-500 to-teal-500" },
+  { icon: MessageCircle, href: "https://wa.me/923216479192?text=Hi%20Ahmed", label: "WhatsApp", gradient: "from-emerald-500 to-teal-500" },
 ];
 
 const ContactSection = () => {
@@ -399,7 +399,7 @@ const ContactSection = () => {
             <motion.div variants={itemVariants} className="pt-2">
               <p className="text-hero-muted text-center text-sm mb-3">Or reach out directly</p>
               <a
-                href="https://wa.me/923216479192"
+                href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-4 bg-hero-text/5 hover:bg-hero-text/10 border border-border/20 text-hero-text rounded-xl font-semibold text-lg flex items-center justify-center gap-3 transition-colors"
