@@ -147,11 +147,16 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
           
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-xl z-50 overflow-auto max-h-[90vh]"
+            className="fixed z-50 overflow-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-xl"
+            style={{
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
           >
             <div className="relative bg-hero-bg border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
               {/* Gradient accent at top */}
