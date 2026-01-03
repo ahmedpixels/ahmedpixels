@@ -9,6 +9,12 @@ import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
+import WordPressDevPage from "./pages/services/WordPressDevPage";
+import WooCommercePage from "./pages/services/WooCommercePage";
+import ThemeCustomizationPage from "./pages/services/ThemeCustomizationPage";
+import MaintenancePage from "./pages/services/MaintenancePage";
+import SEOOptimizationPage from "./pages/services/SEOOptimizationPage";
+import LandingPagesPage from "./pages/services/LandingPagesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +31,12 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/wordpress-development" element={<WordPressDevPage />} />
+            <Route path="/services/woocommerce" element={<WooCommercePage />} />
+            <Route path="/services/theme-customization" element={<ThemeCustomizationPage />} />
+            <Route path="/services/maintenance" element={<MaintenancePage />} />
+            <Route path="/services/seo-optimization" element={<SEOOptimizationPage />} />
+            <Route path="/services/landing-pages" element={<LandingPagesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
