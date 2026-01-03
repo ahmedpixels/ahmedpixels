@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Loader2, ChevronDown } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -48,6 +48,29 @@ interface ContactFormModalProps {
 
 const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
   const { toast } = useToast();
+
+  // Handle Esc key to close modal
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [isOpen, onClose]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
   
   const [formData, setFormData] = useState({
     name: "",
