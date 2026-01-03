@@ -186,10 +186,10 @@ const ServicesPage = () => {
           name="description"
           content="Professional WordPress development services in Lahore, Pakistan. Custom websites, WooCommerce stores, theme customization, SEO optimization, and ongoing maintenance support."
         />
-        <link rel="canonical" href="https://ahmed.dev/services" />
+        <link rel="canonical" href="https://ahmedpixels.pro/services" />
         <meta property="og:title" content="WordPress Development Services | Ahmed" />
         <meta property="og:description" content="Professional WordPress development services including custom websites, WooCommerce, and SEO optimization." />
-        <meta property="og:url" content="https://ahmed.dev/services" />
+        <meta property="og:url" content="https://ahmedpixels.pro/services" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
