@@ -1,41 +1,37 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+import pixelhashLogo from "@/assets/logos/pixelhash.png";
+import shinewallstoneLogo from "@/assets/logos/shinewallstone.png";
+import silkspoolLogo from "@/assets/logos/silkspool.png";
+import jeddahautoLogo from "@/assets/logos/jeddahauto.png";
+import eleevaLogo from "@/assets/logos/eleeva.png";
+
 const clients = [
   { 
     name: "PixelHash Tech", 
     url: "https://pixelhashtech.com",
-    textLogo: "PIXEL HASH",
-    subtext: "Technologies",
-    color: "text-red-500"
+    logo: pixelhashLogo,
   },
   { 
     name: "Shine Wall Stone", 
     url: "https://shinewallstone.com",
-    textLogo: "SHINE WALL",
-    subtext: "STONE",
-    color: "text-cyan-400"
+    logo: shinewallstoneLogo,
   },
   { 
     name: "Silks Pool", 
     url: "https://silkspool.com",
-    textLogo: "SILKS",
-    subtext: "POOL",
-    color: "text-amber-500"
+    logo: silkspoolLogo,
   },
   { 
     name: "Jeddah Auto", 
     url: "https://jeddahautospareparts.com",
-    textLogo: "JEDDAH",
-    subtext: "AUTO SPARE PARTS",
-    color: "text-blue-500"
+    logo: jeddahautoLogo,
   },
   { 
     name: "Eleeva Adhesives", 
     url: "https://eleevaadhesives.com",
-    textLogo: "ELEEVA",
-    subtext: "Adhesives",
-    color: "text-orange-500"
+    logo: eleevaLogo,
   },
 ];
 
@@ -73,16 +69,13 @@ const ClientLogosSection = () => {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.1, y: -5 }}
-              className="flex flex-col items-center gap-0.5 group cursor-pointer"
+              className="group cursor-pointer"
             >
-              <div className="flex flex-col items-center px-4 py-3 rounded-xl bg-muted/30 border border-border/10 group-hover:border-primary/30 group-hover:bg-primary/5 transition-all">
-                <span className={`text-lg md:text-xl font-bold ${client.color} group-hover:brightness-110 transition-all tracking-tight`}>
-                  {client.textLogo}
-                </span>
-                <span className="text-[10px] md:text-xs text-muted-foreground/70 font-medium tracking-widest uppercase">
-                  {client.subtext}
-                </span>
-              </div>
+              <img 
+                src={client.logo} 
+                alt={client.name}
+                className="h-10 md:h-12 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+              />
             </motion.a>
           ))}
         </motion.div>
