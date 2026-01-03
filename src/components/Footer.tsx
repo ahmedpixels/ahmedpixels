@@ -60,7 +60,7 @@ const Footer = () => {
               {[
                 { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
                 { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
-                { icon: MessageCircle, href: "https://web.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed", label: "WhatsApp" },
+                { icon: MessageCircle, href: "https://wa.me/923216479192", label: "WhatsApp" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -146,7 +146,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="text-primary mt-1 flex-shrink-0" size={18} />
                 <a 
-                  href="https://web.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                  href="https://wa.me/923216479192"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-hero-text/60 hover:text-primary transition-colors"
@@ -172,7 +172,7 @@ const Footer = () => {
               className="mt-6"
             >
               <a
-                href="https://web.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
+                href="https://wa.me/923216479192"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-orange text-primary-foreground rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow"
