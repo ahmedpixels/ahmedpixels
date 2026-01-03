@@ -21,8 +21,12 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Ahmed | WordPress Developer & SEO Specialist</title>
-        <meta name="description" content="Get in touch with Ahmed for WordPress development, SEO services, and web projects." />
+        <title>Contact Ahmed | WordPress Developer & SEO Specialist - Lahore</title>
+        <meta name="description" content="Get in touch with Ahmed for WordPress development, SEO services, and web projects. WhatsApp: +923216479192. Email: ahmedpixelspro@gmail.com. Fast response within 24 hours." />
+        <link rel="canonical" href="https://ahmed.dev/contact" />
+        <meta property="og:title" content="Contact Ahmed | WordPress Developer & SEO Specialist" />
+        <meta property="og:description" content="Get in touch for WordPress development and SEO services. Fast response within 24 hours." />
+        <meta property="og:url" content="https://ahmed.dev/contact" />
       </Helmet>
       
       <Navbar />

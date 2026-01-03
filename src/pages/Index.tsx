@@ -29,7 +29,23 @@ const Index = () => {
           content="I craft high-performance websites that rank and convert. Transform your ideas into stunning digital experiences."
         />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://ahmed.dev" />
+        <meta property="og:url" content="https://ahmed.dev/" />
+        <link rel="canonical" href="https://ahmed.dev/" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Ahmed - WordPress Developer & SEO Specialist",
+            "description": "Professional WordPress Developer and SEO Specialist based in Lahore, Pakistan.",
+            "url": "https://ahmed.dev/",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Ahmed",
+              "jobTitle": "WordPress Developer & SEO Specialist",
+              "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "Pakistan" }
+            }
+          })}
+        </script>
       </Helmet>
 
       <main className="overflow-x-hidden">
