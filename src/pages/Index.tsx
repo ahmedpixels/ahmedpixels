@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ClientLogosSection from "@/components/ClientLogosSection";
+
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -35,7 +35,7 @@ const Index = () => {
       <main className="overflow-x-hidden">
         <Navbar />
         <HeroSection />
-        <ClientLogosSection />
+        
         <AboutSection />
         <SkillsSection />
         
