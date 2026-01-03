@@ -64,10 +64,10 @@ const ProjectsPage = () => {
       <Helmet>
         <title>Portfolio & Projects | Ahmed - WordPress Developer Lahore</title>
         <meta name="description" content="Explore Ahmed's portfolio of WordPress websites, WooCommerce e-commerce stores, and SEO projects. View live examples of tech websites, business sites, and online stores." />
-        <link rel="canonical" href="https://ahmed.dev/projects" />
+        <link rel="canonical" href="https://ahmedpixels.pro/projects" />
         <meta property="og:title" content="Portfolio & Projects | Ahmed - WordPress Developer" />
         <meta property="og:description" content="Explore WordPress websites, e-commerce stores, and SEO projects by Ahmed." />
-        <meta property="og:url" content="https://ahmed.dev/projects" />
+        <meta property="og:url" content="https://ahmedpixels.pro/projects" />
       </Helmet>
       
       <Navbar />

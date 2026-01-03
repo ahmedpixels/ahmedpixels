@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://ahmed.dev/sitemap.xml
+Sitemap: https://ahmedpixels.pro/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
