@@ -164,7 +164,7 @@ const PortfolioSection = () => {
           className="text-center mt-16"
         >
           <motion.a
-            href="https://wa.me/923216479192?text=Hi%20Ahmed"
+            href="https://web.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
