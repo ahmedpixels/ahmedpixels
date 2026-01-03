@@ -71,11 +71,11 @@ const ClientLogosSection = () => {
               whileHover={{ scale: 1.1, y: -5 }}
               className="group cursor-pointer"
             >
-              <div className="px-4 py-3 rounded-xl bg-muted/30 border border-border/10 group-hover:border-primary/30 group-hover:bg-primary/5 transition-all">
+              <div className="px-6 py-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 group-hover:border-primary/40 group-hover:from-primary/30 group-hover:to-primary/10 transition-all shadow-lg shadow-primary/5 group-hover:shadow-primary/10">
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 group-hover:opacity-100 transition-all"
+                  className="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-all"
                 />
               </div>
             </motion.a>
