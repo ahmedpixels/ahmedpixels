@@ -181,11 +181,30 @@ const ServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>WordPress Development Services | Ahmed - Professional Web Developer</title>
+        <title>WordPress Development Services | Ahmed - Professional Web Developer Lahore</title>
         <meta
           name="description"
-          content="Professional WordPress development services including custom websites, WooCommerce, theme customization, plugin development, SEO optimization, and ongoing support."
+          content="Professional WordPress development services in Lahore, Pakistan. Custom websites, WooCommerce stores, theme customization, SEO optimization, and ongoing maintenance support."
         />
+        <link rel="canonical" href="https://ahmed.dev/services" />
+        <meta property="og:title" content="WordPress Development Services | Ahmed" />
+        <meta property="og:description" content="Professional WordPress development services including custom websites, WooCommerce, and SEO optimization." />
+        <meta property="og:url" content="https://ahmed.dev/services" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "WordPress Development Services",
+            "provider": {
+              "@type": "Person",
+              "name": "Ahmed",
+              "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "Pakistan" }
+            },
+            "serviceType": ["WordPress Development", "WooCommerce Development", "SEO Optimization", "Website Maintenance"],
+            "areaServed": "Worldwide",
+            "description": "Professional WordPress development services including custom websites, WooCommerce, theme customization, and SEO optimization."
+          })}
+        </script>
       </Helmet>
 
       <Navbar />
