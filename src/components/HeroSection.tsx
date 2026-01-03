@@ -48,45 +48,39 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen bg-hero-bg relative overflow-hidden flex items-center">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      {/* Background Pattern - Cyberpunk Grid */}
+      <div className="absolute inset-0 opacity-[0.08]">
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
-      
-      {/* Diagonal Lines Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 35px,
-              currentColor 35px,
-              currentColor 36px
-            )`,
+            backgroundImage: `
+              linear-gradient(to right, hsl(var(--primary) / 0.3) 1px, transparent 1px),
+              linear-gradient(to bottom, hsl(var(--primary) / 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
           }}
         />
       </div>
 
-      {/* Gradient Orbs */}
+      {/* Neon Gradient Orbs */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-500/15 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
+        <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-teal-500/10 rounded-full blur-[90px]" />
       </div>
-      
-      {/* Noise Texture Overlay */}
+
+      {/* Scan Lines Effect */}
       <div 
-        className="absolute inset-0 opacity-[0.015] mix-blend-overlay pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundImage: `repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            hsl(var(--primary) / 0.1) 2px,
+            hsl(var(--primary) / 0.1) 4px
+          )`,
         }}
       />
 
@@ -201,39 +195,57 @@ const HeroSection = () => {
           {/* Right Content - Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Animated rings */}
+              {/* Animated neon rings */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-20px] border-2 border-dashed border-primary/30 rounded-full"
-              />
+                className="absolute inset-[-30px] rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, transparent 40%, hsl(var(--primary)) 50%, transparent 60%)',
+                  padding: '2px',
+                }}
+              >
+                <div className="w-full h-full bg-hero-bg rounded-full" />
+              </motion.div>
+              
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-40px] border border-primary/20 rounded-full"
-              />
-              
-              {/* Floating dots */}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-50px] rounded-full"
+                style={{
+                  background: 'linear-gradient(180deg, transparent 30%, rgba(6, 182, 212, 0.5) 50%, transparent 70%)',
+                  padding: '1px',
+                }}
+              >
+                <div className="w-full h-full bg-hero-bg rounded-full" />
+              </motion.div>
+
+              {/* Floating neon particles */}
               <motion.div
-                animate={{ y: [-10, 10, -10] }}
+                animate={{ y: [-15, 15, -15], opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-8 left-1/4 w-3 h-3 bg-primary rounded-full"
+                className="absolute -top-10 left-1/4 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_15px_5px_rgba(34,211,238,0.5)]"
               />
               <motion.div
-                animate={{ y: [10, -10, 10] }}
+                animate={{ y: [10, -10, 10], opacity: [0.6, 1, 0.6] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-6 right-1/4 w-2 h-2 bg-primary/60 rounded-full"
+                className="absolute -bottom-8 right-1/4 w-2 h-2 bg-red-500 rounded-full shadow-[0_0_12px_4px_rgba(239,68,68,0.5)]"
               />
               <motion.div
-                animate={{ x: [-5, 5, -5] }}
+                animate={{ x: [-8, 8, -8], opacity: [0.4, 1, 0.4] }}
                 transition={{ duration: 2.5, repeat: Infinity }}
-                className="absolute top-1/3 -right-8 w-4 h-4 bg-primary/40 rounded-full"
+                className="absolute top-1/3 -right-10 w-4 h-4 bg-primary rounded-full shadow-[0_0_15px_5px_rgba(249,115,22,0.5)]"
+              />
+              <motion.div
+                animate={{ x: [5, -5, 5], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3.5, repeat: Infinity }}
+                className="absolute top-1/2 -left-8 w-2 h-2 bg-teal-400 rounded-full shadow-[0_0_10px_3px_rgba(45,212,191,0.5)]"
               />
 
-              {/* Glow Effect */}
+              {/* Glow Effect - Neon style */}
               <div
                 ref={glowRef}
-                className="absolute inset-4 bg-primary/30 rounded-full blur-3xl"
+                className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-primary/30 to-red-500/20 rounded-full blur-[60px]"
               />
               
               {/* Main Image Container */}
@@ -244,36 +256,36 @@ const HeroSection = () => {
                 transition={{ duration: 1, delay: 0.5 }}
                 className="relative"
               >
-                {/* Hexagon-style frame with gradient border */}
-                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                  {/* Gradient border effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/50 to-primary/20 rounded-[2rem] p-1">
-                    <div className="w-full h-full bg-hero-bg rounded-[1.8rem] overflow-hidden">
+                {/* Neon frame */}
+                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
+                  {/* Multi-color gradient border */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-primary to-red-500 rounded-3xl p-[3px] shadow-[0_0_40px_10px_rgba(249,115,22,0.3)]">
+                    <div className="w-full h-full bg-hero-bg rounded-[21px] overflow-hidden">
                       <img
                         src={ahmedPortrait}
                         alt="Ahmed - WordPress Developer & SEO Specialist"
-                        className="w-full h-full object-cover object-top scale-110 hover:scale-100 transition-transform duration-700"
+                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                       />
                     </div>
                   </div>
                   
-                  {/* Corner accents */}
-                  <div className="absolute -top-2 -left-2 w-8 h-8 border-l-4 border-t-4 border-primary rounded-tl-xl" />
-                  <div className="absolute -top-2 -right-2 w-8 h-8 border-r-4 border-t-4 border-primary rounded-tr-xl" />
-                  <div className="absolute -bottom-2 -left-2 w-8 h-8 border-l-4 border-b-4 border-primary rounded-bl-xl" />
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 border-r-4 border-b-4 border-primary rounded-br-xl" />
+                  {/* Neon corner accents */}
+                  <div className="absolute -top-3 -left-3 w-10 h-10 border-l-4 border-t-4 border-cyan-400 rounded-tl-2xl shadow-[0_0_10px_2px_rgba(34,211,238,0.5)]" />
+                  <div className="absolute -top-3 -right-3 w-10 h-10 border-r-4 border-t-4 border-primary rounded-tr-2xl shadow-[0_0_10px_2px_rgba(249,115,22,0.5)]" />
+                  <div className="absolute -bottom-3 -left-3 w-10 h-10 border-l-4 border-b-4 border-primary rounded-bl-2xl shadow-[0_0_10px_2px_rgba(249,115,22,0.5)]" />
+                  <div className="absolute -bottom-3 -right-3 w-10 h-10 border-r-4 border-b-4 border-red-500 rounded-br-2xl shadow-[0_0_10px_2px_rgba(239,68,68,0.5)]" />
                 </div>
 
-                {/* Status badge */}
+                {/* Status badge - Neon style */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.2 }}
-                  className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-hero-bg border-2 border-primary px-6 py-3 rounded-full shadow-xl"
+                  className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-hero-bg/90 backdrop-blur-sm border-2 border-green-400 px-6 py-3 rounded-full shadow-[0_0_20px_5px_rgba(74,222,128,0.3)]"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-hero-text font-semibold text-sm whitespace-nowrap">Open to Work</span>
+                    <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_3px_rgba(74,222,128,0.5)]" />
+                    <span className="text-green-400 font-bold text-sm whitespace-nowrap">Available for Hire</span>
                   </div>
                 </motion.div>
               </motion.div>
