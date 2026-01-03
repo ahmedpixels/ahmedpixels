@@ -111,7 +111,7 @@ const FAQSection = () => {
         >
           <p className="text-hero-muted mb-4">Still have questions?</p>
           <motion.a
-            href="https://api.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed,%20I%20have%20a%20question"
+            href="https://wa.me/923216479192?text=Hi%20Ahmed,%20I%20have%20a%20question"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

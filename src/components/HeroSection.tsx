@@ -140,7 +140,7 @@ const HeroSection = () => {
               className="flex flex-wrap gap-4"
             >
               <motion.a
-                href="https://api.whatsapp.com/send?phone=923216479192&text=Hello%20Ahmed"
+                href="https://wa.me/923216479192?text=Hello%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
