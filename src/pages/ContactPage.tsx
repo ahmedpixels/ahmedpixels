@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCi
 
 const ContactPage = () => {
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "+923216479192", href: "https://wa.me/923216479192?text=Hi%20Ahmed" },
+    { icon: Phone, label: "Phone", value: "+923216479192", href: "https://web.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed" },
     { icon: Mail, label: "Email", value: "ahmedpixelspro@gmail.com", href: "mailto:ahmedpixelspro@gmail.com" },
     { icon: MapPin, label: "Location", value: "Lahore, Pakistan", href: null },
     { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
@@ -15,7 +15,7 @@ const ContactPage = () => {
   const socialLinks = [
     { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
-    { icon: MessageCircle, href: "https://wa.me/923216479192?text=Hi%20Ahmed", label: "WhatsApp" },
+    { icon: MessageCircle, href: "https://web.whatsapp.com/send?phone=923216479192&text=Hi%20Ahmed", label: "WhatsApp" },
   ];
 
   return (
