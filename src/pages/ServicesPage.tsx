@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import {
   Globe,
   ShoppingCart,
@@ -32,6 +33,7 @@ const services = [
     ],
     gradient: "from-orange-500 to-amber-500",
     iconBg: "bg-gradient-to-br from-orange-500 to-amber-500",
+    link: "/services/wordpress-development",
   },
   {
     icon: ShoppingCart,
@@ -46,6 +48,7 @@ const services = [
     ],
     gradient: "from-violet-500 to-purple-500",
     iconBg: "bg-gradient-to-br from-violet-500 to-purple-500",
+    link: "/services/woocommerce",
   },
   {
     icon: Palette,
@@ -60,6 +63,7 @@ const services = [
     ],
     gradient: "from-pink-500 to-rose-500",
     iconBg: "bg-gradient-to-br from-pink-500 to-rose-500",
+    link: "/services/theme-customization",
   },
   {
     icon: Wrench,
@@ -74,6 +78,7 @@ const services = [
     ],
     gradient: "from-cyan-500 to-blue-500",
     iconBg: "bg-gradient-to-br from-cyan-500 to-blue-500",
+    link: "/services/maintenance",
   },
   {
     icon: Rocket,
@@ -88,6 +93,7 @@ const services = [
     ],
     gradient: "from-emerald-500 to-teal-500",
     iconBg: "bg-gradient-to-br from-emerald-500 to-teal-500",
+    link: "/services/seo-optimization",
   },
   {
     icon: Target,
@@ -102,6 +108,7 @@ const services = [
     ],
     gradient: "from-amber-500 to-orange-600",
     iconBg: "bg-gradient-to-br from-amber-500 to-orange-600",
+    link: "/services/landing-pages",
   },
 ];
 
@@ -252,41 +259,45 @@ const ServicesPage = () => {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {services.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  variants={itemVariants}
-                  whileHover={{ y: -10 }}
-                  className="relative bg-hero-bg/80 backdrop-blur-sm border border-white/10 p-8 rounded-3xl group hover:border-white/20 transition-all duration-300 overflow-hidden"
-                >
-                  {/* Gradient accent line at top */}
-                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`} />
-                  
-                  {/* Hover glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                  
-                  <div className="relative z-10">
-                    <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <service.icon className="text-white" size={28} />
+                <Link key={service.title} to={service.link}>
+                  <motion.div
+                    variants={itemVariants}
+                    whileHover={{ y: -10 }}
+                    className="relative bg-hero-bg/80 backdrop-blur-sm border border-white/10 p-8 rounded-3xl group hover:border-white/20 transition-all duration-300 overflow-hidden cursor-pointer h-full"
+                  >
+                    {/* Gradient accent line at top */}
+                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`} />
+                    
+                    {/* Hover glow effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                    
+                    <div className="relative z-10">
+                      <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                        <service.icon className="text-white" size={28} />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-white/60 text-sm mb-5">{service.description}</p>
+                      <ul className="space-y-2.5 mb-4">
+                        {service.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="flex items-center gap-2.5 text-white/70 text-sm"
+                          >
+                            <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center flex-shrink-0`}>
+                              <CheckCircle className="text-white" size={12} />
+                            </div>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      <span className={`inline-flex items-center gap-1 text-sm font-semibold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent group-hover:gap-2 transition-all`}>
+                        Learn More <ArrowRight size={14} className="text-primary" />
+                      </span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-white/60 text-sm mb-5">{service.description}</p>
-                    <ul className="space-y-2.5">
-                      {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2.5 text-white/70 text-sm"
-                        >
-                          <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center flex-shrink-0`}>
-                            <CheckCircle className="text-white" size={12} />
-                          </div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))}
             </motion.div>
           </div>
