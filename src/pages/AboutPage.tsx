@@ -52,6 +52,11 @@ const AboutPage = () => {
         <meta property="og:title" content="About Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience." />
         <meta property="og:url" content="https://ahmedpixels.pro/about" />
+        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
       </Helmet>
       
       <Navbar />
