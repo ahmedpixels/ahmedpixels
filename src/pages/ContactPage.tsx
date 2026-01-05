@@ -32,6 +32,40 @@ const ContactPage = () => {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Ahmed - WordPress Developer & SEO Specialist",
+            "description": "Get in touch with Ahmed for WordPress development and SEO services.",
+            "url": "https://ahmedpixels.pro/contact",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Ahmed",
+              "jobTitle": "WordPress Developer & SEO Specialist",
+              "url": "https://ahmedpixels.pro",
+              "telephone": "+923216479192",
+              "email": "ahmedpixelspro@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Lahore",
+                "addressCountry": "Pakistan"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+923216479192",
+                "email": "ahmedpixelspro@gmail.com",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Urdu"],
+                "areaServed": "Worldwide"
+              },
+              "sameAs": [
+                "https://pk.linkedin.com/in/ahmedpixels",
+                "https://www.instagram.com/itx_ahmed_.0/"
+              ]
+            }
+          })}
+        </script>
       </Helmet>
       
       <Navbar />
