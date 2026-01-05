@@ -27,6 +27,11 @@ const ContactPage = () => {
         <meta property="og:title" content="Contact Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="Get in touch for WordPress development and SEO services. Fast response within 24 hours." />
         <meta property="og:url" content="https://ahmedpixels.pro/contact" />
+        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
       </Helmet>
       
       <Navbar />

@@ -68,6 +68,11 @@ const ProjectsPage = () => {
         <meta property="og:title" content="Portfolio & Projects | Ahmed - WordPress Developer" />
         <meta property="og:description" content="Explore WordPress websites, e-commerce stores, and SEO projects by Ahmed." />
         <meta property="og:url" content="https://ahmedpixels.pro/projects" />
+        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
       </Helmet>
       
       <Navbar />

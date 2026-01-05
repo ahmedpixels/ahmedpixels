@@ -30,6 +30,13 @@ const Index = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ahmedpixels.pro/" />
+        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ahmed - WordPress Developer & SEO Specialist" />
+        <meta name="twitter:description" content="I craft high-performance websites that rank and convert." />
+        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
         <link rel="canonical" href="https://ahmedpixels.pro/" />
         <script type="application/ld+json">
           {JSON.stringify({
