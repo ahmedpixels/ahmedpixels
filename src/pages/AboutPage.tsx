@@ -57,6 +57,33 @@ const AboutPage = () => {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About Ahmed - WordPress Developer & SEO Specialist",
+            "description": "Learn about Ahmed, a WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience.",
+            "url": "https://ahmedpixels.pro/about",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Ahmed",
+              "jobTitle": "WordPress Developer & SEO Specialist",
+              "description": "Professional WordPress Developer and SEO Specialist with 2+ years of experience, specializing in E-commerce, B2B platforms, and performance optimization.",
+              "url": "https://ahmedpixels.pro",
+              "image": "https://ahmedpixels.pro/og-image.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Lahore",
+                "addressCountry": "Pakistan"
+              },
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Brains College, Baghwanpura"
+              },
+              "knowsAbout": ["WordPress Development", "SEO", "E-commerce", "WooCommerce", "Shopify", "Web Development", "Performance Optimization"]
+            }
+          })}
+        </script>
       </Helmet>
       
       <Navbar />
