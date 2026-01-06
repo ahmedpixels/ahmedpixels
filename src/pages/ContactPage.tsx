@@ -35,6 +35,16 @@ const ContactPage = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.pro/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ahmedpixels.pro/contact" }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "ContactPage",
             "name": "Contact Ahmed - WordPress Developer & SEO Specialist",
             "description": "Get in touch with Ahmed for WordPress development and SEO services.",
