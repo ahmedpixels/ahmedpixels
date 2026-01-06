@@ -53,6 +53,62 @@ const Index = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How long does it take to build a WordPress website?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A typical WordPress website takes 1-3 weeks depending on complexity. A simple single-page site can be done in 5-7 days, while a full e-commerce store with custom features may take 2-4 weeks."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide ongoing support after the website is launched?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! I offer maintenance packages that include regular updates, security monitoring, backups, and technical support. The first month of basic support is included in most packages."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is your SEO process?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "My SEO process includes keyword research, on-page optimization (meta tags, headings, content), technical SEO (speed, mobile-friendliness, schema markup), and setting up Google Analytics & Search Console for tracking."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you help with an existing WordPress website?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! I can help redesign, optimize, fix issues, add new features, or improve the SEO of your existing WordPress site. I'll first audit your site and provide recommendations."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What payment methods do you accept?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "I accept bank transfers, JazzCash, Easypaisa, and for international clients - PayPal and Wise. Payment is typically 50% upfront and 50% upon completion."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will my website be mobile-friendly?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "100% yes! All websites I build are fully responsive and optimized for mobile, tablet, and desktop. Mobile-friendliness is also crucial for SEO and is always a priority."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <main className="overflow-x-hidden">
