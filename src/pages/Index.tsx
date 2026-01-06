@@ -56,6 +56,52 @@ const Index = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Ahmed - WordPress Developer & SEO Specialist",
+            "description": "Professional WordPress Developer and SEO Specialist creating high-performance websites that rank and convert.",
+            "url": "https://ahmedpixels.pro/",
+            "telephone": "+92-321-6479192",
+            "email": "contact@ahmedpixels.pro",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Lahore",
+              "addressRegion": "Punjab",
+              "addressCountry": "PK"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "31.5204",
+              "longitude": "74.3587"
+            },
+            "priceRange": "$$",
+            "openingHours": "Mo-Sa 09:00-18:00",
+            "sameAs": [
+              "https://wa.me/923216479192"
+            ],
+            "serviceArea": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "31.5204",
+                "longitude": "74.3587"
+              },
+              "geoRadius": "50000"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Web Development Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WordPress Development" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Optimization" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce Development" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Shopify Store Setup" } }
+              ]
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": [
               {
