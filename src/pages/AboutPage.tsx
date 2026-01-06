@@ -60,6 +60,16 @@ const AboutPage = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.pro/" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ahmedpixels.pro/about" }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "AboutPage",
             "name": "About Ahmed - WordPress Developer & SEO Specialist",
             "description": "Learn about Ahmed, a WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience.",
