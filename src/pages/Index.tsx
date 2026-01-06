@@ -155,6 +155,58 @@ const Index = () => {
             ]
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Ahmed - WordPress Developer & SEO Specialist",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "50",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Sarah Mitchell" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Ahmed transformed our outdated website into a modern, SEO-optimized platform. Our organic traffic increased by 200% within 3 months. His attention to detail and communication is exceptional."
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Michael Chen" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Working with Ahmed was a game-changer for our online store. He built a fast, beautiful WooCommerce site that our customers love. Sales have doubled since the launch!"
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Fatima Al-Hassan" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Ahmed delivered our B2B platform ahead of schedule and under budget. His WordPress expertise and SEO knowledge helped us rank #1 for our target keywords."
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "David Thompson" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Our Shopify store looks absolutely premium. Ahmed understood our brand perfectly and created an experience that reflects our quality. Highly recommend his services!"
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Aisha Malik" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Professional, responsive, and incredibly talented. Ahmed rebuilt our tech company website with stunning animations and perfect mobile optimization. A true expert!"
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "James Wilson" },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "The catalogue website Ahmed created for us is a work of art. Our clients constantly compliment the design. He truly understands how to showcase products beautifully."
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <main className="overflow-x-hidden">
