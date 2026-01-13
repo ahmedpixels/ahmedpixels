@@ -42,6 +42,21 @@ const projects = [
 
 const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const iframeRef = useRef<HTMLDivElement>(null);
+  const isVisible = useInView(iframeRef, { once: true, margin: "100px" });
+
+  // Load iframe when visible
+  useState(() => {
+    if (isVisible && !shouldLoad) {
+      setShouldLoad(true);
+    }
+  });
+
+  // Update shouldLoad when isVisible changes
+  if (isVisible && !shouldLoad) {
+    setShouldLoad(true);
+  }
 
   return (
     <motion.a
@@ -61,7 +76,7 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-foreground rounded-b-2xl z-20" />
         
         {/* Screen */}
-        <div className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
+        <div ref={iframeRef} className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
           {/* Loading Skeleton */}
           {!isLoaded && (
             <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse flex items-center justify-center">
@@ -69,15 +84,16 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
             </div>
           )}
           
-          {/* Live Website iframe */}
-          <iframe
-            src={project.url}
-            title={`${project.title} live preview`}
-            className="w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none"
-            onLoad={() => setIsLoaded(true)}
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin"
-          />
+          {/* Live Website iframe - only render when visible */}
+          {shouldLoad && (
+            <iframe
+              src={project.url}
+              title={`${project.title} live preview`}
+              className="w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none"
+              onLoad={() => setIsLoaded(true)}
+              sandbox="allow-scripts allow-same-origin"
+            />
+          )}
           
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
