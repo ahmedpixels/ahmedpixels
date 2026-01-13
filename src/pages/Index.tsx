@@ -207,6 +207,81 @@ const Index = () => {
             ]
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Web Development Portfolio",
+            "description": "Portfolio of websites built by Ahmed - WordPress Developer & SEO Specialist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "PixelHash Tech",
+                  "description": "Digital agency website with modern design and cutting-edge animations",
+                  "url": "https://pixelhashtech.com/",
+                  "creator": { "@type": "Person", "name": "Ahmed", "url": "https://ahmedpixels.pro/" },
+                  "dateCreated": "2024",
+                  "genre": "Tech Website"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "Shine Wall Stone",
+                  "description": "Premium stone and marble company showcase website",
+                  "url": "https://shinewallstone.com/",
+                  "creator": { "@type": "Person", "name": "Ahmed", "url": "https://ahmedpixels.pro/" },
+                  "dateCreated": "2024",
+                  "genre": "Business Website"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "Silks Pool",
+                  "description": "Industrial sewing machine parts distributor e-commerce platform",
+                  "url": "https://silkspool.com/",
+                  "creator": { "@type": "Person", "name": "Ahmed", "url": "https://ahmedpixels.pro/" },
+                  "dateCreated": "2024",
+                  "genre": "E-commerce Website"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "Jeddah Auto Spare Parts",
+                  "description": "Premium automotive filters store with comprehensive product catalog",
+                  "url": "https://jeddahautospareparts.com/",
+                  "creator": { "@type": "Person", "name": "Ahmed", "url": "https://ahmedpixels.pro/" },
+                  "dateCreated": "2024",
+                  "genre": "E-commerce Website"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "CreativeWork",
+                  "name": "Eleeva Adhesives",
+                  "description": "Industrial adhesives manufacturer corporate website",
+                  "url": "https://eleevaadhesives.com/",
+                  "creator": { "@type": "Person", "name": "Ahmed", "url": "https://ahmedpixels.pro/" },
+                  "dateCreated": "2024",
+                  "genre": "Corporate Website"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <main className="overflow-x-hidden">
