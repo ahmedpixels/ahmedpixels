@@ -282,6 +282,57 @@ const Index = () => {
             ]
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Get a Professional Website Built",
+            "description": "A step-by-step guide to working with Ahmed for your web development project - from initial discovery to ongoing support.",
+            "totalTime": "P2W",
+            "estimatedCost": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "500-5000"
+            },
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Discovery Call",
+                "text": "We discuss your project requirements, goals, and vision to understand exactly what you need.",
+                "url": "https://ahmedpixels.pro/#process"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Strategy & Planning",
+                "text": "I create a detailed plan including site structure, features, and SEO strategy tailored to your business.",
+                "url": "https://ahmedpixels.pro/#process"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Design & Development",
+                "text": "Building your website with clean code, responsive design, and optimized performance.",
+                "url": "https://ahmedpixels.pro/#process"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Testing & Launch",
+                "text": "Thorough testing across devices and browsers before launching your website live.",
+                "url": "https://ahmedpixels.pro/#process"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Support & Maintenance",
+                "text": "Ongoing support to keep your website updated, secure, and performing at its best.",
+                "url": "https://ahmedpixels.pro/#process"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <main className="overflow-x-hidden">
