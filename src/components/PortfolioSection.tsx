@@ -1,12 +1,6 @@
-import { motion, useInView, useAnimationControls } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
-
-import pixelhashtech from "@/assets/projects/pixelhashtech-mobile.png";
-import shinewallstone from "@/assets/projects/shinewallstone-mobile.png";
-import silkspool from "@/assets/projects/silkspool-mobile.png";
-import jeddahautospareparts from "@/assets/projects/jeddahautospareparts-mobile.png";
-import eleevaadhesives from "@/assets/projects/eleevaadhesives-mobile.png";
 
 const projects = [
   {
@@ -15,7 +9,6 @@ const projects = [
     description: "Digital agency website with modern design",
     color: "from-orange-500 to-amber-500",
     url: "https://pixelhashtech.com/",
-    screenshot: pixelhashtech,
   },
   {
     title: "Shine Wall Stone",
@@ -23,7 +16,6 @@ const projects = [
     description: "Premium stone and marble company showcase",
     color: "from-blue-500 to-cyan-500",
     url: "https://shinewallstone.com/",
-    screenshot: shinewallstone,
   },
   {
     title: "Silks Pool",
@@ -31,7 +23,6 @@ const projects = [
     description: "Industrial sewing machine parts distributor",
     color: "from-amber-600 to-orange-600",
     url: "https://silkspool.com/",
-    screenshot: silkspool,
   },
   {
     title: "Jeddah Auto Spare Parts",
@@ -39,7 +30,6 @@ const projects = [
     description: "Premium automotive filters store",
     color: "from-purple-500 to-pink-500",
     url: "https://jeddahautospareparts.com/",
-    screenshot: jeddahautospareparts,
   },
   {
     title: "Eleeva Adhesives",
@@ -47,12 +37,11 @@ const projects = [
     description: "Industrial adhesives manufacturer website",
     color: "from-emerald-500 to-teal-500",
     url: "https://eleevaadhesives.com/",
-    screenshot: eleevaadhesives,
   },
 ];
 
 const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: number }) => {
-  const [isPaused, setIsPaused] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <motion.a
@@ -67,35 +56,31 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
       className="group relative block cursor-pointer"
     >
       {/* Phone Frame */}
-      <div 
-        className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px]"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
+      <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px]">
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-foreground rounded-b-2xl z-20" />
         
         {/* Screen */}
         <div className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
-          {/* Full-page Scroll Preview */}
-          <motion.img
-            src={project.screenshot}
-            alt={`${project.title} website preview`}
-            animate={isPaused ? {} : { y: ["0%", "-85%", "0%"] }}
-            transition={{
-              y: {
-                duration: 60,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut",
-              },
-            }}
-            className="w-full h-auto"
-            style={{ imageRendering: 'crisp-edges' }}
+          {/* Loading Skeleton */}
+          {!isLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse flex items-center justify-center">
+              <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            </div>
+          )}
+          
+          {/* Live Website iframe */}
+          <iframe
+            src={project.url}
+            title={`${project.title} live preview`}
+            className="w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none"
+            onLoad={() => setIsLoaded(true)}
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin"
           />
           
           {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
             <span className="px-4 py-2 bg-white text-black rounded-full font-semibold text-sm flex items-center gap-2">
               Visit Site <ExternalLink size={14} />
             </span>
