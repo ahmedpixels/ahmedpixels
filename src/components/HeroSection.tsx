@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.jpg";
+import OptimizedImage from "./OptimizedImage";
 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -112,13 +113,11 @@ const HeroSection = () => {
                 
                 {/* Image - Priority loading for LCP */}
                 <div className="absolute inset-2 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-transparent">
-                  <img
+                  <OptimizedImage
                     src={ahmedPortrait}
                     alt="Ahmed - WordPress Developer"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
+                    className="w-full h-full"
+                    priority={true}
                   />
                 </div>
 
