@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import OptimizedImage from "./OptimizedImage";
 
 import pixelhashLogo from "@/assets/logos/pixelhash.png";
 import shinewallstoneLogo from "@/assets/logos/shinewallstone.png";
@@ -75,6 +76,8 @@ const ClientLogosSection = () => {
                 <img 
                   src={client.logo} 
                   alt={client.name}
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-all"
                 />
               </div>

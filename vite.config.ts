@@ -15,4 +15,17 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          animations: ["framer-motion"],
+        },
+      },
+    },
+    assetsInlineLimit: 4096, // Inline small assets <4kb
+  },
+  // Optimize image handling
+  assetsInclude: ["**/*.jpg", "**/*.jpeg", "**/*.png", "**/*.webp", "**/*.avif", "**/*.gif", "**/*.svg"],
 }));
