@@ -49,12 +49,13 @@ const testimonials = [
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1" role="img" aria-label={`${rating} out of 5 stars rating`}>
       {[...Array(5)].map((_, i) => (
         <Star
           key={i}
           size={16}
           className={i < rating ? "text-primary fill-primary" : "text-muted-foreground"}
+          aria-hidden="true"
         />
       ))}
     </div>
@@ -76,16 +77,18 @@ const TestimonialCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -5, scale: 1.02 }}
       className="glass-card p-6 md:p-8 relative group"
+      role="article"
+      aria-label={`Testimonial from ${testimonial.name}`}
     >
       {/* Quote Icon */}
-      <div className="absolute -top-4 -left-2 w-10 h-10 bg-gradient-orange rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-        <Quote size={18} className="text-primary-foreground" />
+      <div className="absolute -top-4 -left-2 w-10 h-10 bg-gradient-orange rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+        <Quote size={18} className="text-primary-foreground" aria-hidden="true" />
       </div>
 
       {/* Content */}
-      <p className="text-muted-foreground leading-relaxed mb-6 mt-2">
+      <blockquote className="text-muted-foreground leading-relaxed mb-6 mt-2">
         "{testimonial.content}"
-      </p>
+      </blockquote>
 
       {/* Rating */}
       <div className="mb-4">
@@ -111,7 +114,7 @@ const TestimonialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="testimonials" className="section-padding bg-section-light" ref={ref}>
+    <section id="testimonials" className="section-padding bg-section-light" ref={ref} aria-labelledby="testimonials-heading">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -123,7 +126,7 @@ const TestimonialsSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Testimonials
           </span>
-          <h2 className="heading-lg text-foreground mt-4">
+          <h2 id="testimonials-heading" className="heading-lg text-foreground mt-4">
             What <span className="text-gradient">Clients Say</span>
           </h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto mt-4">

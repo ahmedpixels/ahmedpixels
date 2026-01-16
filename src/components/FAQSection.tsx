@@ -45,7 +45,7 @@ const FAQSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="faq" className="section-padding bg-section-dark" ref={ref}>
+    <section id="faq" className="section-padding bg-section-dark" ref={ref} aria-labelledby="faq-heading">
       <div className="container-custom max-w-4xl">
         {/* Header */}
         <motion.div
@@ -57,7 +57,7 @@ const FAQSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             FAQ
           </span>
-          <h2 className="heading-lg text-hero-text mt-4">
+          <h2 id="faq-heading" className="heading-lg text-hero-text mt-4">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">

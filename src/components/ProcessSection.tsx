@@ -59,7 +59,7 @@ const ProcessSection = () => {
   };
 
   return (
-    <section id="process" className="section-padding bg-section-light" ref={ref}>
+    <section id="process" className="section-padding bg-section-light" ref={ref} aria-labelledby="process-heading">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -71,7 +71,7 @@ const ProcessSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Process
           </span>
-          <h2 className="heading-lg text-foreground mt-4">
+          <h2 id="process-heading" className="heading-lg text-foreground mt-4">
             How I <span className="text-gradient">Work</span>
           </h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto mt-4">
@@ -116,8 +116,9 @@ const ProcessSection = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     className="w-16 h-16 bg-gradient-orange rounded-2xl flex items-center justify-center shadow-lg"
+                    aria-hidden="true"
                   >
-                    <step.icon className="text-primary-foreground" size={28} />
+                    <step.icon className="text-primary-foreground" size={28} aria-hidden="true" />
                   </motion.div>
                 </div>
 
