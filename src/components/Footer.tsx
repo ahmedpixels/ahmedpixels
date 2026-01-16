@@ -23,9 +23,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-hero-bg relative overflow-hidden">
+    <footer className="bg-hero-bg relative overflow-hidden" role="contentinfo" aria-label="Site footer">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[0.02]" aria-hidden="true">
         <div 
           className="absolute inset-0"
           style={{
@@ -36,7 +36,7 @@ const Footer = () => {
       </div>
 
       {/* Top Gradient Line */}
-      <div className="h-1 bg-gradient-orange" />
+      <div className="h-1 bg-gradient-orange" aria-hidden="true" />
 
       <div className="container-custom px-8 md:px-12 lg:px-16 xl:px-24 relative z-10">
         {/* Main Footer Content */}
@@ -69,21 +69,22 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300"
-                  aria-label={social.label}
+                  className="w-10 h-10 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-text/60 hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                  aria-label={`Follow on ${social.label}`}
                 >
-                  <social.icon size={18} />
+                  <social.icon size={18} aria-hidden="true" />
                 </motion.a>
               ))}
             </div>
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            aria-label="Quick links"
           >
             <h4 className="text-hero-text font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
@@ -91,9 +92,9 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-hero-text/60 hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-hero-text/60 hover:text-primary transition-colors duration-300 flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
                   >
-                    <span className="w-1.5 h-1.5 bg-primary/50 rounded-full group-hover:bg-primary transition-colors" />
+                    <span className="w-1.5 h-1.5 bg-primary/50 rounded-full group-hover:bg-primary transition-colors" aria-hidden="true" />
                     {link.name}
                   </Link>
                 </li>
@@ -101,14 +102,14 @@ const Footer = () => {
               <li>
                 <a
                   href="/#portfolio"
-                  className="text-hero-text/60 hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
+                  className="text-hero-text/60 hover:text-primary transition-colors duration-300 flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
                 >
-                  <span className="w-1.5 h-1.5 bg-primary/50 rounded-full group-hover:bg-primary transition-colors" />
+                  <span className="w-1.5 h-1.5 bg-primary/50 rounded-full group-hover:bg-primary transition-colors" aria-hidden="true" />
                   Portfolio
                 </a>
               </li>
             </ul>
-          </motion.div>
+          </motion.nav>
 
           {/* Services */}
           <motion.div
@@ -118,11 +119,11 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
           >
             <h4 className="text-hero-text font-bold text-lg mb-6">Services</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3" aria-label="Services offered">
               {services.map((service) => (
                 <li key={service}>
                   <span className="text-hero-text/60 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary/50 rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-primary/50 rounded-full" aria-hidden="true" />
                     {service}
                   </span>
                 </li>
@@ -138,32 +139,36 @@ const Footer = () => {
             transition={{ delay: 0.3 }}
           >
             <h4 className="text-hero-text font-bold text-lg mb-6">Get In Touch</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="text-primary mt-1 flex-shrink-0" size={18} />
-                <span className="text-hero-text/60">Lahore, Pakistan</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="text-primary mt-1 flex-shrink-0" size={18} />
-                <a 
-                  href="https://wa.me/923216479192?text=Hi%20Ahmed"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-hero-text/60 hover:text-primary transition-colors"
-                >
-                  +923216479192
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="text-primary mt-1 flex-shrink-0" size={18} />
-                <a 
-                  href="mailto:ahmedpixelspro@gmail.com"
-                  className="text-hero-text/60 hover:text-primary transition-colors"
-                >
-                  ahmedpixelspro@gmail.com
-                </a>
-              </li>
-            </ul>
+            <address className="not-italic">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <MapPin className="text-primary mt-1 flex-shrink-0" size={18} aria-hidden="true" />
+                  <span className="text-hero-text/60">Lahore, Pakistan</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Phone className="text-primary mt-1 flex-shrink-0" size={18} aria-hidden="true" />
+                  <a 
+                    href="https://wa.me/923216479192?text=Hi%20Ahmed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-hero-text/60 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
+                    aria-label="Contact via WhatsApp"
+                  >
+                    +923216479192
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Mail className="text-primary mt-1 flex-shrink-0" size={18} aria-hidden="true" />
+                  <a 
+                    href="mailto:ahmedpixelspro@gmail.com"
+                    className="text-hero-text/60 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
+                    aria-label="Send email"
+                  >
+                    ahmedpixelspro@gmail.com
+                  </a>
+                </li>
+              </ul>
+            </address>
 
             {/* CTA Button */}
             <motion.div
@@ -175,7 +180,8 @@ const Footer = () => {
                 href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-orange text-primary-foreground rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-orange text-primary-foreground rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                aria-label="Start a conversation on WhatsApp"
               >
                 Let's Talk
               </a>
@@ -191,7 +197,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-hero-text/40 text-sm flex items-center gap-1"
           >
-            Copyright © 2026 All rights reserved.
+            <span>Copyright © {currentYear} All rights reserved.</span>
           </motion.p>
 
           {/* Scroll to Top */}
@@ -202,9 +208,10 @@ const Footer = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -3 }}
             whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 bg-gradient-orange rounded-full flex items-center justify-center shadow-lg group"
+            className="w-12 h-12 bg-gradient-orange rounded-full flex items-center justify-center shadow-lg group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+            aria-label="Scroll to top of page"
           >
-            <ArrowUp className="text-primary-foreground group-hover:animate-bounce" size={20} />
+            <ArrowUp className="text-primary-foreground group-hover:animate-bounce" size={20} aria-hidden="true" />
           </motion.button>
         </div>
       </div>

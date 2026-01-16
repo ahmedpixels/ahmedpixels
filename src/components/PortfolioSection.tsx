@@ -68,7 +68,8 @@ const PhoneMockup = ({ project, index }: { project: typeof projects[0]; index: n
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className="group relative block cursor-pointer"
+      className="group relative block cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background rounded-3xl"
+      aria-label={`View ${project.title} - ${project.type}`}
     >
       {/* Phone Frame */}
       <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px]">
@@ -129,7 +130,7 @@ const PortfolioSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="portfolio" className="section-padding bg-section-light" ref={ref}>
+    <section id="portfolio" className="section-padding bg-section-light" ref={ref} aria-labelledby="portfolio-heading">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -138,7 +139,7 @@ const PortfolioSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider" id="portfolio-heading">
             Portfolio
           </span>
           <h2 className="heading-lg text-foreground mt-4">
@@ -151,7 +152,7 @@ const PortfolioSection = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" role="list" aria-label="Portfolio projects">
           {projects.map((project, index) => (
             <PhoneMockup key={project.title} project={project} index={index} />
           ))}
@@ -170,10 +171,11 @@ const PortfolioSection = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-orange text-primary-foreground rounded-full font-bold shadow-lg glow-orange hover:shadow-2xl transition-shadow"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-orange text-primary-foreground rounded-full font-bold shadow-lg glow-orange hover:shadow-2xl transition-shadow focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background"
+            aria-label="Start your project - Contact Ahmed on WhatsApp"
           >
             Start Your Project
-            <ExternalLink size={18} />
+            <ExternalLink size={18} aria-hidden="true" />
           </motion.a>
         </motion.div>
       </div>
