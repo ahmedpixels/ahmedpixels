@@ -81,23 +81,25 @@ const HeroSection = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
+            <nav className="flex flex-wrap gap-4" aria-label="Primary actions">
               <a
                 href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-7 py-3.5 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] transition-all"
+                className="px-7 py-3.5 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                aria-label="Contact Ahmed on WhatsApp"
               >
                 Let's Talk
               </a>
 
               <a
                 href="#portfolio"
-                className="px-7 py-3.5 border border-hero-text/20 text-hero-text rounded-full font-semibold hover:border-primary hover:text-primary transition-colors"
+                className="px-7 py-3.5 border border-hero-text/20 text-hero-text rounded-full font-semibold hover:border-primary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                aria-label="View portfolio projects"
               >
                 View Projects
               </a>
-            </div>
+            </nav>
           </motion.div>
 
           {/* Right - Image (LCP Element) */}
@@ -122,9 +124,13 @@ const HeroSection = () => {
                 </div>
 
                 {/* Status badge */}
-                <div className="absolute -right-2 top-1/4 bg-card/90 backdrop-blur-sm border border-border/50 rounded-xl px-4 py-2 shadow-lg">
+                <div 
+                  className="absolute -right-2 top-1/4 bg-card/90 backdrop-blur-sm border border-border/50 rounded-xl px-4 py-2 shadow-lg"
+                  role="status"
+                  aria-live="polite"
+                >
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-400 rounded-full" />
+                    <span className="w-2 h-2 bg-green-400 rounded-full" aria-hidden="true" />
                     <span className="text-xs font-medium text-foreground">Available for work</span>
                   </div>
                 </div>
@@ -139,10 +145,11 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-hero-muted hover:text-primary transition-colors"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-hero-muted hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-lg p-2"
+          aria-label="Scroll down to About section"
         >
-          <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
-          <ArrowDown size={18} />
+          <span className="text-xs font-medium uppercase tracking-wider" aria-hidden="true">Scroll</span>
+          <ArrowDown size={18} aria-hidden="true" />
         </motion.a>
       </div>
     </section>

@@ -54,7 +54,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-section-light" ref={ref}>
+    <section id="about" className="section-padding bg-section-light" ref={ref} aria-labelledby="about-heading">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -65,7 +65,7 @@ const AboutSection = () => {
           {/* Left Content */}
           <div>
             <motion.div variants={itemVariants} className="mb-4">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider" id="about-heading">
                 About Me
               </span>
             </motion.div>
@@ -96,10 +96,11 @@ const AboutSection = () => {
             <motion.div variants={itemVariants} className="mt-8">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-lg p-1"
+                aria-label="Navigate to contact section"
               >
                 Let's Work Together
-                <span>→</span>
+                <span aria-hidden="true">→</span>
               </a>
             </motion.div>
           </div>
@@ -108,28 +109,31 @@ const AboutSection = () => {
           <motion.div
             variants={containerVariants}
             className="grid sm:grid-cols-2 gap-6"
+            role="list"
+            aria-label="Key highlights"
           >
-            {highlights.map((item, index) => (
-              <motion.div
+            {highlights.map((item) => (
+              <motion.article
                 key={item.title}
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="relative bg-hero-bg/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-white/20 transition-all duration-300 overflow-hidden group"
+                role="listitem"
               >
                 {/* Gradient accent at top */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient}`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient}`} aria-hidden="true" />
                 
                 {/* Hover glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} aria-hidden="true" />
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                    <item.icon className="text-white" size={24} />
+                  <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`} aria-hidden="true">
+                    <item.icon className="text-white" size={24} aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
                   <p className="text-white/60 text-sm">{item.description}</p>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         </motion.div>
