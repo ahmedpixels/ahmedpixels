@@ -178,7 +178,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-section-dark" ref={ref}>
+    <section id="contact" className="section-padding bg-section-dark" ref={ref} aria-labelledby="contact-heading">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -190,7 +190,7 @@ const ContactSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Get In Touch
           </span>
-          <h2 className="heading-lg text-hero-text mt-4">
+          <h2 id="contact-heading" className="heading-lg text-hero-text mt-4">
             Let's <span className="text-gradient">Work Together</span>
           </h2>
           <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
@@ -259,50 +259,58 @@ const ContactSection = () => {
               {/* Row 1: Name & Email */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-white/60 text-sm mb-1.5 block">Full Name *</label>
+                  <label htmlFor="contact-name" className="text-white/60 text-sm mb-1.5 block">Full Name *</label>
                   <input
+                    id="contact-name"
                     type="text"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                     className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors"
                   />
-                  {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+                  {errors.name && <p id="name-error" className="text-red-400 text-sm mt-1" role="alert">{errors.name}</p>}
                 </div>
                 
                 <div>
-                  <label className="text-white/60 text-sm mb-1.5 block">Email Address *</label>
+                  <label htmlFor="contact-email" className="text-white/60 text-sm mb-1.5 block">Email Address *</label>
                   <input
+                    id="contact-email"
                     type="email"
                     placeholder="your@email.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                     className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors"
                   />
-                  {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                  {errors.email && <p id="email-error" className="text-red-400 text-sm mt-1" role="alert">{errors.email}</p>}
                 </div>
               </div>
               
               {/* Row 2: Phone & Service */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-white/60 text-sm mb-1.5 block">WhatsApp / Phone *</label>
+                  <label htmlFor="contact-phone" className="text-white/60 text-sm mb-1.5 block">WhatsApp / Phone *</label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     placeholder="+92 321 1234567"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    aria-describedby={errors.phone ? "phone-error" : undefined}
                     className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors"
                   />
-                  {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+                  {errors.phone && <p id="phone-error" className="text-red-400 text-sm mt-1" role="alert">{errors.phone}</p>}
                 </div>
                 
                 <div>
-                  <label className="text-white/60 text-sm mb-1.5 block">Service Required *</label>
+                  <label htmlFor="contact-service" className="text-white/60 text-sm mb-1.5 block">Service Required *</label>
                   <div className="relative">
                     <select
+                      id="contact-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      aria-describedby={errors.service ? "service-error" : undefined}
                       className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white focus:border-orange-500/50 focus:outline-none transition-colors appearance-none cursor-pointer"
                     >
                       <option value="" className="bg-hero-bg text-white/40">Select a service</option>
@@ -310,31 +318,34 @@ const ContactSection = () => {
                         <option key={service} value={service} className="bg-hero-bg text-white">{service}</option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={20} />
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={20} aria-hidden="true" />
                   </div>
-                  {errors.service && <p className="text-red-400 text-sm mt-1">{errors.service}</p>}
+                  {errors.service && <p id="service-error" className="text-red-400 text-sm mt-1" role="alert">{errors.service}</p>}
                 </div>
               </div>
               
               {/* Project Details */}
               <div>
-                <label className="text-white/60 text-sm mb-1.5 block">Project Details *</label>
+                <label htmlFor="contact-message" className="text-white/60 text-sm mb-1.5 block">Project Details *</label>
                 <textarea
+                  id="contact-message"
                   placeholder="Tell me about your project idea, goals, or any specific requirements..."
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  aria-describedby={errors.message ? "message-error" : undefined}
                   className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors resize-none"
                 />
-                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
+                {errors.message && <p id="message-error" className="text-red-400 text-sm mt-1" role="alert">{errors.message}</p>}
               </div>
               
               {/* Row 3: Budget & Timeline */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-white/60 text-sm mb-1.5 block">Budget Range</label>
+                  <label htmlFor="contact-budget" className="text-white/60 text-sm mb-1.5 block">Budget Range</label>
                   <div className="relative">
                     <select
+                      id="contact-budget"
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white focus:border-orange-500/50 focus:outline-none transition-colors appearance-none cursor-pointer"
@@ -344,14 +355,15 @@ const ContactSection = () => {
                         <option key={budget} value={budget} className="bg-hero-bg text-white">{budget}</option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={20} />
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={20} aria-hidden="true" />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="text-white/60 text-sm mb-1.5 block">Project Timeline</label>
+                  <label htmlFor="contact-timeline" className="text-white/60 text-sm mb-1.5 block">Project Timeline</label>
                   <div className="relative">
                     <select
+                      id="contact-timeline"
                       value={formData.timeline}
                       onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                       className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white focus:border-orange-500/50 focus:outline-none transition-colors appearance-none cursor-pointer"
@@ -361,22 +373,24 @@ const ContactSection = () => {
                         <option key={timeline} value={timeline} className="bg-hero-bg text-white">{timeline}</option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={20} />
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={20} aria-hidden="true" />
                   </div>
                 </div>
               </div>
               
               {/* Reference URL */}
               <div>
-                <label className="text-white/60 text-sm mb-1.5 block">Reference Website (Optional)</label>
+                <label htmlFor="contact-reference" className="text-white/60 text-sm mb-1.5 block">Reference Website (Optional)</label>
                 <input
+                  id="contact-reference"
                   type="url"
                   placeholder="https://example.com"
                   value={formData.reference_url}
                   onChange={(e) => setFormData({ ...formData, reference_url: e.target.value })}
+                  aria-describedby={errors.reference_url ? "reference-error" : undefined}
                   className="w-full px-4 py-3 bg-hero-bg border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:border-orange-500/50 focus:outline-none transition-colors"
                 />
-                {errors.reference_url && <p className="text-red-400 text-sm mt-1">{errors.reference_url}</p>}
+                {errors.reference_url && <p id="reference-error" className="text-red-400 text-sm mt-1" role="alert">{errors.reference_url}</p>}
               </div>
               
               <button

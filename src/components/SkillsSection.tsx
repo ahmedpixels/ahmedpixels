@@ -95,7 +95,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="section-padding bg-section-dark" ref={ref}>
+    <section id="skills" className="section-padding bg-section-dark" ref={ref} aria-labelledby="skills-heading">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -107,7 +107,7 @@ const SkillsSection = () => {
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Skills & Services
           </span>
-          <h2 className="heading-lg text-hero-text mt-4">
+          <h2 id="skills-heading" className="heading-lg text-hero-text mt-4">
             What I <span className="text-gradient">Bring to the Table</span>
           </h2>
           <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
@@ -139,8 +139,8 @@ const SkillsSection = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
               
               {/* Icon */}
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <skill.icon className="text-primary-foreground" size={28} />
+              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`} aria-hidden="true">
+                <skill.icon className="text-primary-foreground" size={28} aria-hidden="true" />
               </div>
 
               {/* Content */}
