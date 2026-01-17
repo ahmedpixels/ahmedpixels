@@ -5,21 +5,20 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /*.json$
+Disallow: /_
 Disallow: /*?*
-
-# Crawl-delay for server optimization
-Crawl-delay: 1
 
 # Search Engine Bots - Full Access
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
 User-agent: Slurp
 Allow: /
@@ -88,6 +87,12 @@ User-agent: Claude-Web
 Disallow: /
 
 User-agent: Google-Extended
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Omgilibot
 Disallow: /
 
 # Block Spam & Scraper Bots
