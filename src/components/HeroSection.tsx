@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin, Code, Search, Palette, Rocket } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.jpg";
 import OptimizedImage from "./OptimizedImage";
+import ParticlesBackground from "./ParticlesBackground";
 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -44,10 +45,13 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen bg-hero-bg relative overflow-hidden flex items-center">
+      {/* Particles Background */}
+      <ParticlesBackground />
+      
       {/* Advanced gradient background */}
       <div className="absolute inset-0">
         {/* Main gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
         
         {/* Animated gradient orbs */}
         <motion.div 
