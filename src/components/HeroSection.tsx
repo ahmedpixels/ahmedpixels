@@ -331,30 +331,6 @@ const HeroSection = () => {
                   />
                 </div>
 
-                {/* Floating badges */}
-                <motion.div 
-                  className="absolute -right-4 top-1/4 bg-card/95 backdrop-blur-md border border-primary/30 rounded-2xl px-5 py-3 shadow-xl shadow-primary/10"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-sm font-medium text-foreground">Available for work</span>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  className="absolute -left-4 bottom-1/4 bg-card/95 backdrop-blur-md border border-primary/30 rounded-2xl px-5 py-3 shadow-xl shadow-primary/10"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.2 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">🚀</span>
-                    <span className="text-sm font-medium text-foreground">WordPress Pro</span>
-                  </div>
-                </motion.div>
 
                 {/* Corner decorations */}
                 <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary rounded-tr-lg" />
