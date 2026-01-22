@@ -14,96 +14,103 @@ html {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
+    --background: 270 10% 99%;
+    --foreground: 270 15% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card: 270 15% 98%;
+    --card-foreground: 270 15% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 270 15% 98%;
+    --popover-foreground: 270 15% 8%;
 
-    --primary: 276 70% 55%;
+    --primary: 270 85% 58%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 276 80% 65%;
+    --primary-glow: 280 90% 65%;
+    --primary-light: 270 70% 75%;
+    --primary-dark: 270 80% 45%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 270 10% 94%;
+    --secondary-foreground: 270 15% 15%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 270 8% 92%;
+    --muted-foreground: 270 10% 45%;
 
-    --accent: 276 70% 55%;
+    --accent: 280 75% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 276 70% 55%;
+    --border: 270 15% 88%;
+    --input: 270 15% 88%;
+    --ring: 270 85% 58%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --hero-bg: 0 0% 2%;
+    --hero-bg: 270 20% 4%;
     --hero-text: 0 0% 100%;
-    --hero-text-muted: 0 0% 55%;
-    --section-dark: 0 0% 5%;
-    --section-light: 0 0% 98%;
-    --gradient-purple: linear-gradient(135deg, hsl(276, 70%, 55%) 0%, hsl(290, 80%, 60%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 10%) 100%);
-    --shadow-glow: 0 0 60px hsl(276 70% 55% / 0.3);
-    --shadow-soft: 0 25px 50px -12px hsl(0 0% 0% / 0.15);
-    --shadow-card: 0 4px 30px hsl(0 0% 0% / 0.1);
+    --hero-text-muted: 270 10% 65%;
+    --section-dark: 270 20% 6%;
+    --section-light: 270 15% 97%;
+    --gradient-purple: linear-gradient(135deg, hsl(270, 85%, 58%) 0%, hsl(290, 90%, 65%) 50%, hsl(310, 80%, 60%) 100%);
+    --gradient-purple-soft: linear-gradient(135deg, hsl(270, 60%, 95%) 0%, hsl(290, 70%, 92%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(270, 20%, 4%) 0%, hsl(270, 20%, 8%) 100%);
+    --shadow-glow: 0 0 80px hsl(270, 85%, 58%, 0.35);
+    --shadow-purple: 0 10px 40px hsl(270, 85%, 58%, 0.25);
+    --shadow-soft: 0 25px 50px -12px hsl(270, 20%, 15%, 0.2);
+    --shadow-card: 0 4px 30px hsl(270, 20%, 15%, 0.1);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 276 70% 55%;
+    --sidebar-background: 270 15% 98%;
+    --sidebar-foreground: 270 10% 30%;
+    --sidebar-primary: 270 85% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 15% 94%;
+    --sidebar-accent-foreground: 270 15% 15%;
+    --sidebar-border: 270 15% 88%;
+    --sidebar-ring: 270 85% 58%;
   }
 
   .dark {
-    --background: 0 0% 5%;
-    --foreground: 0 0% 98%;
+    --background: 270 20% 5%;
+    --foreground: 270 10% 98%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 270 20% 8%;
+    --card-foreground: 270 10% 98%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 270 20% 8%;
+    --popover-foreground: 270 10% 98%;
 
-    --primary: 276 70% 55%;
+    --primary: 270 85% 60%;
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 90% 68%;
+    --primary-light: 270 70% 75%;
+    --primary-dark: 270 80% 45%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 270 15% 15%;
+    --secondary-foreground: 270 10% 95%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 270 15% 18%;
+    --muted-foreground: 270 10% 60%;
 
-    --accent: 276 70% 55%;
+    --accent: 280 75% 62%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 65% 40%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 276 70% 55%;
+    --border: 270 15% 22%;
+    --input: 270 15% 22%;
+    --ring: 270 85% 60%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 276 70% 55%;
+    --sidebar-background: 270 20% 8%;
+    --sidebar-foreground: 270 10% 95%;
+    --sidebar-primary: 270 85% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 276 70% 55%;
+    --sidebar-accent: 270 15% 15%;
+    --sidebar-accent-foreground: 270 10% 95%;
+    --sidebar-border: 270 15% 18%;
+    --sidebar-ring: 270 85% 60%;
   }
 }
 
