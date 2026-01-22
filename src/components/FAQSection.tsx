@@ -76,7 +76,7 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="relative bg-hero-bg/50 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden group data-[state=open]:border-white/20 transition-all duration-300"
+                className="relative bg-hero-bg/50 backdrop-blur-sm rounded-2xl overflow-hidden group data-[state=open]:border-primary/30 transition-all duration-300 gradient-border-card"
               >
                 {/* Gradient accent on left */}
                 <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${faq.gradient} opacity-60 group-hover:opacity-100 transition-opacity`} />

@@ -249,11 +249,11 @@ const HeroSection = () => {
 
               <a
                 href="#portfolio"
-                className="group relative px-8 py-4 border-2 border-primary/30 text-hero-text rounded-full font-semibold overflow-hidden transition-all hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="group relative px-8 py-4 bg-transparent text-hero-text rounded-full font-semibold overflow-hidden transition-all hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background gradient-border-btn"
                 aria-label="View portfolio projects"
               >
                 <span className="relative z-10">View Projects</span>
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
               </a>
             </motion.nav>
 

@@ -103,7 +103,7 @@ const ProcessSection = () => {
                 <div className={`flex-1 ${index % 2 === 0 ? "md:text-right md:pr-16" : "md:text-left md:pl-16"}`}>
                   <motion.div
                     whileHover={{ y: -5 }}
-                    className="glass-card p-6 inline-block"
+                    className="glass-card p-6 inline-block gradient-border-card glow-border"
                   >
                     <span className="text-primary font-bold text-sm">{step.number}</span>
                     <h3 className="text-xl font-bold text-foreground mt-2">{step.title}</h3>

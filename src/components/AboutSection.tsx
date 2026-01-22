@@ -117,7 +117,7 @@ const AboutSection = () => {
                 key={item.title}
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="relative bg-hero-bg/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-white/20 transition-all duration-300 overflow-hidden group"
+                className="relative bg-hero-bg/60 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 overflow-hidden group gradient-border-card glow-border"
                 role="listitem"
               >
                 {/* Gradient accent at top */}
