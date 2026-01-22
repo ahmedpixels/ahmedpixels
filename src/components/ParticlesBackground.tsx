@@ -57,10 +57,10 @@ const ParticlesBackground = () => {
       return `hsla(${h}, ${s}%, ${l}%, ${a.toFixed(3)})`;
     };
 
-    // Purple color matching the theme (HSL 276, 70%, 55%)
-    const primaryH = 276;
-    const primaryS = 70;
-    const primaryL = 55;
+    // Purple color matching the enhanced theme (HSL 270, 85%, 58%)
+    const primaryH = 270;
+    const primaryS = 85;
+    const primaryL = 58;
 
     let time = 0;
     const animate = () => {

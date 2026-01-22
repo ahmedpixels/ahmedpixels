@@ -27,6 +27,8 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           glow: "hsl(var(--primary-glow))",
+          light: "hsl(var(--primary-light))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -95,8 +97,8 @@ export default {
           "50%": { transform: "translateY(-15px) rotate(2deg)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 40px hsl(276 70% 55% / 0.3)" },
-          "50%": { boxShadow: "0 0 80px hsl(276 70% 55% / 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 40px hsl(270, 85%, 58%, 0.3)" },
+          "50%": { boxShadow: "0 0 80px hsl(270, 85%, 58%, 0.5)" },
         },
         "scroll-up": {
           "0%": { transform: "translateY(0)" },
