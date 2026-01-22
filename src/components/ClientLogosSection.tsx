@@ -70,9 +70,9 @@ const ClientLogosSection = () => {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.1, y: -5 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer gradient-border-card rounded-2xl"
             >
-              <div className="px-6 py-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 group-hover:border-primary/40 group-hover:from-primary/30 group-hover:to-primary/10 transition-all shadow-lg shadow-primary/5 group-hover:shadow-primary/10">
+              <div className="px-6 py-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 group-hover:from-primary/30 group-hover:to-primary/10 transition-all shadow-lg shadow-primary/5 group-hover:shadow-primary/10">
                 <img 
                   src={client.logo} 
                   alt={client.name}

@@ -133,7 +133,7 @@ const SkillsSection = () => {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="group relative bg-hero-bg/50 backdrop-blur-sm border border-border/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden"
+              className="group relative bg-hero-bg/50 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 overflow-hidden gradient-border-card glow-border"
             >
               {/* Gradient Overlay on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />

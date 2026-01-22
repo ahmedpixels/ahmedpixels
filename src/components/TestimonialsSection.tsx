@@ -76,7 +76,7 @@ const TestimonialCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -5, scale: 1.02 }}
-      className="glass-card p-6 md:p-8 relative group"
+      className="glass-card p-6 md:p-8 relative group gradient-border-card glow-border"
       role="article"
       aria-label={`Testimonial from ${testimonial.name}`}
     >
@@ -152,7 +152,7 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 bg-section-dark rounded-2xl"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 bg-section-dark rounded-2xl gradient-border-card"
         >
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
