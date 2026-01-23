@@ -48,79 +48,8 @@ const HeroSection = () => {
       {/* Particles Background */}
       <ParticlesBackground />
       
-      {/* Advanced gradient background */}
-      <div className="absolute inset-0">
-        {/* Main gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
-        
-        {/* Animated gradient orbs */}
-        <motion.div 
-          className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[150px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-purple-600/15 rounded-full blur-[120px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[180px]"
-          animate={{
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        {/* Geometric shapes */}
-        <motion.div
-          className="absolute top-20 right-[20%] w-32 h-32 border border-primary/20 rotate-45"
-          style={{
-            transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px) rotate(45deg)`,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-32 left-[15%] w-24 h-24 border border-primary/15 rotate-12"
-          style={{
-            transform: `translate(${mousePosition.x * -0.3}px, ${mousePosition.y * -0.3}px) rotate(12deg)`,
-          }}
-        />
-        <motion.div
-          className="absolute top-1/3 left-[5%] w-16 h-16 bg-primary/10 rotate-45"
-          animate={{ rotate: [45, 90, 45] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        />
-
-        {/* Dotted pattern */}
-        <div 
-          className="absolute top-10 left-10 w-32 h-32 opacity-20"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1.5px, transparent 1.5px)`,
-            backgroundSize: '12px 12px',
-          }}
-        />
-        <div 
-          className="absolute bottom-20 right-10 w-40 h-40 opacity-15"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 2px, transparent 2px)`,
-            backgroundSize: '16px 16px',
-          }}
-        />
-
-        {/* Grid lines */}
-        <div className="absolute inset-0 opacity-[0.02]" 
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
+      {/* Starfield vignette overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-hero-bg/50 pointer-events-none" />
 
       {/* Floating icons */}
       {floatingIcons.map(({ Icon, delay, position }, index) => (
