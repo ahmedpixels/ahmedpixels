@@ -71,14 +71,14 @@ const ParticlesBackground = () => {
         };
       });
 
-      // Initialize shooting stars pool
-      shootingStarsRef.current = Array.from({ length: 3 }, () => ({
+      // Initialize shooting stars pool - more stars
+      shootingStarsRef.current = Array.from({ length: 8 }, () => ({
         x: 0,
         y: 0,
-        length: 80 + Math.random() * 60,
-        speed: 8 + Math.random() * 6,
+        length: 120 + Math.random() * 100,
+        speed: 15 + Math.random() * 12,
         opacity: 0,
-        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3,
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.4,
         active: false,
       }));
     };
@@ -179,16 +179,22 @@ const ParticlesBackground = () => {
         }
       });
 
-      // Spawn shooting star occasionally
-      if (time - lastShootingStarTime > 4 + Math.random() * 6) {
-        const inactiveStar = shootingStarsRef.current.find(s => !s.active);
-        if (inactiveStar) {
-          inactiveStar.x = Math.random() * canvas.width * 0.8;
-          inactiveStar.y = Math.random() * canvas.height * 0.3;
-          inactiveStar.opacity = 1;
-          inactiveStar.active = true;
-          lastShootingStarTime = time;
+      // Spawn shooting stars more frequently
+      if (time - lastShootingStarTime > 1.2 + Math.random() * 2.5) {
+        const inactiveStars = shootingStarsRef.current.filter(s => !s.active);
+        const toSpawn = Math.min(inactiveStars.length, Math.random() > 0.6 ? 2 : 1);
+        for (let i = 0; i < toSpawn; i++) {
+          const star = inactiveStars[i];
+          if (star) {
+            star.x = Math.random() * canvas.width * 0.7;
+            star.y = Math.random() * canvas.height * 0.25;
+            star.length = 120 + Math.random() * 100;
+            star.speed = 15 + Math.random() * 12;
+            star.opacity = 1;
+            star.active = true;
+          }
         }
+        lastShootingStarTime = time;
       }
 
       // Draw shooting stars
@@ -197,7 +203,7 @@ const ParticlesBackground = () => {
 
         star.x += Math.cos(star.angle) * star.speed;
         star.y += Math.sin(star.angle) * star.speed;
-        star.opacity -= 0.015;
+        star.opacity -= 0.012;
 
         if (star.opacity <= 0 || star.x > canvas.width || star.y > canvas.height) {
           star.active = false;
@@ -207,25 +213,43 @@ const ParticlesBackground = () => {
         const tailX = star.x - Math.cos(star.angle) * star.length;
         const tailY = star.y - Math.sin(star.angle) * star.length;
 
+        // Brighter, more vibrant gradient trail
         const gradient = ctx.createLinearGradient(tailX, tailY, star.x, star.y);
         gradient.addColorStop(0, createColor(270, 80, 70, 0));
-        gradient.addColorStop(0.7, createColor(270, 85, 75, star.opacity * 0.5));
+        gradient.addColorStop(0.3, createColor(280, 90, 75, star.opacity * 0.4));
+        gradient.addColorStop(0.6, createColor(270, 95, 80, star.opacity * 0.7));
+        gradient.addColorStop(0.85, createColor(280, 80, 90, star.opacity * 0.9));
         gradient.addColorStop(1, createColor(0, 0, 100, star.opacity));
 
+        // Draw main trail - thicker
         ctx.beginPath();
         ctx.moveTo(tailX, tailY);
         ctx.lineTo(star.x, star.y);
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 3;
         ctx.lineCap = "round";
         ctx.stroke();
 
-        // Head glow
-        const headGlow = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 6);
+        // Draw outer glow trail
+        const glowGradient = ctx.createLinearGradient(tailX, tailY, star.x, star.y);
+        glowGradient.addColorStop(0, createColor(270, 70, 60, 0));
+        glowGradient.addColorStop(0.5, createColor(270, 80, 70, star.opacity * 0.2));
+        glowGradient.addColorStop(1, createColor(280, 90, 85, star.opacity * 0.4));
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(star.x, star.y);
+        ctx.strokeStyle = glowGradient;
+        ctx.lineWidth = 8;
+        ctx.stroke();
+
+        // Brighter head glow
+        const headGlow = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 12);
         headGlow.addColorStop(0, createColor(0, 0, 100, star.opacity));
+        headGlow.addColorStop(0.3, createColor(280, 70, 95, star.opacity * 0.8));
+        headGlow.addColorStop(0.6, createColor(270, 80, 75, star.opacity * 0.4));
         headGlow.addColorStop(1, createColor(270, 80, 70, 0));
         ctx.beginPath();
-        ctx.arc(star.x, star.y, 6, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, 12, 0, Math.PI * 2);
         ctx.fillStyle = headGlow;
         ctx.fill();
       });
