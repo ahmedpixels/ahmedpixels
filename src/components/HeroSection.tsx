@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin, Code, Search, Palette, Rocket } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.jpg";
 import OptimizedImage from "./OptimizedImage";
-import LiquidBackground from "./LiquidBackground";
+import ParticlesBackground from "./ParticlesBackground";
 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -45,8 +45,8 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen bg-hero-bg relative overflow-hidden flex items-center">
-      {/* Liquid Background Effect */}
-      <LiquidBackground />
+      {/* Particles Background */}
+      <ParticlesBackground />
       
       {/* Advanced gradient background */}
       <div className="absolute inset-0">
