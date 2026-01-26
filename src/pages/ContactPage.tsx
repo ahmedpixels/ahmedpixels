@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import OptimizedImage from "@/components/OptimizedImage";
+import ahmedPortrait from "@/assets/ahmed-portrait.png";
 import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
 const ContactPage = () => {
@@ -82,12 +84,49 @@ const ContactPage = () => {
       
       <main className="min-h-screen bg-hero-bg pt-32 pb-20">
         <div className="container-custom px-8 md:px-12 lg:px-16 xl:px-24">
-          {/* Header */}
+          {/* Header with Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-16"
           >
+            {/* Profile Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8"
+            >
+              {/* Rotating ring */}
+              <motion.div
+                className="absolute inset-[-8px] rounded-full border-2 border-dashed border-primary/30"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-primary/30 rounded-full blur-[50px] scale-90" />
+              
+              {/* Gradient border */}
+              <div className="absolute inset-0 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-primary/50">
+                <div className="w-full h-full rounded-full bg-hero-bg" />
+              </div>
+              
+              {/* Image */}
+              <div className="absolute inset-2 rounded-full overflow-hidden">
+                <OptimizedImage
+                  src={ahmedPortrait}
+                  alt="Ahmed Pixels - WordPress Developer & SEO Specialist"
+                  className="w-full h-full object-cover"
+                  priority={true}
+                />
+              </div>
+              
+              {/* Corner decorations */}
+              <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary rounded-tr-lg" />
+              <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary rounded-bl-lg" />
+            </motion.div>
+
             <span className="text-primary font-semibold mb-4 block">GET IN TOUCH</span>
             <h1 className="heading-xl text-hero-text mb-6">
               Let's Work <span className="text-gradient">Together</span>
