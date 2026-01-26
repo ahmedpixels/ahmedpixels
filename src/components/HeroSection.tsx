@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin, Code, Search, Palette, Rocket } from "lucide-react";
-import ahmedPortrait from "@/assets/ahmed-portrait.jpg";
+import ahmedPortrait from "@/assets/ahmed-portrait.png";
 import OptimizedImage from "./OptimizedImage";
 import ParticlesBackground from "./ParticlesBackground";
 
@@ -325,7 +325,7 @@ const HeroSection = () => {
                 <div className="absolute inset-3 rounded-full overflow-hidden">
                   <OptimizedImage
                     src={ahmedPortrait}
-                    alt="Ahmed - WordPress Developer & SEO Specialist"
+                    alt="Ahmed Pixels - WordPress Developer & SEO Specialist"
                     className="w-full h-full object-cover"
                     priority={true}
                   />
