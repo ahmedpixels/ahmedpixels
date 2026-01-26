@@ -8,25 +8,29 @@ const highlights = [
     icon: Zap,
     title: "Fast & Efficient",
     description: "Quick turnaround without compromising quality",
-    gradient: "from-amber-500 to-orange-500",
+    borderColor: "border-l-primary",
+    iconBg: "bg-primary",
   },
   {
     icon: Target,
     title: "Results Driven",
     description: "SEO-focused development for maximum visibility",
-    gradient: "from-emerald-500 to-teal-500",
+    borderColor: "border-l-primary-light",
+    iconBg: "bg-primary-light",
   },
   {
     icon: Users,
     title: "Client Focused",
     description: "Clear communication and collaborative approach",
-    gradient: "from-violet-500 to-purple-500",
+    borderColor: "border-l-violet-400",
+    iconBg: "bg-violet-500",
   },
   {
     icon: GraduationCap,
     title: "Continuous Learning",
     description: "Always staying updated with latest trends",
-    gradient: "from-pink-500 to-rose-500",
+    borderColor: "border-l-purple-400",
+    iconBg: "bg-purple-500",
   },
 ];
 
@@ -117,21 +121,18 @@ const AboutSection = () => {
                 key={item.title}
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="relative bg-hero-bg/60 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 overflow-hidden group gradient-border-card glow-border"
+                className={`relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 overflow-hidden group border-l-4 ${item.borderColor} hover:shadow-[0_0_40px_rgba(138,43,226,0.15)]`}
                 role="listitem"
               >
-                {/* Gradient accent at top */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient}`} aria-hidden="true" />
-                
                 {/* Hover glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} aria-hidden="true" />
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`} aria-hidden="true">
+                  <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300`} aria-hidden="true">
                     <item.icon className="text-white" size={24} aria-hidden="true" />
                   </div>
-                  <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
-                  <p className="text-white/60 text-sm">{item.description}</p>
+                  <h3 className="font-bold text-foreground text-lg mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
                 </div>
               </motion.article>
             ))}
