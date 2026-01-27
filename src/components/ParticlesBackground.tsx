@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
 interface Particle {
   x: number;
@@ -7,139 +7,123 @@ interface Particle {
   speedX: number;
   speedY: number;
   opacity: number;
-  twinkleSpeed: number;
-  twinkleOffset: number;
 }
 
-const ParticlesBackground = () => {
+const ParticlesBackground = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameRef = useRef<number>();
-  const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    // Set canvas size
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    // Set canvas size with device pixel ratio for sharpness
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
     };
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
 
-    // Track mouse position
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
+    // Debounced resize handler
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resizeCanvas, 150);
     };
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", handleResize, { passive: true });
 
-    // Initialize particles
-    const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 15000));
+    // Initialize fewer particles for better performance
+    const particleCount = Math.min(40, Math.floor((canvas.width * canvas.height) / 40000));
     particlesRef.current = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2 + 0.5,
-      speedX: (Math.random() - 0.5) * 0.3,
-      speedY: (Math.random() - 0.5) * 0.3,
-      opacity: Math.random() * 0.5 + 0.2,
-      twinkleSpeed: Math.random() * 0.02 + 0.01,
-      twinkleOffset: Math.random() * Math.PI * 2,
+      x: Math.random() * (canvas.width / dpr),
+      y: Math.random() * (canvas.height / dpr),
+      size: Math.random() * 1.5 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.15,
+      speedY: (Math.random() - 0.5) * 0.15,
+      opacity: Math.random() * 0.4 + 0.1,
     }));
 
-    // Animation loop
-    // Helper function to create valid HSLA color
-    const createColor = (h: number, s: number, l: number, a: number) => {
-      return `hsla(${h}, ${s}%, ${l}%, ${a.toFixed(3)})`;
-    };
+    // Use CSS variable color
+    const primaryColor = "138, 43, 226"; // Purple RGB
 
-    // Purple color matching the enhanced theme (HSL 270, 85%, 58%)
-    const primaryH = 270;
-    const primaryS = 85;
-    const primaryL = 58;
+    // Throttled animation loop using requestAnimationFrame
+    let lastTime = 0;
+    const targetFPS = 30;
+    const frameInterval = 1000 / targetFPS;
 
-    let time = 0;
-    const animate = () => {
-      time += 0.016;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particlesRef.current.forEach((particle, index) => {
+    const animate = (currentTime: number) => {
+      animationFrameRef.current = requestAnimationFrame(animate);
+
+      const deltaTime = currentTime - lastTime;
+      if (deltaTime < frameInterval) return;
+      lastTime = currentTime - (deltaTime % frameInterval);
+
+      const width = canvas.width / dpr;
+      const height = canvas.height / dpr;
+
+      ctx.clearRect(0, 0, width, height);
+
+      particlesRef.current.forEach((particle) => {
         // Update position
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
-        // Mouse interaction - particles move away from cursor
-        const dx = particle.x - mouseRef.current.x;
-        const dy = particle.y - mouseRef.current.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 150) {
-          const force = (150 - distance) / 150;
-          particle.x += (dx / distance) * force * 2;
-          particle.y += (dy / distance) * force * 2;
-        }
-
         // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
+        if (particle.x < 0) particle.x = width;
+        if (particle.x > width) particle.x = 0;
+        if (particle.y < 0) particle.y = height;
+        if (particle.y > height) particle.y = 0;
 
-        // Calculate twinkle effect
-        const twinkle = Math.sin(time * particle.twinkleSpeed * 60 + particle.twinkleOffset);
-        const currentOpacity = particle.opacity * (0.5 + twinkle * 0.5);
-
-        // Draw particle with glow
-        const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 3
-        );
-        
-        // Use purple color with proper HSLA format
-        gradient.addColorStop(0, createColor(primaryH, primaryS, primaryL, currentOpacity));
-        gradient.addColorStop(0.5, createColor(primaryH, primaryS, primaryL, currentOpacity * 0.3));
-        gradient.addColorStop(1, createColor(primaryH, primaryS, primaryL, 0));
-
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-
-        // Draw core
+        // Draw simple particle (no gradients for performance)
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = createColor(primaryH, primaryS, primaryL, currentOpacity);
+        ctx.fillStyle = `rgba(${primaryColor}, ${particle.opacity})`;
         ctx.fill();
+      });
 
-        // Connect nearby particles with lines
-        particlesRef.current.slice(index + 1).forEach((otherParticle) => {
-          const lineDx = particle.x - otherParticle.x;
-          const lineDy = particle.y - otherParticle.y;
-          const lineDistance = Math.sqrt(lineDx * lineDx + lineDy * lineDy);
+      // Draw connections with distance check optimization
+      const connectionDistance = 100;
+      const connectionDistanceSq = connectionDistance * connectionDistance;
 
-          if (lineDistance < 120) {
-            const lineOpacity = (1 - lineDistance / 120) * 0.15;
+      for (let i = 0; i < particlesRef.current.length; i++) {
+        const p1 = particlesRef.current[i];
+        for (let j = i + 1; j < particlesRef.current.length; j++) {
+          const p2 = particlesRef.current[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distSq = dx * dx + dy * dy;
+
+          if (distSq < connectionDistanceSq) {
+            const opacity = (1 - distSq / connectionDistanceSq) * 0.1;
             ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = createColor(primaryH, primaryS, primaryL, lineOpacity);
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(${primaryColor}, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
-        });
-      });
-
-      animationFrameRef.current = requestAnimationFrame(animate);
+        }
+      }
     };
 
-    animate();
+    animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimeout);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -149,10 +133,13 @@ const ParticlesBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none"
-      style={{ opacity: 0.8 }}
+      className="absolute inset-0 pointer-events-none will-change-transform"
+      style={{ opacity: 0.6 }}
+      aria-hidden="true"
     />
   );
-};
+});
+
+ParticlesBackground.displayName = "ParticlesBackground";
 
 export default ParticlesBackground;

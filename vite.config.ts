@@ -32,11 +32,16 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           vendor: ["react", "react-dom"],
+          router: ["react-router-dom"],
           animations: ["framer-motion"],
+          ui: ["@radix-ui/react-accordion", "@radix-ui/react-dialog", "@radix-ui/react-tooltip"],
         },
       },
     },
+    cssCodeSplit: true,
     assetsInlineLimit: 4096,
+    minify: 'esbuild',
+    target: 'esnext',
   },
   assetsInclude: ["**/*.jpg", "**/*.jpeg", "**/*.png", "**/*.webp", "**/*.avif", "**/*.gif", "**/*.svg"],
 }));

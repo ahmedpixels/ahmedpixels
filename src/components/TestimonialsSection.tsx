@@ -1,115 +1,107 @@
+import { memo, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
     name: "Sarah Mitchell",
     role: "CEO, TechStart Inc.",
-    content: "Ahmed transformed our outdated website into a modern, SEO-optimized platform. Our organic traffic increased by 200% within 3 months. His attention to detail and communication is exceptional.",
+    content: "Ahmed transformed our outdated website into a modern, SEO-optimized platform. Our organic traffic increased by 200% within 3 months.",
     rating: 5,
     avatar: "SM",
   },
   {
     name: "Michael Chen",
     role: "Founder, E-Commerce Hub",
-    content: "Working with Ahmed was a game-changer for our online store. He built a fast, beautiful WooCommerce site that our customers love. Sales have doubled since the launch!",
+    content: "Working with Ahmed was a game-changer for our online store. He built a fast, beautiful WooCommerce site that our customers love.",
     rating: 5,
     avatar: "MC",
   },
   {
     name: "Fatima Al-Hassan",
     role: "Marketing Director, GlobalTrade",
-    content: "Ahmed delivered our B2B platform ahead of schedule and under budget. His WordPress expertise and SEO knowledge helped us rank #1 for our target keywords.",
+    content: "Ahmed delivered our B2B platform ahead of schedule and under budget. His WordPress expertise helped us rank #1 for our target keywords.",
     rating: 5,
     avatar: "FA",
   },
   {
     name: "David Thompson",
     role: "Owner, CraftBrew Coffee",
-    content: "Our Shopify store looks absolutely premium. Ahmed understood our brand perfectly and created an experience that reflects our quality. Highly recommend his services!",
+    content: "Our Shopify store looks absolutely premium. Ahmed understood our brand perfectly and created an experience that reflects our quality.",
     rating: 5,
     avatar: "DT",
   },
   {
     name: "Aisha Malik",
     role: "Director, Tech Solutions Ltd",
-    content: "Professional, responsive, and incredibly talented. Ahmed rebuilt our tech company website with stunning animations and perfect mobile optimization. A true expert!",
+    content: "Professional, responsive, and incredibly talented. Ahmed rebuilt our tech company website with perfect mobile optimization.",
     rating: 5,
     avatar: "AM",
   },
   {
     name: "James Wilson",
     role: "CEO, LuxeHome Interiors",
-    content: "The catalogue website Ahmed created for us is a work of art. Our clients constantly compliment the design. He truly understands how to showcase products beautifully.",
+    content: "The catalogue website Ahmed created for us is a work of art. Our clients constantly compliment the design.",
     rating: 5,
     avatar: "JW",
   },
 ];
 
-const StarRating = ({ rating }: { rating: number }) => {
-  return (
-    <div className="flex gap-1" role="img" aria-label={`${rating} out of 5 stars rating`}>
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          size={16}
-          className={i < rating ? "text-primary fill-primary" : "text-muted-foreground"}
-          aria-hidden="true"
-        />
-      ))}
+const StarRating = memo(({ rating }: { rating: number }) => (
+  <div className="flex gap-1" role="img" aria-label={`${rating} out of 5 stars rating`}>
+    {[...Array(5)].map((_, i) => (
+      <Star
+        key={i}
+        size={16}
+        className={i < rating ? "text-primary fill-primary" : "text-muted-foreground"}
+        aria-hidden="true"
+      />
+    ))}
+  </div>
+));
+
+StarRating.displayName = "StarRating";
+
+const TestimonialCard = memo(({ testimonial, index, isInView }: { testimonial: typeof testimonials[0]; index: number; isInView: boolean }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={isInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.4, delay: index * 0.1 }}
+    className="glass-card p-6 md:p-8 relative group border border-border/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+    role="article"
+    aria-label={`Testimonial from ${testimonial.name}`}
+  >
+    {/* Quote Icon */}
+    <div className="absolute -top-4 -left-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center" aria-hidden="true">
+      <Quote size={18} className="text-primary-foreground" aria-hidden="true" />
     </div>
-  );
-};
 
-const TestimonialCard = ({
-  testimonial,
-  index,
-}: {
-  testimonial: (typeof testimonials)[0];
-  index: number;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -5, scale: 1.02 }}
-      className="glass-card p-6 md:p-8 relative group gradient-border-card glow-border"
-      role="article"
-      aria-label={`Testimonial from ${testimonial.name}`}
-    >
-      {/* Quote Icon */}
-      <div className="absolute -top-4 -left-2 w-10 h-10 bg-gradient-orange rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-        <Quote size={18} className="text-primary-foreground" aria-hidden="true" />
+    {/* Content */}
+    <blockquote className="text-muted-foreground leading-relaxed mb-6 mt-2">
+      "{testimonial.content}"
+    </blockquote>
+
+    {/* Rating */}
+    <div className="mb-4">
+      <StarRating rating={testimonial.rating} />
+    </div>
+
+    {/* Author */}
+    <div className="flex items-center gap-4">
+      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
+        {testimonial.avatar}
       </div>
-
-      {/* Content */}
-      <blockquote className="text-muted-foreground leading-relaxed mb-6 mt-2">
-        "{testimonial.content}"
-      </blockquote>
-
-      {/* Rating */}
-      <div className="mb-4">
-        <StarRating rating={testimonial.rating} />
+      <div>
+        <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
       </div>
+    </div>
+  </motion.div>
+));
 
-      {/* Author */}
-      <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center text-primary-foreground font-bold">
-          {testimonial.avatar}
-        </div>
-        <div>
-          <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
+TestimonialCard.displayName = "TestimonialCard";
 
-const TestimonialsSection = () => {
+const TestimonialsSection = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -118,9 +110,9 @@ const TestimonialsSection = () => {
       <div className="container-custom">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -130,8 +122,7 @@ const TestimonialsSection = () => {
             What <span className="text-gradient">Clients Say</span>
           </h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto mt-4">
-            Don&apos;t just take my word for it. Here&apos;s what my clients have to say 
-            about working together.
+            Don&apos;t just take my word for it. Here&apos;s what my clients have to say.
           </p>
         </motion.div>
 
@@ -142,38 +133,35 @@ const TestimonialsSection = () => {
               key={testimonial.name}
               testimonial={testimonial}
               index={index}
+              isInView={isInView}
             />
           ))}
         </div>
 
         {/* Stats Bar */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 bg-section-dark rounded-2xl gradient-border-card"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 bg-section-dark rounded-2xl border border-border/20"
         >
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
-            <div className="text-hero-muted text-sm mt-1">Happy Clients</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">100+</div>
-            <div className="text-hero-muted text-sm mt-1">Projects Completed</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">5.0</div>
-            <div className="text-hero-muted text-sm mt-1">Average Rating</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
-            <div className="text-hero-muted text-sm mt-1">Client Satisfaction</div>
-          </div>
+          {[
+            { value: "50+", label: "Happy Clients" },
+            { value: "100+", label: "Projects Completed" },
+            { value: "5.0", label: "Average Rating" },
+            { value: "100%", label: "Client Satisfaction" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
+              <div className="text-hero-muted text-sm mt-1">{stat.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
   );
-};
+});
+
+TestimonialsSection.displayName = "TestimonialsSection";
 
 export default TestimonialsSection;

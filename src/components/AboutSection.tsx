@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { memo, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { GraduationCap, Target, Users, Zap } from "lucide-react";
 
 const highlights = [
@@ -15,8 +14,8 @@ const highlights = [
     icon: Target,
     title: "Results Driven",
     description: "SEO-focused development for maximum visibility",
-    borderColor: "border-l-primary-light",
-    iconBg: "bg-primary-light",
+    borderColor: "border-l-primary/70",
+    iconBg: "bg-primary/80",
   },
   {
     icon: Users,
@@ -34,52 +33,32 @@ const highlights = [
   },
 ];
 
-const AboutSection = () => {
+const AboutSection = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
-    },
-  };
 
   return (
     <section id="about" className="section-padding bg-section-light" ref={ref} aria-labelledby="about-heading">
       <div className="container-custom">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-16 items-center"
-        >
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div>
-            <motion.div variants={itemVariants} className="mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="mb-4">
               <span className="text-primary font-semibold text-sm uppercase tracking-wider" id="about-heading">
                 About Me
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h2 variants={itemVariants} className="heading-lg text-foreground mb-6">
+            <h2 className="heading-lg text-foreground mb-6">
               Building Digital Excellence with{" "}
               <span className="text-gradient">WordPress & SEO</span>
-            </motion.h2>
+            </h2>
 
-            <motion.div variants={itemVariants} className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+            <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
                 I'm Ahmed, a passionate <strong className="text-foreground">WordPress Developer and SEO Specialist</strong> based 
                 in Lahore, Pakistan. With <strong className="text-primary">2 years of dedicated experience</strong>, I've 
@@ -87,17 +66,15 @@ const AboutSection = () => {
               </p>
               <p>
                 My journey began at <strong className="text-foreground">Brains College, Baghwanpura</strong>, where 
-                I mastered the intricacies of web development and search engine optimization. Since then, 
-                I've been transforming ideas into high-performing websites.
+                I mastered the intricacies of web development and search engine optimization.
               </p>
               <p>
                 I specialize in creating <strong className="text-foreground">E-commerce stores, B2B platforms, 
-                Tech websites, Catalogue sites, and Shopify stores</strong>. Every project I undertake is 
-                built with a focus on performance, user experience, and search visibility.
+                Tech websites, Catalogue sites, and Shopify stores</strong>.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={itemVariants} className="mt-8">
+            <div className="mt-8">
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-lg p-1"
@@ -106,29 +83,22 @@ const AboutSection = () => {
                 Let's Work Together
                 <span aria-hidden="true">→</span>
               </a>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
           {/* Right Content - Highlights Grid */}
-          <motion.div
-            variants={containerVariants}
-            className="grid sm:grid-cols-2 gap-6"
-            role="list"
-            aria-label="Key highlights"
-          >
-            {highlights.map((item) => (
+          <div className="grid sm:grid-cols-2 gap-6" role="list" aria-label="Key highlights">
+            {highlights.map((item, index) => (
               <motion.article
                 key={item.title}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className={`relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 overflow-hidden group border-l-4 ${item.borderColor} hover:shadow-[0_0_40px_rgba(138,43,226,0.15)]`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className={`relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 overflow-hidden group border-l-4 ${item.borderColor} hover:shadow-lg hover:-translate-y-1`}
                 role="listitem"
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
-                
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300`} aria-hidden="true">
+                  <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`} aria-hidden="true">
                     <item.icon className="text-white" size={24} aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-foreground text-lg mb-2">{item.title}</h3>
@@ -136,11 +106,13 @@ const AboutSection = () => {
                 </div>
               </motion.article>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
-};
+});
+
+AboutSection.displayName = "AboutSection";
 
 export default AboutSection;
