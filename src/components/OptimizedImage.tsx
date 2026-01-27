@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 
 interface OptimizedImageProps {
   src: string;
@@ -11,7 +11,7 @@ interface OptimizedImageProps {
   sizes?: string;
 }
 
-const OptimizedImage = ({
+const OptimizedImage = memo(({
   src,
   webpSrc,
   alt,
@@ -26,7 +26,7 @@ const OptimizedImage = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (priority) return;
+    if (priority || isInView) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -35,7 +35,7 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "200px" }
     );
 
     if (containerRef.current) {
@@ -43,7 +43,7 @@ const OptimizedImage = ({
     }
 
     return () => observer.disconnect();
-  }, [priority]);
+  }, [priority, isInView]);
 
   return (
     <div 
@@ -51,11 +51,15 @@ const OptimizedImage = ({
       className={`relative overflow-hidden ${className}`}
       role="img"
       aria-label={alt}
+      style={{ 
+        aspectRatio: width && height ? `${width}/${height}` : undefined,
+        contain: 'layout style paint'
+      }}
     >
-      {/* Blur placeholder */}
+      {/* Skeleton placeholder */}
       {!isLoaded && (
         <div 
-          className="absolute inset-0 bg-muted animate-pulse" 
+          className="absolute inset-0 bg-muted/50" 
           aria-hidden="true"
         />
       )}
@@ -65,7 +69,6 @@ const OptimizedImage = ({
           {webpSrc && (
             <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
           )}
-          <source srcSet={src} type="image/jpeg" sizes={sizes} />
           <img
             src={src}
             alt={alt}
@@ -75,14 +78,17 @@ const OptimizedImage = ({
             decoding={priority ? "sync" : "async"}
             fetchPriority={priority ? "high" : "auto"}
             onLoad={() => setIsLoaded(true)}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
+            className={`w-full h-full object-cover transition-opacity duration-200 ${
               isLoaded ? "opacity-100" : "opacity-0"
             }`}
+            style={{ contentVisibility: priority ? 'visible' : 'auto' }}
           />
         </picture>
       )}
     </div>
   );
-};
+});
+
+OptimizedImage.displayName = "OptimizedImage";
 
 export default OptimizedImage;

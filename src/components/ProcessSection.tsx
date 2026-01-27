@@ -1,5 +1,5 @@
+import { memo, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { MessageSquare, Lightbulb, Code2, Rocket, Headphones } from "lucide-react";
 
 const steps = [
@@ -35,37 +35,18 @@ const steps = [
   },
 ];
 
-const ProcessSection = () => {
+const ProcessSection = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
-    },
-  };
 
   return (
     <section id="process" className="section-padding bg-section-light" ref={ref} aria-labelledby="process-heading">
       <div className="container-custom">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -80,13 +61,7 @@ const ProcessSection = () => {
         </motion.div>
 
         {/* Process Steps */}
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="relative"
-        >
+        <div className="relative">
           {/* Vertical Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block" />
 
@@ -94,32 +69,27 @@ const ProcessSection = () => {
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
-                variants={itemVariants}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className={`relative flex flex-col md:flex-row items-start gap-8 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Content */}
                 <div className={`flex-1 ${index % 2 === 0 ? "md:text-right md:pr-16" : "md:text-left md:pl-16"}`}>
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="glass-card p-6 inline-block gradient-border-card glow-border"
-                  >
+                  <div className="glass-card p-6 inline-block border border-border/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                     <span className="text-primary font-bold text-sm">{step.number}</span>
                     <h3 className="text-xl font-bold text-foreground mt-2">{step.title}</h3>
                     <p className="text-muted-foreground mt-2 max-w-sm">{step.description}</p>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Icon - Center */}
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 flex-shrink-0">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-16 h-16 bg-gradient-orange rounded-2xl flex items-center justify-center shadow-lg"
-                    aria-hidden="true"
-                  >
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg" aria-hidden="true">
                     <step.icon className="text-primary-foreground" size={28} aria-hidden="true" />
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Empty space for alignment */}
@@ -127,10 +97,12 @@ const ProcessSection = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
+});
+
+ProcessSection.displayName = "ProcessSection";
 
 export default ProcessSection;
