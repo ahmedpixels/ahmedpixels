@@ -150,18 +150,18 @@ const ContactPage = () => {
                   <item.icon className="text-primary-foreground" size={24} />
                 </div>
                 <div>
-                  <p className="text-white/70 text-sm">{item.label}</p>
+                  <p className="text-primary-light text-sm">{item.label}</p>
                   {item.href ? (
                     <a 
                       href={item.href} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-white font-medium text-lg hover:text-primary transition-colors"
+                      className="text-hero-text font-medium text-lg hover:text-primary transition-colors"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-white font-medium text-lg">{item.value}</p>
+                    <p className="text-hero-text font-medium text-lg">{item.value}</p>
                   )}
                 </div>
               </motion.div>
@@ -174,7 +174,7 @@ const ContactPage = () => {
               transition={{ delay: 0.6 }}
               className="pt-6"
             >
-              <h3 className="text-white font-semibold text-center mb-4">Connect With Me</h3>
+              <h3 className="text-hero-text font-semibold text-center mb-4">Connect With Me</h3>
               <div className="flex justify-center gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -184,7 +184,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 bg-hero-text/5 hover:bg-primary/20 border border-border/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-hero-muted hover:text-primary transition-all duration-300"
+                    className="w-14 h-14 bg-primary/5 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-primary-light hover:text-primary transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon size={24} />
@@ -200,10 +200,10 @@ const ContactPage = () => {
               transition={{ delay: 0.7 }}
               className="mt-8 p-6 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
             >
-              <h3 className="font-bold text-white mb-4">Why Work With Me?</h3>
+              <h3 className="font-bold text-hero-text mb-4">Why Work With Me?</h3>
               <ul className="space-y-3">
                 {["Fast & Reliable Delivery", "SEO-Optimized Websites", "100% Client Satisfaction", "Ongoing Support"].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-white/70">
+                  <li key={index} className="flex items-center gap-3 text-primary-light">
                     <CheckCircle className="text-primary" size={18} />
                     {item}
                   </li>
