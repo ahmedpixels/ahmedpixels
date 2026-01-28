@@ -253,7 +253,7 @@ const ServicesPage = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 bg-gradient-orange text-primary-foreground font-bold px-8 py-4 rounded-full mt-8 glow-orange"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold px-8 py-4 rounded-full mt-8 shadow-lg shadow-primary/30"
               >
                 Get a Free Quote
                 <ArrowRight size={20} />
@@ -419,7 +419,7 @@ const ServicesPage = () => {
                   <motion.div
                     key={highlight}
                     variants={itemVariants}
-                    className="flex items-center gap-3 glass-card p-4 rounded-xl hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] transition-all duration-300"
+                    className="flex items-center gap-3 glass-card p-4 rounded-xl hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-all duration-300"
                   >
                     <CheckCircle className="text-primary flex-shrink-0" size={20} />
                     <span className="text-white font-medium">{highlight}</span>
@@ -456,7 +456,7 @@ const ServicesPage = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center gap-2 bg-gradient-orange text-primary-foreground font-bold px-8 py-4 rounded-full glow-orange"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold px-8 py-4 rounded-full shadow-lg shadow-primary/30"
                   >
                     Get a Free Quote
                     <ArrowRight size={20} />
