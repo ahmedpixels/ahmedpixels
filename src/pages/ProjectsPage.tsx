@@ -185,7 +185,7 @@ const ProjectsPage = () => {
                 <div className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Project Image */}
                   <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="bg-card/50 border border-border/20 rounded-3xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_40px_rgba(249,115,22,0.2)] transition-all duration-500">
+                    <div className="bg-card/50 border border-border/20 rounded-3xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_40px_hsl(var(--primary)/0.2)] transition-all duration-500">
                       <div className="h-64 md:h-80 relative overflow-hidden">
                         <img 
                           src={project.screenshot} 
@@ -306,7 +306,7 @@ const ProjectsPage = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-orange-600 text-primary-foreground font-bold px-8 py-4 rounded-full shadow-lg shadow-primary/25"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold px-8 py-4 rounded-full shadow-lg shadow-primary/25"
                   >
                     Start Your Project
                     <ArrowRight size={20} />
