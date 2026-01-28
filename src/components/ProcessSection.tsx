@@ -78,7 +78,7 @@ const ProcessSection = memo(() => {
               >
                 {/* Content */}
                 <div className={`flex-1 ${index % 2 === 0 ? "md:text-right md:pr-16" : "md:text-left md:pl-16"}`}>
-                  <div className="glass-card p-6 inline-block border border-border/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <div className="glass-card p-6 inline-block border border-border/30 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)] transition-all duration-300">
                     <span className="text-primary font-bold text-sm">{step.number}</span>
                     <h3 className="text-xl font-bold text-foreground mt-2">{step.title}</h3>
                     <p className="text-muted-foreground mt-2 max-w-sm">{step.description}</p>
@@ -87,7 +87,7 @@ const ProcessSection = memo(() => {
 
                 {/* Icon - Center */}
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 flex-shrink-0">
-                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg" aria-hidden="true">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-lg shadow-primary/25" aria-hidden="true">
                     <step.icon className="text-primary-foreground" size={28} aria-hidden="true" />
                   </div>
                 </div>

@@ -7,29 +7,21 @@ const highlights = [
     icon: Zap,
     title: "Fast & Efficient",
     description: "Quick turnaround without compromising quality",
-    borderColor: "border-l-primary",
-    iconBg: "bg-primary",
   },
   {
     icon: Target,
     title: "Results Driven",
     description: "SEO-focused development for maximum visibility",
-    borderColor: "border-l-primary/70",
-    iconBg: "bg-primary/80",
   },
   {
     icon: Users,
     title: "Client Focused",
     description: "Clear communication and collaborative approach",
-    borderColor: "border-l-violet-400",
-    iconBg: "bg-violet-500",
   },
   {
     icon: GraduationCap,
     title: "Continuous Learning",
     description: "Always staying updated with latest trends",
-    borderColor: "border-l-purple-400",
-    iconBg: "bg-purple-500",
   },
 ];
 
@@ -94,12 +86,12 @@ const AboutSection = memo(() => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 overflow-hidden group border-l-4 ${item.borderColor} hover:shadow-lg hover:-translate-y-1`}
+                className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 overflow-hidden group border border-border/30 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)] hover:-translate-y-1"
                 role="listitem"
               >
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`} aria-hidden="true">
-                    <item.icon className="text-white" size={24} aria-hidden="true" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                    <item.icon className="text-primary-foreground" size={24} aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-foreground text-lg mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.description}</p>

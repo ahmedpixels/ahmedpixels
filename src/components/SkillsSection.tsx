@@ -95,11 +95,11 @@ const SkillsSection = memo(() => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="group relative bg-hero-bg/50 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 border border-border/20 hover:border-primary/30 hover:-translate-y-1 hover:shadow-lg"
+              className="group relative bg-hero-bg/50 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 border border-border/20 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)]"
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors duration-300" aria-hidden="true">
-                <skill.icon className="text-primary" size={28} aria-hidden="true" />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300" aria-hidden="true">
+                <skill.icon className="text-primary-foreground" size={28} aria-hidden="true" />
               </div>
 
               {/* Content */}
