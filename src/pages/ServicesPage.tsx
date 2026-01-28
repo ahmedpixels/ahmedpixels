@@ -290,7 +290,7 @@ const ServicesPage = () => {
                   key={service.title}
                   variants={itemVariants}
                   whileHover={{ y: -10 }}
-                  className="relative bg-hero-bg/80 backdrop-blur-sm border border-white/10 p-8 rounded-3xl group hover:border-white/20 transition-all duration-300 overflow-hidden"
+                  className="relative bg-hero-bg/80 backdrop-blur-sm border border-primary/10 p-8 rounded-3xl group hover:border-primary/30 transition-all duration-300 overflow-hidden"
                 >
                   {/* Gradient accent line at top */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`} />
@@ -300,20 +300,20 @@ const ServicesPage = () => {
                   
                   <div className="relative z-10">
                     <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <service.icon className="text-white" size={28} />
+                      <service.icon className="text-primary-foreground" size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">
+                    <h3 className="text-xl font-bold text-hero-text mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-white/60 text-sm mb-5">{service.description}</p>
+                    <p className="text-hero-muted text-sm mb-5">{service.description}</p>
                     <ul className="space-y-2.5">
                       {service.features.map((feature) => (
                         <li
                           key={feature}
-                          className="flex items-center gap-2.5 text-white/70 text-sm"
+                          className="flex items-center gap-2.5 text-primary-light text-sm"
                         >
                           <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center flex-shrink-0`}>
-                            <CheckCircle className="text-white" size={12} />
+                            <CheckCircle className="text-primary-foreground" size={12} />
                           </div>
                           {feature}
                         </li>
@@ -357,7 +357,7 @@ const ServicesPage = () => {
                   className="relative text-center group"
                 >
                   {/* Card Container */}
-                  <div className="relative bg-hero-bg/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-white/20 transition-all duration-300 overflow-hidden">
+                  <div className="relative bg-hero-bg/60 backdrop-blur-sm border border-primary/10 rounded-3xl p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden">
                     {/* Gradient accent at top */}
                     <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient}`} />
                     
@@ -370,11 +370,11 @@ const ServicesPage = () => {
                           {step.number}
                         </span>
                         <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                          <step.icon className="text-white" size={24} />
+                          <step.icon className="text-primary-foreground" size={24} />
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                      <p className="text-white/60 text-sm">{step.description}</p>
+                      <h3 className="text-lg font-bold text-hero-text mb-2">{step.title}</h3>
+                      <p className="text-hero-muted text-sm">{step.description}</p>
                     </div>
                   </div>
                   
@@ -422,7 +422,7 @@ const ServicesPage = () => {
                     className="flex items-center gap-3 glass-card p-4 rounded-xl hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-all duration-300"
                   >
                     <CheckCircle className="text-primary flex-shrink-0" size={20} />
-                    <span className="text-white font-medium">{highlight}</span>
+                    <span className="text-hero-text font-medium">{highlight}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -445,7 +445,7 @@ const ServicesPage = () => {
                 <h2 className="heading-lg text-white">
                   Ready to Start Your <span className="text-gradient">Project?</span>
                 </h2>
-                <p className="text-white/70 mt-4 max-w-xl mx-auto">
+                <p className="text-hero-muted mt-4 max-w-xl mx-auto">
                   Let's discuss your requirements and create something amazing together.
                   Get a free consultation today!
                 </p>
@@ -465,7 +465,7 @@ const ServicesPage = () => {
                     href="/contact"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center gap-2 border-2 border-hero-text/20 text-hero-text font-bold px-8 py-4 rounded-full hover:border-primary hover:text-primary transition-colors"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary/30 text-hero-text font-bold px-8 py-4 rounded-full hover:border-primary hover:text-primary transition-colors"
                   >
                     Contact Me
                   </motion.a>

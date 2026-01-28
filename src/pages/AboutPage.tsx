@@ -168,8 +168,8 @@ const AboutPage = () => {
                 className="bg-card/50 border border-border/20 rounded-2xl p-6 text-center hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
               >
                 <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white">{item.title}</div>
-                <div className="text-white/70 text-sm">{item.subtitle}</div>
+                <div className="text-2xl font-bold text-hero-text">{item.title}</div>
+                <div className="text-primary-light text-sm">{item.subtitle}</div>
               </div>
             ))}
           </motion.div>
@@ -214,15 +214,15 @@ const AboutPage = () => {
                     <GraduationCap className="text-primary-foreground" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white">Brains College</h3>
-                    <p className="text-white/70 text-sm">Baghwanpura, Lahore</p>
-                    <p className="text-white/70 text-sm mt-2">WordPress & Web Development</p>
+                    <h3 className="font-bold text-hero-text">Brains College</h3>
+                    <p className="text-primary-light text-sm">Baghwanpura, Lahore</p>
+                    <p className="text-primary-light text-sm mt-2">WordPress & Web Development</p>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-semibold text-white">Core Expertise:</h3>
+                <h3 className="font-semibold text-hero-text">Core Expertise:</h3>
                 <div className="flex flex-wrap gap-3">
                   {["WordPress", "SEO", "E-commerce", "Shopify", "HTML/CSS", "JavaScript", "PHP", "Performance Optimization"].map((skill) => (
                     <span
@@ -278,13 +278,13 @@ const AboutPage = () => {
                       <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-bold mb-3">
                         {item.year}
                       </span>
-                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-white/70 text-sm mb-4">{item.description}</p>
+                      <h3 className="text-xl font-bold text-hero-text mb-2">{item.title}</h3>
+                      <p className="text-primary-light text-sm mb-4">{item.description}</p>
                       <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}>
                         {item.achievements.map((achievement, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 bg-hero-bg border border-border/20 rounded-full text-xs text-white/60"
+                            className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs text-primary-light"
                           >
                             {achievement}
                           </span>
@@ -320,10 +320,10 @@ const AboutPage = () => {
             <div className="bg-card/50 border border-border/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
               <div className="relative z-10">
-                <h2 className="heading-lg text-white">
+                <h2 className="heading-lg text-hero-text">
                   Ready to Start Your <span className="text-gradient">Project?</span>
                 </h2>
-                <p className="text-white/70 mt-4 max-w-xl mx-auto">
+                <p className="text-hero-muted mt-4 max-w-xl mx-auto">
                   Let's discuss your requirements and create something amazing together.
                   Get a free consultation today!
                 </p>

@@ -112,7 +112,7 @@ const BlogPage = () => {
             {categories.map((category) => (
               <span
                 key={category}
-                className="px-4 py-2 bg-white/5 border border-white/10 text-white/70 rounded-full text-sm font-medium hover:border-primary/50 hover:text-primary transition-colors cursor-pointer"
+                className="px-4 py-2 bg-primary/5 border border-primary/10 text-primary-light rounded-full text-sm font-medium hover:border-primary/50 hover:text-primary transition-colors cursor-pointer"
               >
                 {category}
               </span>
@@ -127,29 +127,29 @@ const BlogPage = () => {
             className="mb-16"
           >
             <Link to={`/blog/${featuredPost.slug}`} className="block group">
-              <div className="bg-gradient-to-br from-primary/10 via-card/50 to-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12 hover:border-primary/40 hover:shadow-[0_0_50px_rgba(249,115,22,0.15)] transition-all duration-500">
+              <div className="bg-gradient-to-br from-primary/10 via-card/50 to-primary/5 border border-primary/20 rounded-3xl p-8 md:p-12 hover:border-primary/40 hover:shadow-[0_0_50px_hsl(var(--primary)/0.15)] transition-all duration-500">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-4">
                       <Tag size={14} />
                       Featured Article
                     </span>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-hero-text mb-4 group-hover:text-primary transition-colors">
                       {featuredPost.title}
                     </h2>
                     <p className="text-hero-muted text-lg mb-6 leading-relaxed">
                       {featuredPost.excerpt}
                     </p>
-                    <div className="flex flex-wrap items-center gap-4 text-white/60 text-sm mb-6">
+                    <div className="flex flex-wrap items-center gap-4 text-primary-light text-sm mb-6">
                       <span className="flex items-center gap-1.5">
                         <Calendar size={16} />
                         {formatDate(featuredPost.publishedAt)}
                       </span>
-                      <span className="flex items-center gap-1.5">
+                      <span className="flex items-center gap-1.5 text-primary-light">
                         <Clock size={16} />
                         {featuredPost.readTime} min read
                       </span>
-                      <span className="px-3 py-1 bg-white/5 rounded-full">
+                      <span className="px-3 py-1 bg-primary/10 rounded-full text-primary-light">
                         {featuredPost.category}
                       </span>
                     </div>
@@ -178,9 +178,9 @@ const BlogPage = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link to={`/blog/${post.slug}`} className="block group h-full">
-                  <div className="bg-card/50 border border-border/20 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300 h-full flex flex-col">
+                  <div className="bg-card/50 border border-border/20 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)] transition-all duration-300 h-full flex flex-col">
                     {/* Post Image Placeholder */}
-                    <div className="h-48 bg-gradient-to-br from-primary/10 to-orange-600/10 flex items-center justify-center">
+                    <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                       <span className="text-5xl">
                         {post.category === "WordPress" ? "🔧" : post.category === "SEO" ? "📈" : "🛒"}
                       </span>
@@ -190,17 +190,17 @@ const BlogPage = () => {
                     <div className="p-6 flex flex-col flex-grow">
                       <div className="flex items-center gap-3 mb-3">
                         <span className="text-primary text-sm font-medium">{post.category}</span>
-                        <span className="text-white/40">•</span>
-                        <span className="text-white/50 text-sm">{post.readTime} min read</span>
+                        <span className="text-primary-light/40">•</span>
+                        <span className="text-primary-light text-sm">{post.readTime} min read</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      <h3 className="text-xl font-bold text-hero-text mb-3 group-hover:text-primary transition-colors line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-white/60 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
+                      <p className="text-hero-muted text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
                         {post.excerpt}
                       </p>
                       <div className="flex items-center justify-between pt-4 border-t border-border/10">
-                        <span className="text-white/50 text-sm flex items-center gap-1.5">
+                        <span className="text-primary-light text-sm flex items-center gap-1.5">
                           <Calendar size={14} />
                           {formatDate(post.publishedAt)}
                         </span>
@@ -222,11 +222,11 @@ const BlogPage = () => {
             viewport={{ once: true }}
             className="mt-20"
           >
-            <div className="bg-card/50 border border-border/20 rounded-3xl p-10 md:p-16 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <div className="bg-card/50 border border-primary/20 rounded-3xl p-10 md:p-16 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-hero-text mb-4">
                 Want More WordPress & SEO Tips?
               </h2>
-              <p className="text-white/70 max-w-xl mx-auto mb-8">
+              <p className="text-hero-muted max-w-xl mx-auto mb-8">
                 Get practical guides delivered to your inbox. No spam, just actionable advice to grow your online presence.
               </p>
               <motion.a
@@ -235,7 +235,7 @@ const BlogPage = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-orange-600 text-primary-foreground font-bold px-8 py-4 rounded-full shadow-lg"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold px-8 py-4 rounded-full shadow-lg shadow-primary/25"
               >
                 Get in Touch
                 <ArrowRight size={20} />

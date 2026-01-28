@@ -221,25 +221,25 @@ const ProjectsPage = () => {
                       <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-gradient-to-r ${project.color} text-white mb-4`}>
                         {project.type}
                       </span>
-                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{project.name}</h2>
+                      <h2 className="text-3xl md:text-4xl font-bold text-hero-text mb-4">{project.name}</h2>
                       <p className="text-hero-muted leading-relaxed">{project.fullDescription}</p>
                     </div>
 
                     {/* Challenge & Solution */}
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <div className="bg-card/30 border border-border/10 rounded-2xl p-4">
+                      <div className="bg-primary/5 border border-primary/10 rounded-2xl p-4">
                         <h3 className="text-primary font-semibold mb-2 text-sm uppercase tracking-wide">Challenge</h3>
-                        <p className="text-white/70 text-sm">{project.challenge}</p>
+                        <p className="text-primary-light text-sm">{project.challenge}</p>
                       </div>
-                      <div className="bg-card/30 border border-border/10 rounded-2xl p-4">
+                      <div className="bg-primary/5 border border-primary/10 rounded-2xl p-4">
                         <h3 className="text-primary font-semibold mb-2 text-sm uppercase tracking-wide">Solution</h3>
-                        <p className="text-white/70 text-sm">{project.solution}</p>
+                        <p className="text-primary-light text-sm">{project.solution}</p>
                       </div>
                     </div>
 
                     {/* Results */}
                     <div>
-                      <h3 className="text-white font-semibold mb-3">Key Results</h3>
+                      <h3 className="text-hero-text font-semibold mb-3">Key Results</h3>
                       <div className="flex flex-wrap gap-2">
                         {project.results.map((result, i) => (
                           <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm">
@@ -252,10 +252,10 @@ const ProjectsPage = () => {
 
                     {/* Technologies */}
                     <div>
-                      <h3 className="text-white/60 text-sm mb-2">Technologies Used</h3>
+                      <h3 className="text-hero-muted text-sm mb-2">Technologies Used</h3>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, i) => (
-                          <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 text-white/70 rounded-lg text-sm">
+                          <span key={i} className="px-3 py-1 bg-primary/5 border border-primary/10 text-primary-light rounded-lg text-sm">
                             {tech}
                           </span>
                         ))}
@@ -292,11 +292,11 @@ const ProjectsPage = () => {
             <div className="bg-gradient-to-br from-primary/10 via-card/50 to-primary/5 border border-primary/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.1),transparent_50%)]" />
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-hero-text mb-4">
                   Ready for a Website Like These?
                 </h2>
-                <p className="text-white/70 max-w-2xl mx-auto mb-8">
-                  Let's discuss your project and create a website that drives real results for your business. 
+                <p className="text-hero-muted max-w-2xl mx-auto mb-8">
+                  Let's discuss your project and create a website that drives real results for your business.
                   Free consultation with no obligations.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -315,7 +315,7 @@ const ProjectsPage = () => {
                     href="/services"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white font-bold px-8 py-4 rounded-full hover:border-primary hover:text-primary transition-colors"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary/30 text-hero-text font-bold px-8 py-4 rounded-full hover:border-primary hover:text-primary transition-colors"
                   >
                     Explore Services
                   </motion.a>
