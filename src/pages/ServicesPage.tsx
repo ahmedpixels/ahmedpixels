@@ -290,7 +290,7 @@ const ServicesPage = () => {
                   key={service.title}
                   variants={itemVariants}
                   whileHover={{ y: -10 }}
-                  className="relative bg-hero-bg/80 backdrop-blur-sm border border-primary/10 p-8 rounded-3xl group hover:border-primary/30 transition-all duration-300 overflow-hidden"
+                  className="relative bg-primary/10 backdrop-blur-sm border border-primary/20 p-8 rounded-3xl group hover:border-primary/40 hover:bg-primary/15 transition-all duration-300 overflow-hidden"
                 >
                   {/* Gradient accent line at top */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`} />
@@ -357,7 +357,7 @@ const ServicesPage = () => {
                   className="relative text-center group"
                 >
                   {/* Card Container */}
-                  <div className="relative bg-hero-bg/60 backdrop-blur-sm border border-primary/10 rounded-3xl p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden">
+                  <div className="relative bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-3xl p-6 hover:border-primary/40 hover:bg-primary/15 transition-all duration-300 overflow-hidden">
                     {/* Gradient accent at top */}
                     <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient}`} />
                     
@@ -419,7 +419,7 @@ const ServicesPage = () => {
                   <motion.div
                     key={highlight}
                     variants={itemVariants}
-                    className="flex items-center gap-3 glass-card p-4 rounded-xl hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-all duration-300"
+                    className="flex items-center gap-3 bg-primary/10 border border-primary/20 p-4 rounded-xl hover:border-primary/40 hover:bg-primary/15 hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-all duration-300"
                   >
                     <CheckCircle className="text-primary flex-shrink-0" size={20} />
                     <span className="text-hero-text font-medium">{highlight}</span>
