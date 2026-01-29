@@ -165,7 +165,7 @@ const AboutPage = () => {
             {highlights.map((item, index) => (
               <div
                 key={index}
-                className="bg-card/50 border border-border/20 rounded-2xl p-6 text-center hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
+                className="bg-primary/10 border border-primary/20 rounded-2xl p-6 text-center hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] hover:bg-primary/15 transition-all duration-300"
               >
                 <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                 <div className="text-2xl font-bold text-hero-text">{item.title}</div>
@@ -208,7 +208,7 @@ const AboutPage = () => {
             >
               <h2 className="text-2xl font-bold text-hero-text mb-6">Education & Skills</h2>
               
-              <div className="bg-card/50 border border-border/20 rounded-2xl p-6 mb-6 hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300">
+              <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] hover:bg-primary/15 transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
                     <GraduationCap className="text-primary-foreground" size={24} />
@@ -273,7 +273,7 @@ const AboutPage = () => {
                   <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                     <motion.div
                       whileHover={{ scale: 1.02 }}
-                      className="bg-card/50 border border-border/20 rounded-2xl p-6 hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
+                      className="bg-primary/10 border border-primary/20 rounded-2xl p-6 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] hover:bg-primary/15 transition-all duration-300"
                     >
                       <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-bold mb-3">
                         {item.year}
@@ -317,7 +317,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="mt-20"
           >
-            <div className="bg-card/50 border border-border/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+            <div className="bg-primary/10 border border-primary/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent" />
               <div className="relative z-10">
                 <h2 className="heading-lg text-hero-text">
