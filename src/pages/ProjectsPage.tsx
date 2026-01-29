@@ -185,7 +185,7 @@ const ProjectsPage = () => {
                 <div className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Project Image */}
                   <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="bg-card/50 border border-border/20 rounded-3xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_40px_hsl(var(--primary)/0.2)] transition-all duration-500">
+                    <div className="bg-primary/10 border border-primary/20 rounded-3xl overflow-hidden hover:border-primary/40 hover:bg-primary/15 hover:shadow-[0_0_40px_hsl(var(--primary)/0.2)] transition-all duration-500">
                       <div className="h-64 md:h-80 relative overflow-hidden">
                         <img 
                           src={project.screenshot} 

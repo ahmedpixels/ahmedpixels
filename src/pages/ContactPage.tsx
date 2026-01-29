@@ -144,7 +144,7 @@ const ContactPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="flex items-center gap-4 p-5 bg-card/50 border border-border/20 rounded-2xl hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
+                className="flex items-center gap-4 p-5 bg-primary/10 border border-primary/20 rounded-2xl hover:border-primary/40 hover:bg-primary/15 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
               >
                 <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
                   <item.icon className="text-primary-foreground" size={24} />
@@ -184,7 +184,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 bg-primary/5 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 rounded-xl flex items-center justify-center text-primary-light hover:text-primary transition-all duration-300"
+                    className="w-14 h-14 bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/40 rounded-xl flex items-center justify-center text-primary-light hover:text-primary transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon size={24} />
