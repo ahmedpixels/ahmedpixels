@@ -1,9 +1,9 @@
-import { memo, useState } from "react";
+import { memo, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-// Import static images instead of iframes
+// Import static images
 import pixelhashDesktop from "@/assets/projects/pixelhashtech.png";
 import pixelhashMobile from "@/assets/projects/pixelhashtech-mobile.png";
 import shinewallDesktop from "@/assets/projects/shinewallstone.png";
@@ -58,6 +58,87 @@ const projects = [
   },
 ];
 
+// Desktop Browser Mockup
+const DesktopMockup = memo(({ project, index }: { project: typeof projects[0]; index: number }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const ref = useRef<HTMLAnchorElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "100px" });
+
+  return (
+    <motion.a
+      ref={ref}
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="group relative block cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background rounded-2xl"
+      aria-label={`View ${project.title} - ${project.type}`}
+    >
+      {/* Browser Frame */}
+      <div className="relative bg-slate-800 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-primary/20">
+        {/* Browser Header */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border-b border-slate-700/50">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+          </div>
+          <div className="flex-1 mx-4">
+            <div className="bg-slate-700/50 rounded-md px-3 py-1.5 text-xs text-slate-400 truncate max-w-[200px] mx-auto">
+              {project.url.replace('https://', '')}
+            </div>
+          </div>
+        </div>
+        
+        {/* Screen */}
+        <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
+          {/* Loading Skeleton */}
+          {!isLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse flex items-center justify-center">
+              <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            </div>
+          )}
+          
+          {/* Desktop Screenshot */}
+          {isInView && (
+            <img
+              src={project.desktop}
+              alt={`${project.title} desktop preview`}
+              className={`w-full h-full object-cover object-top transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setIsLoaded(true)}
+            />
+          )}
+          
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+            <span className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold text-sm flex items-center gap-2 shadow-lg">
+              Visit Site <ExternalLink size={16} />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Project Info */}
+      <div className="mt-5 text-center">
+        <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-primary text-sm font-medium mt-1">{project.type}</p>
+        <p className="text-muted-foreground text-sm mt-2">
+          {project.description}
+        </p>
+      </div>
+    </motion.a>
+  );
+});
+
+DesktopMockup.displayName = "DesktopMockup";
+
+// Mobile Phone Mockup
 const PhoneMockup = memo(({ project, index }: { project: typeof projects[0]; index: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const ref = useRef<HTMLAnchorElement>(null);
@@ -76,18 +157,20 @@ const PhoneMockup = memo(({ project, index }: { project: typeof projects[0]; ind
       aria-label={`View ${project.title} - ${project.type}`}
     >
       {/* Phone Frame */}
-      <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px] transition-transform duration-300 group-hover:-translate-y-2">
+      <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[200px] transition-transform duration-300 group-hover:-translate-y-2">
         {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-foreground rounded-b-2xl z-20" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-5 bg-foreground rounded-b-xl z-20" />
         
         {/* Screen */}
-        <div className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
+        <div className="rounded-[2rem] overflow-hidden h-[360px] relative bg-slate-900">
           {/* Loading Skeleton */}
           {!isLoaded && (
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse flex items-center justify-center">
+              <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            </div>
           )}
           
-          {/* Static image instead of iframe */}
+          {/* Mobile Screenshot */}
           {isInView && (
             <img
               src={project.mobile}
@@ -101,22 +184,19 @@ const PhoneMockup = memo(({ project, index }: { project: typeof projects[0]; ind
           
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-            <span className="px-4 py-2 bg-white text-black rounded-full font-semibold text-sm flex items-center gap-2">
-              Visit Site <ExternalLink size={14} />
+            <span className="px-4 py-2 bg-white text-black rounded-full font-semibold text-xs flex items-center gap-2">
+              Visit <ExternalLink size={12} />
             </span>
           </div>
         </div>
       </div>
 
       {/* Project Info */}
-      <div className="mt-6 text-center">
-        <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors">
+      <div className="mt-4 text-center">
+        <h3 className="font-bold text-foreground text-base group-hover:text-primary transition-colors">
           {project.title}
         </h3>
-        <p className="text-primary text-sm font-medium mt-1">{project.type}</p>
-        <p className="text-muted-foreground text-sm mt-2 max-w-[200px] mx-auto">
-          {project.description}
-        </p>
+        <p className="text-primary text-xs font-medium mt-1">{project.type}</p>
       </div>
     </motion.a>
   );
@@ -127,6 +207,7 @@ PhoneMockup.displayName = "PhoneMockup";
 const PortfolioSection = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isMobile = useIsMobile();
 
   return (
     <section id="portfolio" className="section-padding bg-section-light" ref={ref} aria-labelledby="portfolio-heading">
@@ -149,12 +230,22 @@ const PortfolioSection = memo(() => {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" role="list" aria-label="Portfolio projects">
-          {projects.map((project, index) => (
-            <PhoneMockup key={project.title} project={project} index={index} />
-          ))}
-        </div>
+        {/* Projects Grid - Responsive */}
+        {isMobile ? (
+          // Mobile: Phone mockups in 2-column grid
+          <div className="grid grid-cols-2 gap-4" role="list" aria-label="Portfolio projects">
+            {projects.map((project, index) => (
+              <PhoneMockup key={project.title} project={project} index={index} />
+            ))}
+          </div>
+        ) : (
+          // Desktop: Browser mockups in 3-column grid
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Portfolio projects">
+            {projects.map((project, index) => (
+              <DesktopMockup key={project.title} project={project} index={index} />
+            ))}
+          </div>
+        )}
 
         {/* CTA */}
         <div className="text-center mt-16">
