@@ -9,8 +9,6 @@ import shinewallstone from "@/assets/projects/shinewallstone.png";
 import silkspool from "@/assets/projects/silkspool.png";
 import jeddahautospareparts from "@/assets/projects/jeddahautospareparts.png";
 import eleevaadhesives from "@/assets/projects/eleevaadhesives.png";
-import misspeony from "@/assets/projects/misspeony.png";
-import rockshinegroup from "@/assets/projects/rockshinegroup.png";
 
 const projects = [
   {
@@ -82,34 +80,6 @@ const projects = [
     color: "from-emerald-500 to-teal-500",
     url: "https://eleevaadhesives.com/",
     screenshot: eleevaadhesives,
-  },
-  {
-    id: 6,
-    name: "Miss Peony",
-    type: "E-commerce Store",
-    shortDescription: "Elegant floral and lifestyle e-commerce store with beautiful product displays.",
-    fullDescription: "Miss Peony is a premium floral and lifestyle brand that needed a stunning e-commerce platform. The website showcases their beautiful products with an elegant design that matches their brand aesthetic and provides a seamless shopping experience.",
-    challenge: "Create a visually stunning e-commerce site that reflects the elegance and beauty of a floral brand.",
-    solution: "Built a WooCommerce store with custom design, product galleries, and intuitive navigation.",
-    results: ["Increased Online Sales", "Brand Recognition", "Customer Engagement"],
-    technologies: ["WordPress", "WooCommerce", "Custom Design", "Product Photography"],
-    color: "from-pink-500 to-rose-500",
-    url: "https://misspeony.com/",
-    screenshot: misspeony,
-  },
-  {
-    id: 7,
-    name: "Rock Shine Group",
-    type: "Corporate Website",
-    shortDescription: "Premium stone and construction materials company with professional branding.",
-    fullDescription: "Rock Shine Group is a leading construction materials company that required a professional corporate website. The site showcases their extensive range of stone products and construction services while establishing their authority in the industry.",
-    challenge: "Present a construction materials company as an industry leader with a professional online presence.",
-    solution: "Developed a corporate website with product catalogs, service pages, and company information.",
-    results: ["Professional Brand Image", "B2B Lead Generation", "Industry Authority"],
-    technologies: ["WordPress", "Corporate Design", "Product Catalog", "SEO"],
-    color: "from-slate-500 to-gray-600",
-    url: "https://rockshinegroup.com/",
-    screenshot: rockshinegroup,
   },
 ];
 
