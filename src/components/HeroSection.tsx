@@ -51,12 +51,8 @@ const HeroSection = memo(() => {
       {/* Main Content */}
       <div className="container-custom relative z-10 px-6 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-28">
-          {/* Left Content */}
-          <motion.div 
-            className="order-2 lg:order-1"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          {/* Left Content - No initial animation to prevent LCP delay */}
+          <div className="order-2 lg:order-1 animate-fade-in"
           >
             {/* Location Badge */}
             <div className="flex items-center gap-2 mb-6">
@@ -141,7 +137,7 @@ const HeroSection = memo(() => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right - Image with simplified effects */}
           <motion.div 
