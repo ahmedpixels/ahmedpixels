@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
 import OptimizedImage from "@/components/OptimizedImage";
 import ahmedPortrait from "@/assets/ahmed-portrait.png";
 import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCircle } from "lucide-react";
@@ -211,6 +212,17 @@ const ContactPage = () => {
               </ul>
             </motion.div>
           </div>
+          
+          {/* CTA Section */}
+          <CTASection 
+            title="Have a Project"
+            highlight="In Mind?"
+            subtitle="I'm always excited to work on new projects. Let's bring your ideas to life!"
+            primaryText="Chat on WhatsApp"
+            secondaryText="View Projects"
+            secondaryLink="/projects"
+            className="mt-12"
+          />
         </div>
       </main>
 
