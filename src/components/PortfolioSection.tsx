@@ -1,65 +1,64 @@
-import { memo, useState } from "react";
+import { memo, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Eye, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-// Import static images instead of iframes
+// Import static images
 import pixelhashDesktop from "@/assets/projects/pixelhashtech.png";
-import pixelhashMobile from "@/assets/projects/pixelhashtech-mobile.png";
-import shinewallDesktop from "@/assets/projects/shinewallstone.png";
-import shinewallMobile from "@/assets/projects/shinewallstone-mobile.png";
+import shinewallDesktop from "@/assets/projects/shinewallstone-desktop.png";
 import silkspoolDesktop from "@/assets/projects/silkspool.png";
-import silkspoolMobile from "@/assets/projects/silkspool-mobile.png";
-import jeddahDesktop from "@/assets/projects/jeddahautospareparts.png";
-import jeddahMobile from "@/assets/projects/jeddahautospareparts-mobile.png";
+import jeddahDesktop from "@/assets/projects/jeddahautospareparts-desktop.png";
 import eleevaDesktop from "@/assets/projects/eleevaadhesives.png";
-import eleevaMobile from "@/assets/projects/eleevaadhesives-mobile.png";
+import rockshineDesktop from "@/assets/projects/rockshinegroup-desktop.png";
 
 const projects = [
   {
+    title: "Rock Shine Group",
+    type: "Corporate Website",
+    description: "Premium wall coatings manufacturer",
+    url: "https://rockshinegroup.com/",
+    screenshot: rockshineDesktop,
+  },
+  {
     title: "PixelHash Tech",
     type: "Tech Website",
-    description: "Digital agency website with modern design",
+    description: "Digital agency with modern design",
     url: "https://pixelhashtech.com/",
-    desktop: pixelhashDesktop,
-    mobile: pixelhashMobile,
+    screenshot: pixelhashDesktop,
   },
   {
     title: "Shine Wall Stone",
     type: "Business Website",
-    description: "Premium stone and marble company showcase",
+    description: "Premium stone and marble showcase",
     url: "https://shinewallstone.com/",
-    desktop: shinewallDesktop,
-    mobile: shinewallMobile,
+    screenshot: shinewallDesktop,
   },
   {
     title: "Silks Pool",
     type: "E-commerce Website",
-    description: "Industrial sewing machine parts distributor",
+    description: "Industrial sewing machine parts",
     url: "https://silkspool.com/",
-    desktop: silkspoolDesktop,
-    mobile: silkspoolMobile,
+    screenshot: silkspoolDesktop,
   },
   {
-    title: "Jeddah Auto Spare Parts",
+    title: "Jeddah Auto Parts",
     type: "E-commerce Website",
     description: "Premium automotive filters store",
     url: "https://jeddahautospareparts.com/",
-    desktop: jeddahDesktop,
-    mobile: jeddahMobile,
+    screenshot: jeddahDesktop,
   },
   {
     title: "Eleeva Adhesives",
     type: "Corporate Website",
-    description: "Industrial adhesives manufacturer website",
+    description: "Industrial adhesives manufacturer",
     url: "https://eleevaadhesives.com/",
-    desktop: eleevaDesktop,
-    mobile: eleevaMobile,
+    screenshot: eleevaDesktop,
   },
 ];
 
-const PhoneMockup = memo(({ project, index }: { project: typeof projects[0]; index: number }) => {
+const EyeFrameCard = memo(({ project, index }: { project: typeof projects[0]; index: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLAnchorElement>(null);
   const isInView = useInView(ref, { once: true, margin: "100px" });
 
@@ -69,60 +68,87 @@ const PhoneMockup = memo(({ project, index }: { project: typeof projects[0]; ind
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="group relative block cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background rounded-3xl"
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative block cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background rounded-2xl"
       aria-label={`View ${project.title} - ${project.type}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Phone Frame */}
-      <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-2xl mx-auto w-[220px] md:w-[260px] transition-transform duration-300 group-hover:-translate-y-2">
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-foreground rounded-b-2xl z-20" />
+      {/* Eye Frame Container */}
+      <div className="relative">
+        {/* Outer Glow Ring */}
+        <motion.div 
+          className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/50 via-primary to-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
+          animate={{ 
+            scale: isHovered ? [1, 1.02, 1] : 1,
+          }}
+          transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0 }}
+        />
         
-        {/* Screen */}
-        <div className="rounded-[2rem] overflow-hidden h-[380px] md:h-[450px] relative bg-slate-900">
-          {/* Loading Skeleton */}
-          {!isLoaded && (
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse" />
-          )}
+        {/* Main Frame */}
+        <div className="relative bg-card border-2 border-border group-hover:border-primary/60 rounded-2xl overflow-hidden transition-all duration-300 shadow-lg group-hover:shadow-primary/20 group-hover:shadow-2xl">
+          {/* Eye Icon Header */}
+          <div className="absolute top-3 left-3 z-20 flex items-center gap-2 px-3 py-1.5 bg-background/90 rounded-full border border-border">
+            <Eye size={14} className="text-primary" />
+            <span className="text-xs font-medium text-foreground">{project.type}</span>
+          </div>
           
-          {/* Static image instead of iframe */}
-          {isInView && (
-            <img
-              src={project.mobile}
-              alt={`${project.title} mobile preview`}
-              className={`w-full h-full object-cover object-top transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-              loading="lazy"
-              decoding="async"
-              onLoad={() => setIsLoaded(true)}
-            />
-          )}
+          {/* Screenshot Container */}
+          <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+            {/* Loading Skeleton */}
+            {!isLoaded && (
+              <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+              </div>
+            )}
+            
+            {/* Screenshot - Full Clarity */}
+            {isInView && (
+              <motion.img
+                src={project.screenshot}
+                alt={`${project.title} website preview`}
+                className={`w-full h-full object-cover object-top transition-all duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                animate={{
+                  scale: isHovered ? 1.05 : 1,
+                }}
+                transition={{ duration: 0.5 }}
+                loading="lazy"
+                decoding="async"
+                onLoad={() => setIsLoaded(true)}
+              />
+            )}
+            
+            {/* Hover Overlay */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-center pb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isHovered ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span className="px-5 py-2.5 bg-primary text-primary-foreground rounded-full font-semibold text-sm flex items-center gap-2 shadow-lg">
+                View Live <ExternalLink size={14} />
+              </span>
+            </motion.div>
+          </div>
           
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-            <span className="px-4 py-2 bg-white text-black rounded-full font-semibold text-sm flex items-center gap-2">
-              Visit Site <ExternalLink size={14} />
-            </span>
+          {/* Project Info Footer */}
+          <div className="p-4 bg-card border-t border-border">
+            <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors mb-1">
+              {project.title}
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              {project.description}
+            </p>
           </div>
         </div>
-      </div>
-
-      {/* Project Info */}
-      <div className="mt-6 text-center">
-        <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-primary text-sm font-medium mt-1">{project.type}</p>
-        <p className="text-muted-foreground text-sm mt-2 max-w-[200px] mx-auto">
-          {project.description}
-        </p>
       </div>
     </motion.a>
   );
 });
 
-PhoneMockup.displayName = "PhoneMockup";
+EyeFrameCard.displayName = "EyeFrameCard";
 
 const PortfolioSection = memo(() => {
   const ref = useRef(null);
@@ -138,10 +164,11 @@ const PortfolioSection = memo(() => {
           transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider" id="portfolio-heading">
+          <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+            <Eye size={16} />
             Portfolio
           </span>
-          <h2 className="heading-lg text-foreground mt-4">
+          <h2 className="heading-lg text-foreground mt-2" id="portfolio-heading">
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="body-lg text-muted-foreground max-w-2xl mx-auto mt-4">
@@ -149,26 +176,38 @@ const PortfolioSection = memo(() => {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" role="list" aria-label="Portfolio projects">
+        {/* Projects Grid - 3 Columns */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" role="list" aria-label="Portfolio projects">
           {projects.map((project, index) => (
-            <PhoneMockup key={project.title} project={project} index={index} />
+            <EyeFrameCard key={project.title} project={project} index={index} />
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-16">
+        {/* CTA Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16"
+        >
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background"
+          >
+            View All Projects
+            <ArrowRight size={18} />
+          </Link>
           <a
             href="https://wa.me/923216479192?text=Hi%20Ahmed"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-card border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background"
             aria-label="Start your project - Contact Ahmed on WhatsApp"
           >
             Start Your Project
             <ExternalLink size={18} aria-hidden="true" />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
