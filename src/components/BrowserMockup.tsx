@@ -1,4 +1,4 @@
-import { memo, useState, useRef } from "react";
+import { memo, useState, useRef, forwardRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink, Maximize2 } from "lucide-react";
 
@@ -9,7 +9,7 @@ interface BrowserMockupProps {
   onOpenLightbox: () => void;
 }
 
-const BrowserMockup = memo(({ screenshot, title, url, onOpenLightbox }: BrowserMockupProps) => {
+const BrowserMockup = memo(forwardRef<HTMLDivElement, BrowserMockupProps>(({ screenshot, title, url, onOpenLightbox }, forwardedRef) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -121,7 +121,7 @@ const BrowserMockup = memo(({ screenshot, title, url, onOpenLightbox }: BrowserM
       <div className="absolute -bottom-4 left-4 right-4 h-8 bg-gradient-to-b from-slate-800/20 to-transparent rounded-b-xl blur-sm" />
     </div>
   );
-});
+}));
 
 BrowserMockup.displayName = "BrowserMockup";
 
