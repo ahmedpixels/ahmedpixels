@@ -29,9 +29,9 @@ const CTASection = memo(function CTASection({
       className={`py-16 md:py-20 ${className}`}
     >
       <div className="container-custom px-4 md:px-8">
-        <div className="relative rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-primary/30 shadow-[0_0_60px_hsl(var(--primary)/0.15)]">
+        <div className="relative rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-primary/30 shadow-[0_0_60px_hsl(var(--primary)/0.15)] bg-hero-bg">
           {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 via-slate-900/95 to-primary/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-hero-bg via-section-dark to-primary/20" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.15),transparent_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary)/0.1),transparent_50%)]" />
           
@@ -51,10 +51,10 @@ const CTASection = memo(function CTASection({
               Let's Connect
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hero-text mb-4">
               {title} <span className="text-gradient">{highlight}</span>
             </h2>
-            <p className="text-slate-300 max-w-2xl mx-auto mb-10 text-lg">
+            <p className="text-hero-muted max-w-2xl mx-auto mb-10 text-lg">
               {subtitle}
             </p>
             
@@ -75,7 +75,7 @@ const CTASection = memo(function CTASection({
                 href={secondaryLink}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white font-bold px-10 py-4 rounded-full hover:border-white/40 hover:bg-white/5 transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary/40 text-hero-text font-bold px-10 py-4 rounded-full hover:border-primary hover:text-primary hover:bg-primary/5 transition-all"
               >
                 {secondaryText}
               </motion.a>
