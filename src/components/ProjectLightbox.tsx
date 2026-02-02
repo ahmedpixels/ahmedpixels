@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -20,7 +20,7 @@ interface ProjectLightboxProps {
   hasNext?: boolean;
 }
 
-const ProjectLightbox = memo(({ 
+const ProjectLightbox = memo(forwardRef<HTMLDivElement, ProjectLightboxProps>(({ 
   project, 
   isOpen, 
   onClose, 
@@ -28,7 +28,7 @@ const ProjectLightbox = memo(({
   onNext,
   hasPrev = false,
   hasNext = false
-}: ProjectLightboxProps) => {
+}, _ref) => {
   // Handle escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -128,7 +128,7 @@ const ProjectLightbox = memo(({
       )}
     </AnimatePresence>
   );
-});
+}));
 
 ProjectLightbox.displayName = "ProjectLightbox";
 
