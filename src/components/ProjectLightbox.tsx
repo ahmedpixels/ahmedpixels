@@ -58,8 +58,8 @@ const ProjectLightbox = memo(function ProjectLightbox({
           className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
           onClick={onClose}
         >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/95 backdrop-blur-md" />
+          {/* Backdrop - Clean, No Blur */}
+          <div className="absolute inset-0 bg-black/95" />
           
           {/* Content */}
           <motion.div
@@ -67,13 +67,13 @@ const ProjectLightbox = memo(function ProjectLightbox({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl bg-slate-900 shadow-2xl"
+            className="relative z-10 w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl bg-card shadow-2xl border border-border"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 md:p-6 border-b border-slate-700/50 bg-slate-800/50">
+            <div className="flex items-center justify-between p-4 md:p-6 border-b border-border bg-muted">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">{project.name}</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">{project.name}</h3>
                 <p className="text-primary text-sm">{project.type}</p>
               </div>
               <div className="flex items-center gap-3">
@@ -87,7 +87,7 @@ const ProjectLightbox = memo(function ProjectLightbox({
                 </a>
                 <button
                   onClick={onClose}
-                  className="p-2 rounded-lg bg-slate-700/50 text-slate-300 hover:bg-slate-600 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-background text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                   aria-label="Close lightbox"
                 >
                   <X size={20} />
@@ -95,8 +95,8 @@ const ProjectLightbox = memo(function ProjectLightbox({
               </div>
             </div>
             
-            {/* Image */}
-            <div className="overflow-auto max-h-[calc(90vh-100px)] scrollbar-thin scrollbar-thumb-primary/50 scrollbar-track-slate-800">
+            {/* Image - Full Clarity */}
+            <div className="overflow-auto max-h-[calc(90vh-100px)] bg-background">
               <img
                 src={project.desktop}
                 alt={`${project.name} full preview`}
@@ -108,7 +108,7 @@ const ProjectLightbox = memo(function ProjectLightbox({
             {hasPrev && onPrev && (
               <button
                 onClick={onPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors backdrop-blur-sm"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
                 aria-label="Previous project"
               >
                 <ChevronLeft size={24} />
@@ -117,7 +117,7 @@ const ProjectLightbox = memo(function ProjectLightbox({
             {hasNext && onNext && (
               <button
                 onClick={onNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors backdrop-blur-sm"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
                 aria-label="Next project"
               >
                 <ChevronRight size={24} />

@@ -22,21 +22,21 @@ const BrowserMockup = memo(function BrowserMockup({ screenshot, title, url, onOp
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Browser Frame */}
-      <div className="relative bg-slate-800 rounded-xl shadow-2xl shadow-black/40 overflow-hidden border border-slate-700/50">
+      {/* Browser Frame - Clean Card Style */}
+      <div className="relative bg-card rounded-xl shadow-xl overflow-hidden border border-border">
         {/* Browser Header */}
-        <div className="bg-gradient-to-b from-slate-700 to-slate-800 px-4 py-3 flex items-center gap-3 border-b border-slate-600/50">
+        <div className="bg-muted px-4 py-3 flex items-center gap-3 border-b border-border">
           {/* Traffic Lights */}
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-inner" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-inner" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80 shadow-inner" />
+            <div className="w-3 h-3 rounded-full bg-red-500" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500" />
+            <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
           
           {/* URL Bar */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="bg-slate-900/80 rounded-md px-4 py-1.5 text-xs text-slate-400 font-mono flex items-center gap-2 max-w-md w-full justify-center border border-slate-600/30">
-              <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-background rounded-md px-4 py-1.5 text-xs text-muted-foreground font-mono flex items-center gap-2 max-w-md w-full justify-center border border-border">
+              <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
               </svg>
               <span className="truncate">{url.replace('https://', '').replace('http://', '')}</span>
@@ -45,27 +45,27 @@ const BrowserMockup = memo(function BrowserMockup({ screenshot, title, url, onOp
           
           {/* Menu Dots */}
           <div className="flex items-center gap-1">
-            <div className="w-1 h-1 rounded-full bg-slate-500" />
-            <div className="w-1 h-1 rounded-full bg-slate-500" />
-            <div className="w-1 h-1 rounded-full bg-slate-500" />
+            <div className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+            <div className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+            <div className="w-1 h-1 rounded-full bg-muted-foreground/50" />
           </div>
         </div>
         
-        {/* Screen Content with Scroll Animation */}
-        <div className="relative h-[320px] md:h-[400px] lg:h-[480px] overflow-hidden bg-slate-900">
+        {/* Screen Content - Sharp, No Blur */}
+        <div className="relative h-[320px] md:h-[400px] lg:h-[480px] overflow-hidden bg-muted">
           {/* Loading Skeleton */}
           {!isLoaded && (
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse flex items-center justify-center">
+            <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
               <div className="w-12 h-12 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
             </div>
           )}
           
-          {/* Screenshot with Scroll Effect */}
+          {/* Screenshot - Full Clarity, No Effects */}
           {isInView && (
             <motion.img
               src={screenshot}
               alt={`${title} website preview`}
-              className={`w-full object-cover object-top transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+              className={`w-full object-cover object-top transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
               style={{ 
                 height: 'auto',
                 minHeight: '100%',
@@ -83,9 +83,9 @@ const BrowserMockup = memo(function BrowserMockup({ screenshot, title, url, onOp
             />
           )}
           
-          {/* Hover Overlay with Actions */}
+          {/* Hover Overlay with Actions - Clean Gradient, No Blur */}
           <motion.div 
-            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end justify-center pb-8"
+            className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end justify-center pb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
@@ -97,7 +97,7 @@ const BrowserMockup = memo(function BrowserMockup({ screenshot, title, url, onOp
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold text-sm flex items-center gap-2 shadow-lg shadow-primary/30"
+                className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold text-sm flex items-center gap-2 shadow-lg"
               >
                 Visit Site <ExternalLink size={16} />
               </motion.a>
@@ -108,7 +108,7 @@ const BrowserMockup = memo(function BrowserMockup({ screenshot, title, url, onOp
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold text-sm flex items-center gap-2 border border-white/20 hover:bg-white/20 transition-colors"
+                className="px-6 py-3 bg-white/20 text-white rounded-full font-semibold text-sm flex items-center gap-2 border border-white/30 hover:bg-white/30 transition-colors"
               >
                 Full Preview <Maximize2 size={16} />
               </motion.button>
@@ -116,9 +116,6 @@ const BrowserMockup = memo(function BrowserMockup({ screenshot, title, url, onOp
           </motion.div>
         </div>
       </div>
-      
-      {/* Reflection Effect */}
-      <div className="absolute -bottom-4 left-4 right-4 h-8 bg-gradient-to-b from-slate-800/20 to-transparent rounded-b-xl blur-sm" />
     </div>
   );
 });
