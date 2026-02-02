@@ -294,9 +294,9 @@ const ProjectsPage = () => {
             viewport={{ once: true }}
             className="mt-24"
           >
-            <div className="relative rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-primary/30 shadow-[0_0_60px_hsl(var(--primary)/0.15)]">
+            <div className="relative rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-primary/30 shadow-[0_0_60px_hsl(var(--primary)/0.15)] bg-hero-bg">
               {/* Gradient Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 via-slate-900/95 to-primary/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-hero-bg via-section-dark to-primary/20" />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.15),transparent_50%)]" />
               
               {/* Corner Glow */}
@@ -314,10 +314,10 @@ const ProjectsPage = () => {
                   Ready to Start?
                 </motion.div>
                 
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hero-text mb-4">
                   Your Website Could Be Next
                 </h2>
-                <p className="text-slate-300 max-w-2xl mx-auto mb-10 text-lg">
+                <p className="text-hero-muted max-w-2xl mx-auto mb-10 text-lg">
                   Let's discuss your project and create a website that drives real results for your business.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -336,7 +336,7 @@ const ProjectsPage = () => {
                     href="/services"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white font-bold px-10 py-4 rounded-full hover:border-white/40 hover:bg-white/5 transition-all"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary/40 text-hero-text font-bold px-10 py-4 rounded-full hover:border-primary hover:text-primary hover:bg-primary/5 transition-all"
                   >
                     Explore Services
                   </motion.a>
