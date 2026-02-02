@@ -10,6 +10,7 @@ const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const PortfolioSection = lazy(() => import("@/components/PortfolioSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
+const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
 
 // Simple loading fallback
@@ -85,6 +86,17 @@ const Index = () => {
         
         <Suspense fallback={<SectionLoader />}>
           <FAQSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoader />}>
+          <CTASection 
+            title="Ready to Start Your"
+            highlight="Project?"
+            subtitle="Let's discuss your requirements and create something amazing together. Get a free consultation today!"
+            primaryText="Start Your Project"
+            secondaryText="View Services"
+            secondaryLink="/services"
+          />
         </Suspense>
         
         <Suspense fallback={<SectionLoader />}>
