@@ -59,8 +59,8 @@ const ProjectCard = memo(function ProjectCard({ project, index, onOpenLightbox }
           </div>
         )}
         
-        {/* Screenshot Container */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        {/* Screenshot Container - with subtle border for light screenshots */}
+        <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-muted to-muted/50 border-b border-border">
           {/* Loading Skeleton */}
           {!isLoaded && (
             <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
