@@ -1,4 +1,4 @@
-import { memo, useState, useRef, forwardRef } from "react";
+import { memo, useState, useRef } from "react";
 import { useInView } from "framer-motion";
 
 interface PhoneMockupSmallProps {
@@ -6,7 +6,7 @@ interface PhoneMockupSmallProps {
   title: string;
 }
 
-const PhoneMockupSmall = memo(forwardRef<HTMLDivElement, PhoneMockupSmallProps>(({ screenshot, title }, _forwardedRef) => {
+const PhoneMockupSmall = memo(function PhoneMockupSmall({ screenshot, title }: PhoneMockupSmallProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "100px" });
@@ -49,8 +49,6 @@ const PhoneMockupSmall = memo(forwardRef<HTMLDivElement, PhoneMockupSmallProps>(
       <div className="absolute -bottom-2 left-2 right-2 h-4 bg-gradient-to-b from-slate-900/30 to-transparent rounded-b-2xl blur-sm" />
     </div>
   );
-}));
-
-PhoneMockupSmall.displayName = "PhoneMockupSmall";
+});
 
 export default PhoneMockupSmall;
