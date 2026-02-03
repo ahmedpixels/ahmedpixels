@@ -1,4 +1,4 @@
-import { memo, useState, useRef } from "react";
+import { memo, useState, useRef, forwardRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink, Eye, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -56,15 +56,15 @@ const projects = [
   },
 ];
 
-const EyeFrameCard = memo(({ project, index }: { project: typeof projects[0]; index: number }) => {
+const EyeFrameCard = memo(forwardRef<HTMLAnchorElement, { project: typeof projects[0]; index: number }>(({ project, index }, forwardedRef) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const ref = useRef<HTMLAnchorElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "100px" });
+  const internalRef = useRef<HTMLAnchorElement>(null);
+  const isInView = useInView(internalRef, { once: true, margin: "100px" });
 
   return (
     <motion.a
-      ref={ref}
+      ref={internalRef}
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
@@ -146,7 +146,7 @@ const EyeFrameCard = memo(({ project, index }: { project: typeof projects[0]; in
       </div>
     </motion.a>
   );
-});
+}));
 
 EyeFrameCard.displayName = "EyeFrameCard";
 
