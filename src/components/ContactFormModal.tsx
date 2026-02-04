@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Loader2, ChevronDown } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
+import { X, MessageCircle, ChevronDown } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -47,8 +45,6 @@ interface ContactFormModalProps {
 }
 
 const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
-  const { toast } = useToast();
-
   // Handle Esc key to close modal
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -83,9 +79,8 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
     reference_url: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
 
@@ -99,60 +94,41 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
       return;
     }
 
-    setIsSubmitting(true);
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { error } = await supabase.from("contact_messages").insert({
-        name: result.data.name,
-        email: result.data.email,
-        phone: result.data.phone,
-        service: result.data.service,
-        message: result.data.message,
-        budget: result.data.budget || null,
-        timeline: result.data.timeline || null,
-        reference_url: result.data.reference_url || null,
-      } as any);
+    // Build WhatsApp message
+    const whatsappMessage = `Hi Ahmed! 👋
 
-      if (error) throw error;
+*New Project Inquiry*
 
-      // Send email notification
-      await supabase.functions.invoke("send-contact-notification", {
-        body: {
-          name: result.data.name,
-          email: result.data.email,
-          phone: result.data.phone,
-          service: result.data.service,
-          message: result.data.message,
-          budget: result.data.budget,
-          timeline: result.data.timeline,
-          reference_url: result.data.reference_url,
-        },
-      });
+📌 *Name:* ${result.data.name}
+📧 *Email:* ${result.data.email}
+📱 *Phone:* ${result.data.phone}
+🛠️ *Service:* ${result.data.service}
+${result.data.budget ? `💰 *Budget:* ${result.data.budget}` : ''}
+${result.data.timeline ? `⏰ *Timeline:* ${result.data.timeline}` : ''}
+${result.data.reference_url ? `🔗 *Reference:* ${result.data.reference_url}` : ''}
 
-      toast({
-        title: "Request sent successfully!",
-        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-        budget: "",
-        timeline: "",
-        reference_url: "",
-      });
-      onClose();
-    } catch {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+📝 *Project Details:*
+${result.data.message}`;
+
+    // Encode and open WhatsApp
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/923216479192?text=${encodedMessage}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    
+    // Reset form and close modal
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: "",
+      budget: "",
+      timeline: "",
+      reference_url: "",
+    });
+    onClose();
   };
 
   return (
@@ -321,17 +297,10 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                   
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 text-white rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all disabled:opacity-70 mt-2"
+                    className="w-full py-4 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl hover:shadow-green-500/20 transition-all mt-2"
                   >
-                    {isSubmitting ? (
-                      <Loader2 size={24} className="animate-spin" />
-                    ) : (
-                      <>
-                        <Send size={20} />
-                        Get Free Consultation
-                      </>
-                    )}
+                    <MessageCircle size={20} />
+                    Send via WhatsApp
                   </button>
                 </form>
               </div>
