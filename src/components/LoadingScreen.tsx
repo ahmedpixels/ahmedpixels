@@ -30,7 +30,8 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ background: "linear-gradient(135deg, #0a0a0f 0%, #0f0a1a 50%, #0a0a0f 100%)" }}
       initial={{ opacity: 1 }}
       exit={{ 
         opacity: 0,
