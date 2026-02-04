@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CTASection from "@/components/CTASection";
+import ContactForm from "@/components/ContactForm";
 import OptimizedImage from "@/components/OptimizedImage";
 import ahmedPortrait from "@/assets/ahmed-portrait.png";
-import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCircle, Sparkles } from "lucide-react";
 
 const ContactPage = () => {
   const contactInfo = [
@@ -137,92 +137,113 @@ const ContactPage = () => {
             </p>
           </motion.div>
 
-          <div className="max-w-2xl mx-auto space-y-6">
-            {/* Contact Info Cards */}
-            {contactInfo.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.1 }}
-                className="flex items-center gap-4 p-5 bg-primary/10 border border-primary/20 rounded-2xl hover:border-primary/40 hover:bg-primary/15 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
-                  <item.icon className="text-primary-foreground" size={24} />
-                </div>
-                <div>
-                  <p className="text-primary-light text-sm">{item.label}</p>
-                  {item.href ? (
-                    <a 
-                      href={item.href} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-hero-text font-medium text-lg hover:text-primary transition-colors"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-hero-text font-medium text-lg">{item.value}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Social Links */}
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Left Column - Contact Form */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="pt-6"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="relative"
             >
-              <h3 className="text-hero-text font-semibold text-center mb-4">Connect With Me</h3>
-              <div className="flex justify-center gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-14 h-14 bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/40 rounded-xl flex items-center justify-center text-primary-light hover:text-primary transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <social.icon size={24} />
-                  </motion.a>
-                ))}
+              <div className="relative p-6 md:p-8 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-2xl backdrop-blur-sm overflow-hidden">
+                {/* Gradient accent */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+                
+                {/* Decorative glows */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+                
+                <div className="relative">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="text-primary" size={20} />
+                    <span className="text-primary text-sm font-semibold uppercase tracking-wider">Start Your Project</span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-white mb-2">Send Me a Message</h2>
+                  <p className="text-white/60 mb-6">Fill in your requirements and I'll get back to you within 24 hours.</p>
+                  
+                  <ContactForm variant="page" />
+                </div>
               </div>
             </motion.div>
 
-            {/* Why Work With Me */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="mt-8 p-6 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-300"
-            >
-              <h3 className="font-bold text-hero-text mb-4">Why Work With Me?</h3>
-              <ul className="space-y-3">
-                {["Fast & Reliable Delivery", "SEO-Optimized Websites", "100% Client Satisfaction", "Ongoing Support"].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-primary-light">
-                    <CheckCircle className="text-primary" size={18} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            {/* Right Column - Contact Info */}
+            <div className="space-y-6">
+              {/* Contact Info Cards */}
+              {contactInfo.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="flex items-center gap-4 p-5 bg-gradient-to-r from-white/[0.06] to-transparent border border-white/10 rounded-2xl hover:border-primary/40 hover:bg-white/[0.08] hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)] transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="text-primary-foreground" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-white/50 text-sm">{item.label}</p>
+                    {item.href ? (
+                      <a 
+                        href={item.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-hero-text font-medium text-lg hover:text-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-hero-text font-medium text-lg">{item.value}</p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Social Links */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+                className="pt-4"
+              >
+                <h3 className="text-white font-semibold mb-4">Connect With Me</h3>
+                <div className="flex gap-4">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="w-14 h-14 bg-white/5 hover:bg-primary/20 border border-white/10 hover:border-primary/40 rounded-xl flex items-center justify-center text-white/60 hover:text-primary transition-all duration-300"
+                      aria-label={social.label}
+                    >
+                      <social.icon size={24} />
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Why Work With Me */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8 }}
+                className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)] transition-all duration-300"
+              >
+                <h3 className="font-bold text-hero-text mb-4">Why Work With Me?</h3>
+                <ul className="space-y-3">
+                  {["Fast & Reliable Delivery", "SEO-Optimized Websites", "100% Client Satisfaction", "Ongoing Support"].map((item, index) => (
+                    <li key={index} className="flex items-center gap-3 text-white/70">
+                      <CheckCircle className="text-primary flex-shrink-0" size={18} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
           </div>
-          
-          {/* CTA Section */}
-          <CTASection 
-            title="Have a Project"
-            highlight="In Mind?"
-            subtitle="I'm always excited to work on new projects. Let's bring your ideas to life!"
-            primaryText="Chat on WhatsApp"
-            secondaryText="View Projects"
-            secondaryLink="/projects"
-            className="mt-12"
-          />
         </div>
       </main>
 
