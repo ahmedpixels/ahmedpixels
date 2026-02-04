@@ -74,21 +74,33 @@ const ContactForm = ({ onSuccess, variant = "page" }: ContactFormProps) => {
       return;
     }
 
-    // Build WhatsApp message
-    const whatsappMessage = `Hi Ahmed! 👋
+    // Build WhatsApp message with enhanced format
+    const whatsappMessage = `━━━━━━━━━━━━━━━━━━━━
+🚀 *NEW PROJECT REQUEST*
+━━━━━━━━━━━━━━━━━━━━
 
-*New Project Inquiry*
+👤 *CLIENT DETAILS*
+┌─────────────────────
+│ Name: ${result.data.name}
+│ Email: ${result.data.email}
+│ Phone: ${result.data.phone}
+└─────────────────────
 
-📌 *Name:* ${result.data.name}
-📧 *Email:* ${result.data.email}
-📱 *Phone:* ${result.data.phone}
-🛠️ *Service:* ${result.data.service}
-${result.data.budget ? `💰 *Budget:* ${result.data.budget}` : ''}
-${result.data.timeline ? `⏰ *Timeline:* ${result.data.timeline}` : ''}
-${result.data.reference_url ? `🔗 *Reference:* ${result.data.reference_url}` : ''}
+🎯 *PROJECT INFO*
+┌─────────────────────
+│ Service: ${result.data.service}${result.data.budget ? `
+│ Budget: ${result.data.budget}` : ''}${result.data.timeline ? `
+│ Timeline: ${result.data.timeline}` : ''}${result.data.reference_url ? `
+│ Reference: ${result.data.reference_url}` : ''}
+└─────────────────────
 
-📝 *Project Details:*
-${result.data.message}`;
+📋 *PROJECT DESCRIPTION*
+┌─────────────────────
+${result.data.message}
+└─────────────────────
+
+━━━━━━━━━━━━━━━━━━━━
+_Sent from AhmedPixels.com_`;
 
     // Encode and open WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
