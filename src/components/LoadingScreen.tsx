@@ -9,7 +9,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds
+    const duration = 3000; // 3 seconds
     const interval = 20; // Update every 20ms
     const increment = 100 / (duration / interval);
 
