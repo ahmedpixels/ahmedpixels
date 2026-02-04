@@ -1,4 +1,4 @@
-import { memo, useRef, forwardRef } from "react";
+import { memo, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
@@ -47,8 +47,8 @@ const testimonials = [
   },
 ];
 
-const StarRating = memo(forwardRef<HTMLDivElement, { rating: number }>(({ rating }, ref) => (
-  <div ref={ref} className="flex gap-1" role="img" aria-label={`${rating} out of 5 stars rating`}>
+const StarRating = memo(({ rating }: { rating: number }) => (
+  <div className="flex gap-1" role="img" aria-label={`${rating} out of 5 stars rating`}>
     {[...Array(5)].map((_, i) => (
       <Star
         key={i}
@@ -58,13 +58,12 @@ const StarRating = memo(forwardRef<HTMLDivElement, { rating: number }>(({ rating
       />
     ))}
   </div>
-)));
+));
 
 StarRating.displayName = "StarRating";
 
-const TestimonialCard = memo(forwardRef<HTMLDivElement, { testimonial: typeof testimonials[0]; index: number; isInView: boolean }>(({ testimonial, index, isInView }, ref) => (
+const TestimonialCard = memo(({ testimonial, index, isInView }: { testimonial: typeof testimonials[0]; index: number; isInView: boolean }) => (
   <motion.div
-    ref={ref}
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -98,7 +97,7 @@ const TestimonialCard = memo(forwardRef<HTMLDivElement, { testimonial: typeof te
       </div>
     </div>
   </motion.div>
-)));
+));
 
 TestimonialCard.displayName = "TestimonialCard";
 
