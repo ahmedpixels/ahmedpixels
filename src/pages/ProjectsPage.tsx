@@ -160,11 +160,11 @@ const ProjectsPage = () => {
           content="Explore Ahmed's portfolio of 50+ WordPress websites, WooCommerce stores, and SEO projects. View detailed case studies with real results from tech sites to e-commerce stores." 
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-        <link rel="canonical" href="https://ahmedpixels.pro/projects" />
+        <link rel="canonical" href="https://ahmedpixels.com/projects" />
         <meta property="og:title" content="WordPress Portfolio & Case Studies | Ahmed" />
         <meta property="og:description" content="Explore 50+ WordPress websites, e-commerce stores, and SEO projects with detailed case studies and real results." />
-        <meta property="og:url" content="https://ahmedpixels.pro/projects" />
-        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:url" content="https://ahmedpixels.com/projects" />
+        <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         
@@ -174,8 +174,8 @@ const ProjectsPage = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.pro/" },
-              { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ahmedpixels.pro/projects" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ahmedpixels.com/projects" }
             ]
           })}
         </script>
@@ -187,7 +187,7 @@ const ProjectsPage = () => {
             "@type": "CollectionPage",
             "name": "WordPress Portfolio & Case Studies",
             "description": "A showcase of WordPress websites, e-commerce stores, and web development projects by Ahmed.",
-            "url": "https://ahmedpixels.pro/projects",
+            "url": "https://ahmedpixels.com/projects",
             "mainEntity": {
               "@type": "ItemList",
               "numberOfItems": projects.length,

@@ -26,22 +26,22 @@ const ContactPage = () => {
       <Helmet>
         <title>Contact Ahmed | WordPress Developer & SEO Specialist - Lahore</title>
         <meta name="description" content="Get in touch with Ahmed for WordPress development, SEO services, and web projects. WhatsApp: +923216479192. Email: ahmedpixelspro@gmail.com. Fast response within 24 hours." />
-        <link rel="canonical" href="https://ahmedpixels.pro/contact" />
+        <link rel="canonical" href="https://ahmedpixels.com/contact" />
         <meta property="og:title" content="Contact Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="Get in touch for WordPress development and SEO services. Fast response within 24 hours." />
-        <meta property="og:url" content="https://ahmedpixels.pro/contact" />
-        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:url" content="https://ahmedpixels.com/contact" />
+        <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.pro/" },
-              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ahmedpixels.pro/contact" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ahmedpixels.com/contact" }
             ]
           })}
         </script>
@@ -51,12 +51,12 @@ const ContactPage = () => {
             "@type": "ContactPage",
             "name": "Contact Ahmed - WordPress Developer & SEO Specialist",
             "description": "Get in touch with Ahmed for WordPress development and SEO services.",
-            "url": "https://ahmedpixels.pro/contact",
+            "url": "https://ahmedpixels.com/contact",
             "mainEntity": {
               "@type": "Person",
               "name": "Ahmed",
               "jobTitle": "WordPress Developer & SEO Specialist",
-              "url": "https://ahmedpixels.pro",
+              "url": "https://ahmedpixels.com",
               "telephone": "+923216479192",
               "email": "ahmedpixelspro@gmail.com",
               "address": {

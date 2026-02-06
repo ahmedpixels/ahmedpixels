@@ -51,22 +51,22 @@ const AboutPage = () => {
       <Helmet>
         <title>About Ahmed | WordPress Developer & SEO Specialist - Lahore</title>
         <meta name="description" content="Learn about Ahmed, a WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience. 50+ projects completed with 100% client satisfaction." />
-        <link rel="canonical" href="https://ahmedpixels.pro/about" />
+        <link rel="canonical" href="https://ahmedpixels.com/about" />
         <meta property="og:title" content="About Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience." />
-        <meta property="og:url" content="https://ahmedpixels.pro/about" />
-        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:url" content="https://ahmedpixels.com/about" />
+        <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.pro/" },
-              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ahmedpixels.pro/about" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.com/" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ahmedpixels.com/about" }
             ]
           })}
         </script>
@@ -76,14 +76,14 @@ const AboutPage = () => {
             "@type": "AboutPage",
             "name": "About Ahmed - WordPress Developer & SEO Specialist",
             "description": "Learn about Ahmed, a WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience.",
-            "url": "https://ahmedpixels.pro/about",
+            "url": "https://ahmedpixels.com/about",
             "mainEntity": {
               "@type": "Person",
               "name": "Ahmed",
               "jobTitle": "WordPress Developer & SEO Specialist",
               "description": "Professional WordPress Developer and SEO Specialist with 2+ years of experience, specializing in E-commerce, B2B platforms, and performance optimization.",
-              "url": "https://ahmedpixels.pro",
-              "image": "https://ahmedpixels.pro/og-image.png",
+              "url": "https://ahmedpixels.com",
+              "image": "https://ahmedpixels.com/og-image.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Lahore",

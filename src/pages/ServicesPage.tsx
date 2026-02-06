@@ -187,22 +187,22 @@ const ServicesPage = () => {
           name="description"
           content="Professional WordPress development services in Lahore, Pakistan. Custom websites, WooCommerce stores, theme customization, SEO optimization, and ongoing maintenance support."
         />
-        <link rel="canonical" href="https://ahmedpixels.pro/services" />
+        <link rel="canonical" href="https://ahmedpixels.com/services" />
         <meta property="og:title" content="WordPress Development Services | Ahmed" />
         <meta property="og:description" content="Professional WordPress development services including custom websites, WooCommerce, and SEO optimization." />
-        <meta property="og:url" content="https://ahmedpixels.pro/services" />
-        <meta property="og:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta property="og:url" content="https://ahmedpixels.com/services" />
+        <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://ahmedpixels.pro/og-image.png" />
+        <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.pro/" },
-              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ahmedpixels.pro/services" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ahmedpixels.com/services" }
             ]
           })}
         </script>
