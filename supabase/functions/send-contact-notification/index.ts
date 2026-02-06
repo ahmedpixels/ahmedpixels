@@ -11,6 +11,7 @@ const corsHeaders = {
 
 // Allowed origins for the contact form (add your production domain)
 const ALLOWED_ORIGINS = [
+  "https://ahmedpixels.com",
   "https://ahmedpixels.lovable.app",
   "https://id-preview--2edc5261-3626-4be1-818b-d5c94250d08c.lovable.app",
   "http://localhost:5173",

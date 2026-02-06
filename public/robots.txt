@@ -1,5 +1,5 @@
 # Robots.txt for Ahmed - WordPress Developer Portfolio
-# https://ahmedpixels.pro
+# https://ahmedpixels.com
 
 # Default rules for all bots
 User-agent: *
@@ -106,4 +106,4 @@ User-agent: ZoominfoBot
 Disallow: /
 
 # Sitemap Location
-Sitemap: https://ahmedpixels.pro/sitemap.xml
+Sitemap: https://ahmedpixels.com/sitemap.xml
