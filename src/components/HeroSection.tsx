@@ -103,28 +103,24 @@ const HeroSection = memo(() => {
               </p>
             </div>
 
-            {/* CTA Buttons with shimmer effect */}
+            {/* CTA Buttons */}
             <nav className="flex flex-wrap gap-4" aria-label="Primary actions">
               <a
                 href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background overflow-hidden"
+                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                 aria-label="Contact Ahmed on WhatsApp"
               >
-                <span className="relative z-10">Let's Talk</span>
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                Let's Talk
               </a>
 
               <a
                 href="#portfolio"
-                className="group relative px-8 py-4 bg-transparent text-hero-text rounded-full font-semibold border border-primary/30 hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background overflow-hidden"
+                className="group relative px-8 py-4 bg-transparent text-hero-text rounded-full font-semibold border border-primary/30 hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                 aria-label="View portfolio projects"
               >
-                <span className="relative z-10">View Projects</span>
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+                View Projects
               </a>
             </nav>
 
