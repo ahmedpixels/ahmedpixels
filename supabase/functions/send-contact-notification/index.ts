@@ -40,6 +40,26 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+// HTML escaping to prevent XSS/injection attacks
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// URL validation for reference URLs
+function isValidUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 // Input validation
 function validateInput(data: ContactNotificationRequest): { valid: boolean; error?: string } {
   if (!data.name || typeof data.name !== 'string' || data.name.length > 100) {
@@ -65,6 +85,10 @@ function validateInput(data: ContactNotificationRequest): { valid: boolean; erro
   }
   if (data.reference_url && (typeof data.reference_url !== 'string' || data.reference_url.length > 500)) {
     return { valid: false, error: 'Invalid reference URL' };
+  }
+  // Validate reference_url is a proper URL if provided
+  if (data.reference_url && !isValidUrl(data.reference_url)) {
+    return { valid: false, error: 'Invalid reference URL format' };
   }
   return { valid: true };
 }
@@ -127,11 +151,24 @@ const handler = async (req: Request): Promise<Response> => {
     const { name, email, phone, service, message, budget, timeline, reference_url } = requestData;
     console.log("Processing contact from:", name, email);
 
+    // Escape all user inputs for safe HTML rendering
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
+    const safeService = escapeHtml(service);
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+    const safeBudget = budget ? escapeHtml(budget) : null;
+    const safeTimeline = timeline ? escapeHtml(timeline) : null;
+    const safeReferenceUrl = reference_url ? escapeHtml(reference_url) : null;
+    
+    // For WhatsApp link, only allow digits
+    const phoneDigits = phone.replace(/[^0-9]/g, '');
+
     // Send notification email to yourself
     const notificationResponse = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: ["ahmedpixelspro@gmail.com"],
-      subject: `🚀 New Project Request: ${service} from ${name}`,
+      subject: `🚀 New Project Request: ${safeService} from ${safeName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #ff6b35; border-bottom: 2px solid #ff6b35; padding-bottom: 10px;">New Project Request</h2>
@@ -139,41 +176,41 @@ const handler = async (req: Request): Promise<Response> => {
           <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
             <tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold; width: 150px;">Name</td>
-              <td style="padding: 10px; background: #fafafa;">${name}</td>
+              <td style="padding: 10px; background: #fafafa;">${safeName}</td>
             </tr>
             <tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold;">Email</td>
-              <td style="padding: 10px; background: #fafafa;"><a href="mailto:${email}">${email}</a></td>
+              <td style="padding: 10px; background: #fafafa;"><a href="mailto:${safeEmail}">${safeEmail}</a></td>
             </tr>
             <tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold;">WhatsApp/Phone</td>
-              <td style="padding: 10px; background: #fafafa;"><a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}">${phone}</a></td>
+              <td style="padding: 10px; background: #fafafa;"><a href="https://wa.me/${phoneDigits}">${safePhone}</a></td>
             </tr>
             <tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold;">Service</td>
-              <td style="padding: 10px; background: #fafafa; color: #ff6b35; font-weight: bold;">${service}</td>
+              <td style="padding: 10px; background: #fafafa; color: #ff6b35; font-weight: bold;">${safeService}</td>
             </tr>
-            ${budget ? `<tr>
+            ${safeBudget ? `<tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold;">Budget</td>
-              <td style="padding: 10px; background: #fafafa;">${budget}</td>
+              <td style="padding: 10px; background: #fafafa;">${safeBudget}</td>
             </tr>` : ''}
-            ${timeline ? `<tr>
+            ${safeTimeline ? `<tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold;">Timeline</td>
-              <td style="padding: 10px; background: #fafafa;">${timeline}</td>
+              <td style="padding: 10px; background: #fafafa;">${safeTimeline}</td>
             </tr>` : ''}
-            ${reference_url ? `<tr>
+            ${safeReferenceUrl && reference_url ? `<tr>
               <td style="padding: 10px; background: #f5f5f5; font-weight: bold;">Reference</td>
-              <td style="padding: 10px; background: #fafafa;"><a href="${reference_url}">${reference_url}</a></td>
+              <td style="padding: 10px; background: #fafafa;"><a href="${safeReferenceUrl}">${safeReferenceUrl}</a></td>
             </tr>` : ''}
           </table>
           
           <h3 style="color: #333;">Project Details:</h3>
           <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #ff6b35; margin: 10px 0;">
-            ${message.replace(/\n/g, "<br>")}
+            ${safeMessage}
           </div>
           
           <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
-          <p style="color: #666; font-size: 12px;">Reply directly to this email or contact them at ${email} | WhatsApp: ${phone}</p>
+          <p style="color: #666; font-size: 12px;">Reply directly to this email or contact them at ${safeEmail} | WhatsApp: ${safePhone}</p>
         </div>
       `,
       reply_to: email,
@@ -188,16 +225,16 @@ const handler = async (req: Request): Promise<Response> => {
       subject: "✅ I received your project request!",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #ff6b35;">Thank you for reaching out, ${name}!</h2>
-          <p>I've received your project request for <strong>${service}</strong> and will review the details shortly.</p>
+          <h2 style="color: #ff6b35;">Thank you for reaching out, ${safeName}!</h2>
+          <p>I've received your project request for <strong>${safeService}</strong> and will review the details shortly.</p>
           <p>I typically respond within <strong>24 hours</strong>. If your project is urgent, feel free to WhatsApp me directly!</p>
           
           <h3 style="color: #333;">Your Request Summary:</h3>
           <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #ff6b35; margin: 10px 0;">
-            <p><strong>Service:</strong> ${service}</p>
-            ${budget ? `<p><strong>Budget:</strong> ${budget}</p>` : ''}
-            ${timeline ? `<p><strong>Timeline:</strong> ${timeline}</p>` : ''}
-            <p><strong>Details:</strong><br>${message.replace(/\n/g, "<br>")}</p>
+            <p><strong>Service:</strong> ${safeService}</p>
+            ${safeBudget ? `<p><strong>Budget:</strong> ${safeBudget}</p>` : ''}
+            ${safeTimeline ? `<p><strong>Timeline:</strong> ${safeTimeline}</p>` : ''}
+            <p><strong>Details:</strong><br>${safeMessage}</p>
           </div>
           
           <p style="margin-top: 20px;">Best regards,<br><strong>Ahmed</strong><br>WordPress Developer & SEO Specialist</p>
