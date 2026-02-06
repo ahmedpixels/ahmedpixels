@@ -109,7 +109,7 @@ const HeroSection = memo(() => {
                 href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                 aria-label="Contact Ahmed on WhatsApp"
               >
                 Let's Talk
@@ -117,7 +117,7 @@ const HeroSection = memo(() => {
 
               <a
                 href="#portfolio"
-                className="group relative px-8 py-4 bg-transparent text-hero-text rounded-full font-semibold border border-primary/30 hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="group relative px-8 py-4 bg-transparent text-hero-text rounded-full font-semibold border border-primary/30 hover:border-primary/60 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                 aria-label="View portfolio projects"
               >
                 View Projects
@@ -139,68 +139,27 @@ const HeroSection = memo(() => {
             </div>
           </div>
 
-          {/* Right - Image with enhanced effects */}
+          {/* Right - Image with simplified effects */}
           <motion.div 
             className="order-1 lg:order-2 flex justify-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="relative animate-float-slow">
-              {/* Animated rotating ring */}
-              <motion.div 
-                className="absolute inset-[-20px] rounded-full border-2 border-dashed border-primary/30"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div 
-                className="absolute inset-[-40px] rounded-full border border-primary/20"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              />
-              
-              {/* Orbiting dots */}
-              <motion.div
-                className="absolute inset-[-50px]"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_hsl(var(--primary))]" />
-              </motion.div>
-              <motion.div
-                className="absolute inset-[-70px]"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-purple-400 rounded-full shadow-[0_0_10px_theme(colors.purple.400)]" />
-              </motion.div>
+            <div className="relative">
+              {/* Static ring decorations */}
+              <div className="absolute inset-[-20px] rounded-full border-2 border-dashed border-primary/20" />
+              <div className="absolute inset-[-40px] rounded-full border border-primary/10" />
 
-              {/* Animated glow effect */}
-              <motion.div 
-                className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] scale-90"
-                animate={{ 
-                  scale: [0.9, 1.1, 0.9],
-                  opacity: [0.2, 0.4, 0.2]
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
+              {/* Glow effect - static */}
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] scale-90" />
               
-              {/* Image container with glow pulse */}
-              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] animate-glow-pulse">
-                {/* Animated gradient border */}
-                <motion.div 
-                  className="absolute inset-0 rounded-full p-1"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(var(--primary)), hsl(280, 70%, 50%), hsl(var(--primary)))",
-                    backgroundSize: "200% 200%",
-                  }}
-                  animate={{
-                    backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                  }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                >
+              {/* Image container */}
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
+                {/* Gradient border */}
+                <div className="absolute inset-0 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-primary/50">
                   <div className="w-full h-full rounded-full bg-hero-bg" />
-                </motion.div>
+                </div>
                 
                 {/* Image */}
                 <div className="absolute inset-3 rounded-full overflow-hidden">
@@ -214,34 +173,9 @@ const HeroSection = memo(() => {
                   />
                 </div>
 
-                {/* Animated corner decorations */}
-                <motion.div 
-                  className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary rounded-tr-lg"
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div 
-                  className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-primary rounded-bl-lg"
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                />
-                
-                {/* Floating particles around image */}
-                <motion.div
-                  className="absolute -top-6 -right-6 w-2 h-2 bg-primary/60 rounded-full"
-                  animate={{ y: [0, -10, 0], opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                  className="absolute -bottom-4 -right-8 w-1.5 h-1.5 bg-purple-400/60 rounded-full"
-                  animate={{ y: [0, -8, 0], opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                />
-                <motion.div
-                  className="absolute top-1/4 -left-8 w-2 h-2 bg-primary/40 rounded-full"
-                  animate={{ x: [0, -5, 0], opacity: [0.4, 0.8, 0.4] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                />
+                {/* Corner decorations */}
+                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary rounded-tr-lg" />
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-primary rounded-bl-lg" />
               </div>
             </div>
           </motion.div>
