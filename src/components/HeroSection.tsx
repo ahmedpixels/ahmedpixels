@@ -1,15 +1,22 @@
-import { useEffect, useState, lazy, Suspense, memo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, MapPin } from "lucide-react";
+import { useEffect, useState, useRef, memo } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.png";
-import OptimizedImage from "./OptimizedImage";
-
-// Lazy load particles for better initial load
-const ParticlesBackground = lazy(() => import("./ParticlesBackground"));
 
 const HeroSection = memo(() => {
   const [currentRole, setCurrentRole] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+
   const roles = [
     "WordPress Developer",
     "SEO Specialist", 
@@ -17,180 +24,288 @@ const HeroSection = memo(() => {
     "Web Designer"
   ];
 
-  // Role rotation with longer interval
   useEffect(() => {
+    setIsLoaded(true);
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <section className="min-h-screen bg-hero-bg relative overflow-hidden flex items-center">
-      {/* Lazy loaded particles */}
-      <Suspense fallback={null}>
-        <ParticlesBackground />
-      </Suspense>
+  // Animated counter component
+  const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
+    const [count, setCount] = useState(0);
+    
+    useEffect(() => {
+      if (!isLoaded) return;
+      const duration = 2000;
+      const steps = 60;
+      const increment = value / steps;
+      let current = 0;
       
-      {/* Static gradient background - no animations */}
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+      
+      return () => clearInterval(timer);
+    }, [value, isLoaded]);
+    
+    return <span>{count}{suffix}</span>;
+  };
+
+  return (
+    <section 
+      ref={containerRef}
+      className="min-h-screen bg-hero-bg relative overflow-hidden flex items-center"
+    >
+      {/* Dramatic gradient background */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[120px]" />
-        
-        {/* Static grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.015]" 
+        {/* Large gradient orbs */}
+        <motion.div 
+          className="absolute top-0 left-1/4 w-[800px] h-[800px] rounded-full"
           style={{
-            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
+            background: "radial-gradient(circle, hsl(270 85% 58% / 0.15) 0%, transparent 70%)",
+            filter: "blur(60px)",
+            y
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, hsl(280 90% 65% / 0.1) 0%, transparent 70%)",
+            filter: "blur(80px)",
+            y: useTransform(scrollYProgress, [0, 1], [0, -100])
+          }}
+        />
+        
+        {/* Grid pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]" 
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px',
+          }}
+        />
+        
+        {/* Noise texture */}
+        <div 
+          className="absolute inset-0 opacity-[0.02] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
       {/* Main Content */}
-      <div className="container-custom relative z-10 px-6 md:px-12 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-28">
-          {/* Left Content - No initial animation to prevent LCP delay */}
-          <div className="order-2 lg:order-1 animate-fade-in"
-          >
-            {/* Location Badge */}
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                <MapPin size={16} className="text-primary" />
-                <span className="text-sm text-hero-muted">Lahore, Pakistan</span>
-                <span className="w-2 h-2 bg-green-400 rounded-full" />
-              </div>
-            </div>
-
-            {/* Hello Text */}
-            <p className="text-hero-muted text-xl mb-3 font-light">
-              <span className="text-primary">&lt;</span> Hello, I'm <span className="text-primary">/&gt;</span>
-            </p>
-
-            {/* Name */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-hero-text mb-2">
-              <span className="text-gradient inline-block">AHMED</span>
-            </h1>
+      <motion.div 
+        className="container-custom relative z-10 px-6 md:px-12 lg:px-16 w-full"
+        style={{ opacity, scale }}
+      >
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-screen py-24 lg:py-32">
+          
+          {/* Left Content - 7 columns */}
+          <div className="lg:col-span-7 order-2 lg:order-1">
             
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-hero-text/80 mb-4">
-              PIXELS
-            </div>
+            {/* Eyebrow text */}
+            <motion.div 
+              className="mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+                <span className="inline-flex items-center gap-3 text-hero-muted text-sm tracking-[0.3em] uppercase font-medium">
+                  <span className="w-12 h-px bg-primary" />
+                  Based in Lahore, Pakistan
+                  <span className="w-2 h-2 bg-status-online rounded-full animate-pulse" />
+                </span>
+            </motion.div>
 
-            {/* Animated Role - simplified animation */}
-            <div className="h-12 md:h-14 mb-8 overflow-hidden">
+            {/* Main heading - Lando style large text */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <h1 className="relative mb-2">
+                <span className="block text-hero-muted text-2xl md:text-3xl font-light mb-2 tracking-wide">
+                  Hello, I'm
+                </span>
+                <span className="block text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-bold leading-[0.85] tracking-tighter">
+                  <span className="text-gradient">AHMED</span>
+                </span>
+                <span className="block text-[2.5rem] md:text-[4rem] lg:text-[5rem] font-bold text-hero-text/60 tracking-tight -mt-2 md:-mt-4">
+                  PIXELS
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* Animated role */}
+            <motion.div 
+              className="h-16 md:h-20 mb-8 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={isLoaded ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               <AnimatePresence mode="wait">
-                <motion.h2
+                <motion.div
                   key={currentRole}
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -30, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-2xl md:text-3xl lg:text-4xl font-semibold text-primary flex items-center gap-3"
+                  initial={{ y: 60, opacity: 0, filter: "blur(10px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                  exit={{ y: -60, opacity: 0, filter: "blur(10px)" }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex items-center gap-4"
                 >
-                  <span className="w-8 h-[2px] bg-primary" />
-                  {roles[currentRole]}
-                </motion.h2>
+                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                  <span className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary">
+                    {roles[currentRole]}
+                  </span>
+                </motion.div>
               </AnimatePresence>
-            </div>
+            </motion.div>
 
             {/* Description */}
-            <div className="relative mb-10 max-w-lg">
-              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
-              <p className="text-hero-muted text-lg leading-relaxed pl-2">
-                I craft high-performance websites that rank and convert. 
-                Transforming ideas into stunning digital experiences that drive real results.
-              </p>
-            </div>
+            <motion.p 
+              className="text-hero-muted text-lg md:text-xl max-w-xl leading-relaxed mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              I craft high-performance websites that rank on Google and convert visitors into customers. 
+              Transforming ideas into stunning digital experiences.
+            </motion.p>
 
             {/* CTA Buttons */}
-            <nav className="flex flex-wrap gap-4" aria-label="Primary actions">
+            <motion.nav 
+              className="flex flex-wrap gap-4 mb-12"
+              aria-label="Primary actions"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
               <a
                 href="https://wa.me/923216479192?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-                aria-label="Contact Ahmed on WhatsApp"
+                className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_hsl(270,85%,58%,0.5)]"
               >
-                Let's Talk
+                <span className="relative z-10">Start a Project</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-shimmer" />
               </a>
 
               <a
                 href="#portfolio"
-                className="group relative px-8 py-4 bg-transparent text-hero-text rounded-full font-semibold border border-primary/30 hover:border-primary/60 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-                aria-label="View portfolio projects"
+                className="group px-8 py-4 text-hero-text rounded-full font-semibold border-2 border-hero-text/20 hover:border-primary/60 transition-all duration-300 hover:bg-primary/5"
               >
-                View Projects
+                View My Work
+                <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
-            </nav>
+            </motion.nav>
 
-            {/* Stats row */}
-            <div className="flex gap-8 mt-12 pt-8 border-t border-hero-text/10">
+            {/* Stats - Cinematic counters */}
+            <motion.div 
+              className="flex gap-10 md:gap-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
               {[
-                { number: "50+", label: "Projects" },
-                { number: "5+", label: "Years Exp." },
-                { number: "40+", label: "Happy Clients" },
+                { value: 50, suffix: "+", label: "Projects Completed" },
+                { value: 5, suffix: "+", label: "Years Experience" },
+                { value: 40, suffix: "+", label: "Happy Clients" },
               ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-primary">{stat.number}</div>
-                  <div className="text-sm text-hero-muted">{stat.label}</div>
+                <div key={index} className="relative">
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient">
+                    <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-sm text-hero-muted mt-1 tracking-wide">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right - Image with simplified effects */}
+          {/* Right - Portrait with dramatic effects - 5 columns */}
           <motion.div 
-            className="order-1 lg:order-2 flex justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative">
-              {/* Static ring decorations */}
-              <div className="absolute inset-[-20px] rounded-full border-2 border-dashed border-primary/20" />
-              <div className="absolute inset-[-40px] rounded-full border border-primary/10" />
-
-              {/* Glow effect - static */}
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] scale-90" />
+              {/* Outer glow ring */}
+              <div className="absolute inset-[-30px] rounded-full bg-gradient-to-br from-primary/30 via-transparent to-accent/20 blur-2xl animate-pulse" />
+              
+              {/* Rotating border */}
+              <motion.div 
+                className="absolute inset-[-4px] rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, hsl(270 85% 58%), hsl(280 90% 65%), hsl(310 80% 60%), hsl(270 85% 58%))",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Inner background */}
+              <div className="absolute inset-[2px] rounded-full bg-hero-bg" />
               
               {/* Image container */}
-              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
-                {/* Gradient border */}
-                <div className="absolute inset-0 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-primary/50">
-                  <div className="w-full h-full rounded-full bg-hero-bg" />
-                </div>
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] rounded-full overflow-hidden">
+                <img
+                  src={ahmedPortrait}
+                  alt="Ahmed Pixels - WordPress Developer & SEO Specialist"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                />
                 
-                {/* Image */}
-                <div className="absolute inset-3 rounded-full overflow-hidden">
-                  <OptimizedImage
-                    src={ahmedPortrait}
-                    alt="Ahmed Pixels - WordPress Developer & SEO Specialist"
-                    className="w-full h-full object-cover"
-                    priority={true}
-                    width={420}
-                    height={420}
-                  />
-                </div>
-
-                {/* Corner decorations */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary rounded-tr-lg" />
-                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-primary rounded-bl-lg" />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-hero-bg/40 via-transparent to-transparent" />
               </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-xl" />
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-xl" />
+              
+              {/* Floating badge */}
+              <motion.div 
+                className="absolute -bottom-2 -right-8 px-4 py-2 bg-hero-bg/90 backdrop-blur-sm border border-primary/30 rounded-full"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <span className="text-sm text-primary font-medium">Available for work</span>
+              </motion.div>
             </div>
           </motion.div>
         </div>
 
         {/* Scroll Indicator */}
-        <a
+        <motion.a
           href="#about"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-hero-muted hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-lg p-2"
-          aria-label="Scroll down to About section"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-hero-muted hover:text-primary transition-colors"
+          aria-label="Scroll to About section"
+          initial={{ opacity: 0 }}
+          animate={isLoaded ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 1 }}
         >
-          <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
-          <ArrowDown size={18} className="animate-bounce" />
-        </a>
-      </div>
+          <span className="text-xs font-medium uppercase tracking-[0.2em]">Scroll Down</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ArrowDown size={20} />
+          </motion.div>
+        </motion.a>
+      </motion.div>
     </section>
   );
 });

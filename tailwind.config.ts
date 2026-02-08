@@ -59,6 +59,9 @@ export default {
           text: "hsl(var(--hero-text))",
           muted: "hsl(var(--hero-text-muted))",
         },
+        status: {
+          online: "hsl(var(--status-online))",
+        },
         section: {
           dark: "hsl(var(--section-dark))",
           light: "hsl(var(--section-light))",
