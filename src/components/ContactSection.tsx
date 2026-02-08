@@ -57,8 +57,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "ahmedpixelspro@gmail.com",
-    href: "mailto:ahmedpixelspro@gmail.com",
+    value: "info@ahmedpixels.com",
+    href: "mailto:info@ahmedpixels.com",
     gradient: "from-pink-500 to-rose-500",
   },
 ];

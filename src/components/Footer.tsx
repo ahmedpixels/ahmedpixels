@@ -128,11 +128,11 @@ const Footer = memo(() => {
                 <li className="flex items-start gap-3">
                   <Mail className="text-primary mt-1 flex-shrink-0" size={18} aria-hidden="true" />
                   <a 
-                    href="mailto:ahmedpixelspro@gmail.com"
+                    href="mailto:info@ahmedpixels.com"
                     className="text-hero-text/60 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
                     aria-label="Send email"
                   >
-                    ahmedpixelspro@gmail.com
+                    info@ahmedpixels.com
                   </a>
                 </li>
               </ul>
