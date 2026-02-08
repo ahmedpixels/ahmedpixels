@@ -8,14 +8,14 @@ import ProjectLightbox from "@/components/ProjectLightbox";
 import { ArrowRight, Eye, Filter, Sparkles } from "lucide-react";
 
 // Import all project screenshots
-import rockshineDesktop from "@/assets/projects/rockshinegroup-desktop.png";
-import misspeoneyDesktop from "@/assets/projects/misspeony-desktop.png";
-import eleevaarabicDesktop from "@/assets/projects/eleevaadhesive-arabic-desktop.png";
-import jeddahDesktop from "@/assets/projects/jeddahautospareparts-desktop.png";
-import shinewallDesktop from "@/assets/projects/shinewallstone-desktop.png";
-import pixelhashDesktop from "@/assets/projects/pixelhashtech.png";
-import silkspoolDesktop from "@/assets/projects/silkspool.png";
-import eleevaDesktop from "@/assets/projects/eleevaadhesives.png";
+import rockshineDesktop from "@/assets/projects/rockshinegroup-desktop.png?webp";
+import misspeoneyDesktop from "@/assets/projects/misspeony-desktop.png?webp";
+import eleevaarabicDesktop from "@/assets/projects/eleevaadhesive-arabic-desktop.png?webp";
+import jeddahDesktop from "@/assets/projects/jeddahautospareparts-desktop.png?webp";
+import shinewallDesktop from "@/assets/projects/shinewallstone-desktop.png?webp";
+import pixelhashDesktop from "@/assets/projects/pixelhashtech.png?webp";
+import silkspoolDesktop from "@/assets/projects/silkspool.png?webp";
+import eleevaDesktop from "@/assets/projects/eleevaadhesives.png?webp";
 
 const projects = [
   {

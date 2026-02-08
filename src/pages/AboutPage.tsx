@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import OptimizedImage from "@/components/OptimizedImage";
-import ahmedPortrait from "@/assets/ahmed-portrait.png";
+import ahmedPortrait from "@/assets/ahmed-portrait.png?webp";
 import { MapPin, GraduationCap, Briefcase, Target, Heart, Zap, Award, Rocket, Code } from "lucide-react";
 
 const AboutPage = () => {

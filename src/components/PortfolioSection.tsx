@@ -4,12 +4,12 @@ import { ExternalLink, Eye, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // Import static images
-import pixelhashDesktop from "@/assets/projects/pixelhashtech.png";
-import shinewallDesktop from "@/assets/projects/shinewallstone-desktop.png";
-import silkspoolDesktop from "@/assets/projects/silkspool.png";
-import jeddahDesktop from "@/assets/projects/jeddahautospareparts-desktop.png";
-import eleevaDesktop from "@/assets/projects/eleevaadhesives.png";
-import rockshineDesktop from "@/assets/projects/rockshinegroup-desktop.png";
+import pixelhashDesktop from "@/assets/projects/pixelhashtech.png?webp";
+import shinewallDesktop from "@/assets/projects/shinewallstone-desktop.png?webp";
+import silkspoolDesktop from "@/assets/projects/silkspool.png?webp";
+import jeddahDesktop from "@/assets/projects/jeddahautospareparts-desktop.png?webp";
+import eleevaDesktop from "@/assets/projects/eleevaadhesives.png?webp";
+import rockshineDesktop from "@/assets/projects/rockshinegroup-desktop.png?webp";
 
 const projects = [
   {

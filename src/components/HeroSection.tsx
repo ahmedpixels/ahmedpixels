@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin } from "lucide-react";
-import ahmedPortrait from "@/assets/ahmed-portrait.png";
+import ahmedPortrait from "@/assets/ahmed-portrait.png?webp";
 import OptimizedImage from "./OptimizedImage";
 
 // Lazy load particles for better initial load
