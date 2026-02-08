@@ -2,11 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import OptimizedImage from "./OptimizedImage";
 
-import pixelhashLogo from "@/assets/logos/pixelhash.png?webp";
-import shinewallstoneLogo from "@/assets/logos/shinewallstone.png?webp";
-import silkspoolLogo from "@/assets/logos/silkspool.png?webp";
-import jeddahautoLogo from "@/assets/logos/jeddahauto.png?webp";
-import eleevaLogo from "@/assets/logos/eleeva.png?webp";
+import pixelhashLogo from "@/assets/logos/pixelhash.png";
+import shinewallstoneLogo from "@/assets/logos/shinewallstone.png";
+import silkspoolLogo from "@/assets/logos/silkspool.png";
+import jeddahautoLogo from "@/assets/logos/jeddahauto.png";
+import eleevaLogo from "@/assets/logos/eleeva.png";
 
 const clients = [
   { 

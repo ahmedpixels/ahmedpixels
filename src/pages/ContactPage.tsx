@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import OptimizedImage from "@/components/OptimizedImage";
-import ahmedPortrait from "@/assets/ahmed-portrait.png?webp";
+import ahmedPortrait from "@/assets/ahmed-portrait.png";
 import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCircle, Sparkles } from "lucide-react";
 
 const ContactPage = () => {
