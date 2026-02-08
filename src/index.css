@@ -75,14 +75,14 @@ body {
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --hero-bg: 270 20% 4%;
+    --hero-bg: 270 15% 1%;
     --hero-text: 0 0% 100%;
     --hero-text-muted: 270 10% 65%;
-    --section-dark: 270 20% 6%;
+    --section-dark: 270 15% 2%;
     --section-light: 270 15% 97%;
     --gradient-purple: linear-gradient(135deg, hsl(270, 85%, 58%) 0%, hsl(290, 90%, 65%) 50%, hsl(310, 80%, 60%) 100%);
     --gradient-purple-soft: linear-gradient(135deg, hsl(270, 60%, 95%) 0%, hsl(290, 70%, 92%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(270, 20%, 4%) 0%, hsl(270, 20%, 8%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(270, 15%, 1%) 0%, hsl(270, 15%, 3%) 100%);
     --shadow-glow: 0 0 80px hsl(270, 85%, 58%, 0.35);
     --shadow-purple: 0 10px 40px hsl(270, 85%, 58%, 0.25);
     --shadow-soft: 0 25px 50px -12px hsl(270, 20%, 15%, 0.2);
@@ -99,7 +99,7 @@ body {
   }
 
   .dark {
-    --background: 270 20% 5%;
+    --background: 270 15% 1%;
     --foreground: 270 10% 98%;
 
     --card: 270 20% 8%;
