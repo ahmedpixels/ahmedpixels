@@ -10,7 +10,7 @@ import { MapPin, Phone, Mail, Clock, CheckCircle, Linkedin, Instagram, MessageCi
 const ContactPage = () => {
   const contactInfo = [
     { icon: Phone, label: "Phone", value: "+923216479192", href: "https://wa.me/923216479192?text=Hi%20Ahmed" },
-    { icon: Mail, label: "Email", value: "ahmedpixelspro@gmail.com", href: "mailto:ahmedpixelspro@gmail.com" },
+    { icon: Mail, label: "Email", value: "info@ahmedpixels.com", href: "mailto:info@ahmedpixels.com" },
     { icon: MapPin, label: "Location", value: "Lahore, Pakistan", href: null },
     { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
   ];
@@ -25,7 +25,7 @@ const ContactPage = () => {
     <>
       <Helmet>
         <title>Contact Ahmed | WordPress Developer & SEO Specialist - Lahore</title>
-        <meta name="description" content="Get in touch with Ahmed for WordPress development, SEO services, and web projects. WhatsApp: +923216479192. Email: ahmedpixelspro@gmail.com. Fast response within 24 hours." />
+        <meta name="description" content="Get in touch with Ahmed for WordPress development, SEO services, and web projects. WhatsApp: +923216479192. Email: info@ahmedpixels.com. Fast response within 24 hours." />
         <link rel="canonical" href="https://ahmedpixels.com/contact" />
         <meta property="og:title" content="Contact Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="Get in touch for WordPress development and SEO services. Fast response within 24 hours." />
@@ -58,7 +58,7 @@ const ContactPage = () => {
               "jobTitle": "WordPress Developer & SEO Specialist",
               "url": "https://ahmedpixels.com",
               "telephone": "+923216479192",
-              "email": "ahmedpixelspro@gmail.com",
+              "email": "info@ahmedpixels.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Lahore",
@@ -67,7 +67,7 @@ const ContactPage = () => {
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+923216479192",
-                "email": "ahmedpixelspro@gmail.com",
+                "email": "info@ahmedpixels.com",
                 "contactType": "customer service",
                 "availableLanguage": ["English", "Urdu"],
                 "areaServed": "Worldwide"
