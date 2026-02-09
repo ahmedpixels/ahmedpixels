@@ -26,18 +26,18 @@ const CTASection = memo(function CTASection({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`py-16 md:py-20 ${className}`}
+      className={`py-20 md:py-28 ${className}`}
     >
       <div className="container-custom px-4 md:px-8">
-        <div className="relative rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-primary/30 shadow-[0_0_60px_hsl(var(--primary)/0.15)] bg-hero-bg">
-          {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-hero-bg via-section-dark to-primary/20" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.15),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary)/0.1),transparent_50%)]" />
+        <div className="relative rounded-[2rem] p-12 md:p-16 text-center overflow-hidden premium-card noise-overlay">
+          {/* Multi-layer gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-hero-bg via-section-dark to-primary/15" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.2),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--accent)/0.1),transparent_50%)]" />
           
-          {/* Corner Glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full blur-[80px]" />
+          {/* Animated glow orbs */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[120px] animate-pulse-glow" />
+          <div className="absolute bottom-0 left-0 w-60 h-60 bg-accent/8 rounded-full blur-[100px] animate-pulse-glow animation-delay-400" />
           
           <div className="relative z-10">
             {/* Badge */}
@@ -45,16 +45,16 @@ const CTASection = memo(function CTASection({
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full text-primary font-semibold text-sm mb-6"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/15 rounded-full text-primary font-semibold text-sm mb-8 border border-primary/20"
             >
               <Sparkles size={16} />
               Let's Connect
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hero-text mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hero-text mb-5 leading-tight">
               {title} <span className="text-gradient">{highlight}</span>
             </h2>
-            <p className="text-hero-muted max-w-2xl mx-auto mb-10 text-lg">
+            <p className="text-hero-muted max-w-2xl mx-auto mb-12 text-lg">
               {subtitle}
             </p>
             
@@ -66,16 +66,19 @@ const CTASection = memo(function CTASection({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-10 py-4 rounded-full shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-shadow"
+                className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-10 py-4 rounded-full shadow-lg hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all relative overflow-hidden"
               >
-                {primaryText}
-                <ArrowRight size={20} />
+                <span className="relative z-10 flex items-center gap-2">
+                  {primaryText}
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary-glow opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.a>
               <motion.a
                 href={secondaryLink}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 border-2 border-primary/40 text-hero-text font-bold px-10 py-4 rounded-full hover:border-primary hover:text-primary hover:bg-primary/5 transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-primary/25 text-hero-text font-bold px-10 py-4 rounded-full hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all gradient-border-btn"
               >
                 {secondaryText}
               </motion.a>
