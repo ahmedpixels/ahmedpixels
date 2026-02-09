@@ -185,21 +185,20 @@ const AboutPage = () => {
               <h2 className="text-2xl font-bold text-hero-text mb-6">My Journey</h2>
               <div className="space-y-4 text-hero-muted leading-relaxed">
                 <p>
-                  Main Ahmed hoon — ek WordPress Developer aur SEO Specialist jo Lahore, Pakistan se kaam karta hai. 
-                  Pichle 2+ saal mein maine 50+ websites deliver ki hain clients ke liye jo Pakistan, Saudi Arabia, 
-                  USA, aur UK se hain. Mera focus sirf website banana nahi hai — balke aisi website banana hai jo 
-                  Google pe rank kare aur real customers laye.
+                  I'm Ahmed — a WordPress Developer and SEO Specialist based in Lahore, Pakistan. 
+                  Over the past 2+ years, I've delivered 50+ websites for clients across Pakistan, Saudi Arabia, 
+                  USA, and the UK — helping them get found on Google and grow their business online.
                 </p>
                 <p>
-                  Meri journey Brains College, Baghwanpura se shuru hui jahan maine web development ki basics seekhi. 
-                  Uske baad maine khud se WordPress, WooCommerce, Shopify, aur SEO mein mastery hasil ki — real projects 
-                  pe kaam karke. Aaj main e-commerce stores, corporate websites, landing pages, aur complete 
-                  Shopify stores banata hoon.
+                  My journey started at Brains College, Baghwanpura, where I learned the fundamentals of web development. 
+                  From there, I built my expertise in WordPress, WooCommerce, Shopify, and SEO through real-world projects. 
+                  Today, I build e-commerce stores, corporate websites, landing pages, and complete 
+                  Shopify stores for businesses of all sizes.
                 </p>
                 <p>
-                  Har project mein main on-page SEO, speed optimization, mobile-responsive design, aur Google Search 
-                  Console setup by default include karta hoon — kyunke website ka koi faida nahi agar woh Google pe 
-                  dikhti hi nahi.
+                  Every project I deliver includes on-page SEO, speed optimization, mobile-responsive design, and 
+                  Google Search Console setup as standard — because a website is only valuable if it actually 
+                  shows up on Google.
                 </p>
               </div>
             </motion.div>
