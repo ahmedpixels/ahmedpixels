@@ -4,46 +4,46 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "CEO, TechStart Inc.",
-    content: "Ahmed transformed our outdated website into a modern, SEO-optimized platform. Our organic traffic increased by 200% within 3 months.",
+    name: "Muhammad Usman",
+    role: "Owner, Shine Wall Stone",
+    content: "Ahmed built our complete marble & granite business website with product catalogue and WhatsApp integration. We started getting inquiries from all over Pakistan within weeks.",
     rating: 5,
-    avatar: "SM",
+    avatar: "MU",
   },
   {
-    name: "Michael Chen",
-    role: "Founder, E-Commerce Hub",
-    content: "Working with Ahmed was a game-changer for our online store. He built a fast, beautiful WooCommerce site that our customers love.",
+    name: "Khalid Al-Rashid",
+    role: "Manager, Jeddah Auto Spare Parts",
+    content: "Excellent work on our auto parts e-commerce store. Ahmed set up WooCommerce with proper product categories, search filters, and fast checkout. Very professional and delivers on time.",
     rating: 5,
-    avatar: "MC",
+    avatar: "KR",
   },
   {
-    name: "Fatima Al-Hassan",
-    role: "Marketing Director, GlobalTrade",
-    content: "Ahmed delivered our B2B platform ahead of schedule and under budget. His WordPress expertise helped us rank #1 for our target keywords.",
+    name: "Ayesha Farooq",
+    role: "Founder, Silk & Spool",
+    content: "Ahmed designed a beautiful Shopify store for my clothing brand. He handled everything — theme customization, product uploads, payment setup, and even helped with basic SEO. Highly recommend!",
     rating: 5,
-    avatar: "FA",
+    avatar: "AF",
   },
   {
-    name: "David Thompson",
-    role: "Owner, CraftBrew Coffee",
-    content: "Our Shopify store looks absolutely premium. Ahmed understood our brand perfectly and created an experience that reflects our quality.",
+    name: "Hassan Javed",
+    role: "CEO, Eleeva Adhesives",
+    content: "We needed a professional B2B website for our industrial adhesives company. Ahmed delivered a clean, fast website with proper SEO that ranks on Google for our target keywords.",
     rating: 5,
-    avatar: "DT",
+    avatar: "HJ",
   },
   {
-    name: "Aisha Malik",
-    role: "Director, Tech Solutions Ltd",
-    content: "Professional, responsive, and incredibly talented. Ahmed rebuilt our tech company website with perfect mobile optimization.",
+    name: "Sara Ahmed",
+    role: "Owner, Miss Peony",
+    content: "Ahmed created an elegant website for my flower and gifting business. The design is beautiful, mobile-friendly, and my customers love placing orders through it. Great experience overall.",
     rating: 5,
-    avatar: "AM",
+    avatar: "SA",
   },
   {
-    name: "James Wilson",
-    role: "CEO, LuxeHome Interiors",
-    content: "The catalogue website Ahmed created for us is a work of art. Our clients constantly compliment the design.",
+    name: "Ali Raza",
+    role: "Director, PixelHash Tech",
+    content: "As a tech company, we needed a modern, fast-loading website. Ahmed delivered exactly that — clean design, proper schema markup, and the site loads in under 2 seconds. Outstanding work.",
     rating: 5,
-    avatar: "JW",
+    avatar: "AR",
   },
 ];
 
@@ -146,10 +146,10 @@ const TestimonialsSection = memo(() => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 bg-section-dark rounded-2xl border border-border/20"
         >
           {[
-            { value: "50+", label: "Happy Clients" },
-            { value: "100+", label: "Projects Completed" },
+            { value: "40+", label: "Happy Clients" },
+            { value: "50+", label: "Projects Delivered" },
             { value: "5.0", label: "Average Rating" },
-            { value: "100%", label: "Client Satisfaction" },
+            { value: "100%", label: "On-Time Delivery" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>

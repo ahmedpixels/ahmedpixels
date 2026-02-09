@@ -13,8 +13,8 @@ const HeroSection = memo(() => {
   const roles = [
     "WordPress Developer",
     "SEO Specialist", 
-    "E-commerce Expert",
-    "Web Designer"
+    "WooCommerce Expert",
+    "Shopify Developer"
   ];
 
   // Role rotation with longer interval
@@ -98,8 +98,8 @@ const HeroSection = memo(() => {
             <div className="relative mb-10 max-w-lg">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
               <p className="text-hero-muted text-lg leading-relaxed pl-2">
-                I craft high-performance websites that rank and convert. 
-                Transforming ideas into stunning digital experiences that drive real results.
+                I build SEO-optimized WordPress websites that actually rank on Google and bring real customers. 
+                From WooCommerce stores to corporate sites — I handle everything from design to deployment.
               </p>
             </div>
 
@@ -127,8 +127,8 @@ const HeroSection = memo(() => {
             {/* Stats row */}
             <div className="flex gap-8 mt-12 pt-8 border-t border-hero-text/10">
               {[
-                { number: "50+", label: "Projects" },
-                { number: "5+", label: "Years Exp." },
+                { number: "50+", label: "Projects Delivered" },
+                { number: "2+", label: "Years Experience" },
                 { number: "40+", label: "Happy Clients" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
