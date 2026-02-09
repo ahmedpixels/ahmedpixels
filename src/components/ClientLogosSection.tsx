@@ -41,18 +41,15 @@ const ClientLogosSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="py-20 bg-hero-bg relative overflow-hidden border-y border-primary/5" ref={ref}>
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-30" aria-hidden="true" />
-      
-      <div className="container-custom relative z-10">
+    <section className="py-16 bg-section-light border-y border-border/10" ref={ref}>
+      <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <span className="text-hero-muted text-sm font-medium uppercase tracking-[0.15em]">
+          <span className="text-muted-foreground text-sm font-medium uppercase tracking-wider">
             Trusted by Businesses Across Industries
           </span>
         </motion.div>
@@ -92,9 +89,9 @@ const ClientLogosSection = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-10 text-hero-muted/50 text-xs uppercase tracking-wider"
+          className="text-center mt-8 text-muted-foreground/60 text-sm"
         >
-          + Many More Local & International Businesses
+          + Many More Local Businesses
         </motion.p>
       </div>
     </section>

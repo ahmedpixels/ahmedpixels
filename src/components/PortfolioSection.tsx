@@ -155,29 +155,23 @@ const PortfolioSection = memo(() => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="portfolio" className="section-padding bg-section-dark relative overflow-hidden" ref={ref} aria-labelledby="portfolio-heading">
-      {/* Background effects */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[180px]" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/3 rounded-full blur-[150px]" />
-      </div>
-
-      <div className="container-custom relative z-10">
+    <section id="portfolio" className="section-padding bg-section-light" ref={ref} aria-labelledby="portfolio-heading">
+      <div className="container-custom">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.4 }}
+          className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full border border-primary/20 text-primary font-semibold text-xs uppercase tracking-[0.15em] mb-6">
-            <Eye size={14} />
+          <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+            <Eye size={16} />
             Portfolio
           </span>
-          <h2 className="heading-lg text-hero-text mt-4" id="portfolio-heading">
+          <h2 className="heading-lg text-foreground mt-2" id="portfolio-heading">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-5">
+          <p className="body-lg text-muted-foreground max-w-2xl mx-auto mt-4">
             A showcase of websites I've built for clients across various industries.
           </p>
         </motion.div>

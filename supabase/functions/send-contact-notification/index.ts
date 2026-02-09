@@ -167,7 +167,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to yourself
     const notificationResponse = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
-      to: ["info@ahmedpixels.com"],
+      to: ["ahmedpixelspro@gmail.com"],
       subject: `🚀 New Project Request: ${safeService} from ${safeName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

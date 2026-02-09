@@ -65,7 +65,7 @@ const AboutPage = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.com" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmedpixels.com/" },
               { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ahmedpixels.com/about" }
             ]
           })}
@@ -185,20 +185,19 @@ const AboutPage = () => {
               <h2 className="text-2xl font-bold text-hero-text mb-6">My Journey</h2>
               <div className="space-y-4 text-hero-muted leading-relaxed">
                 <p>
-                  I'm Ahmed — a WordPress Developer and SEO Specialist based in Lahore, Pakistan. 
-                  Over the past 2+ years, I've delivered 50+ websites for clients across Pakistan, Saudi Arabia, 
-                  USA, and the UK — helping them get found on Google and grow their business online.
+                  I'm Ahmed, a passionate WordPress Developer and SEO Specialist based in Lahore, Pakistan. 
+                  With over 2 years of hands-on experience, I've dedicated myself to creating websites that 
+                  not only look stunning but also perform exceptionally well.
                 </p>
                 <p>
-                  My journey started at Brains College, Baghwanpura, where I learned the fundamentals of web development. 
-                  From there, I built my expertise in WordPress, WooCommerce, Shopify, and SEO through real-world projects. 
-                  Today, I build e-commerce stores, corporate websites, landing pages, and complete 
-                  Shopify stores for businesses of all sizes.
+                  My journey began at Brains College, Baghwanpura, where I learned the fundamentals of 
+                  web development. Since then, I've worked with numerous clients across various industries, 
+                  helping them establish their digital presence.
                 </p>
                 <p>
-                  Every project I deliver includes on-page SEO, speed optimization, mobile-responsive design, and 
-                  Google Search Console setup as standard — because a website is only valuable if it actually 
-                  shows up on Google.
+                  I specialize in building E-commerce websites, B2B platforms, Tech websites, Catalogue sites, 
+                  and both single-page and multi-page web applications. My expertise extends to Shopify 
+                  development as well.
                 </p>
               </div>
             </motion.div>
@@ -218,7 +217,7 @@ const AboutPage = () => {
                   <div>
                     <h3 className="font-bold text-hero-text">Brains College</h3>
                     <p className="text-primary-light text-sm">Baghwanpura, Lahore</p>
-                    <p className="text-primary-light text-sm mt-2">Web Development & Digital Marketing</p>
+                    <p className="text-primary-light text-sm mt-2">WordPress & Web Development</p>
                   </div>
                 </div>
               </div>
@@ -226,7 +225,7 @@ const AboutPage = () => {
               <div className="space-y-4">
                 <h3 className="font-semibold text-hero-text">Core Expertise:</h3>
                 <div className="flex flex-wrap gap-3">
-                  {["WordPress", "WooCommerce", "Shopify", "On-Page SEO", "Technical SEO", "HTML/CSS", "PHP", "Speed Optimization", "Google Search Console", "Schema Markup"].map((skill) => (
+                  {["WordPress", "SEO", "E-commerce", "Shopify", "HTML/CSS", "JavaScript", "PHP", "Performance Optimization"].map((skill) => (
                     <span
                       key={skill}
                       className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
