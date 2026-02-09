@@ -6,32 +6,32 @@ const steps = [
   {
     number: "01",
     icon: MessageSquare,
-    title: "Discovery Call",
-    description: "We discuss your project requirements, goals, and vision to understand exactly what you need.",
+    title: "Requirement Discussion",
+    description: "WhatsApp ya call pe baat karte hain — aapka business, target audience, aur website mein kya chahiye. Reference websites share karein to aur behtar.",
   },
   {
     number: "02",
     icon: Lightbulb,
-    title: "Strategy & Planning",
-    description: "I create a detailed plan including site structure, features, and SEO strategy tailored to your business.",
+    title: "Planning & Sitemap",
+    description: "Pages ka structure, features list, aur SEO keywords plan karta hoon. Aapko complete roadmap milta hai before any work starts.",
   },
   {
     number: "03",
     icon: Code2,
     title: "Design & Development",
-    description: "Building your website with clean code, responsive design, and optimized performance.",
+    description: "WordPress pe theme setup, customization, content placement, WooCommerce/Shopify setup — sab step by step with daily updates.",
   },
   {
     number: "04",
     icon: Rocket,
-    title: "Testing & Launch",
-    description: "Thorough testing across devices and browsers before launching your website live.",
+    title: "SEO & Testing",
+    description: "On-page SEO, speed optimization, mobile testing, cross-browser check, aur Google Search Console setup — sab launch se pehle.",
   },
   {
     number: "05",
     icon: Headphones,
-    title: "Support & Maintenance",
-    description: "Ongoing support to keep your website updated, secure, and performing at its best.",
+    title: "Launch & Support",
+    description: "Website live karne ke baad 1 month free support — bug fixes, minor changes, aur WordPress updates. Monthly maintenance bhi available hai.",
   },
 ];
 

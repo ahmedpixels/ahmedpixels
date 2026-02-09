@@ -5,23 +5,23 @@ import { GraduationCap, Target, Users, Zap } from "lucide-react";
 const highlights = [
   {
     icon: Zap,
-    title: "Fast & Efficient",
-    description: "Quick turnaround without compromising quality",
+    title: "Fast Delivery",
+    description: "Most websites delivered within 1-2 weeks with daily progress updates",
   },
   {
     icon: Target,
-    title: "Results Driven",
-    description: "SEO-focused development for maximum visibility",
+    title: "SEO Built-In",
+    description: "Every website comes with proper on-page SEO and Google Search Console setup",
   },
   {
     icon: Users,
-    title: "Client Focused",
-    description: "Clear communication and collaborative approach",
+    title: "40+ Happy Clients",
+    description: "Clients from Pakistan, Saudi Arabia, USA, and UK trust my work",
   },
   {
     icon: GraduationCap,
-    title: "Continuous Learning",
-    description: "Always staying updated with latest trends",
+    title: "Always Learning",
+    description: "Staying updated with latest WordPress, WooCommerce, and SEO best practices",
   },
 ];
 
@@ -52,17 +52,16 @@ const AboutSection = memo(() => {
 
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
-                I'm Ahmed, a passionate <strong className="text-foreground">WordPress Developer and SEO Specialist</strong> based 
-                in Lahore, Pakistan. With <strong className="text-primary">2 years of dedicated experience</strong>, I've 
-                helped businesses establish powerful online presences that drive real results.
+                I'm Ahmed, a <strong className="text-foreground">WordPress Developer and SEO Specialist</strong> based 
+                in Lahore, Pakistan. Over the past <strong className="text-primary">2+ years</strong>, I've built 
+                50+ websites for clients across Pakistan, Saudi Arabia, USA, and the UK — helping them get found on Google and grow their business online.
               </p>
               <p>
-                My journey began at <strong className="text-foreground">Brains College, Baghwanpura</strong>, where 
-                I mastered the intricacies of web development and search engine optimization.
+                I specialize in <strong className="text-foreground">WooCommerce stores, business websites, 
+                Shopify stores, and landing pages</strong> — all built with proper on-page SEO, fast loading speeds, and mobile-first design so your site actually performs where it matters.
               </p>
               <p>
-                I specialize in creating <strong className="text-foreground">E-commerce stores, B2B platforms, 
-                Tech websites, Catalogue sites, and Shopify stores</strong>.
+                Whether you need a brand new website or want to fix and optimize an existing one, I handle everything — from <strong className="text-foreground">theme customization and plugin setup to technical SEO and Google Search Console configuration</strong>.
               </p>
             </div>
 

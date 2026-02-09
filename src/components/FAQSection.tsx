@@ -9,28 +9,32 @@ import {
 
 const faqs = [
   {
-    question: "How long does it take to build a WordPress website?",
-    answer: "A typical WordPress website takes 1-3 weeks depending on complexity. A simple single-page site can be done in 5-7 days, while a full e-commerce store with custom features may take 2-4 weeks.",
+    question: "WordPress website banane mein kitna time lagta hai?",
+    answer: "Simple business website 5-7 din mein ready ho jati hai. Agar WooCommerce store chahiye with product upload, payment gateway, and proper SEO setup — to 2-3 weeks lag sakte hain depending on products ki quantity aur features. Shopify store usually 1-2 weeks mein done ho jata hai.",
   },
   {
-    question: "Do you provide ongoing support after the website is launched?",
-    answer: "Yes! I offer maintenance packages that include regular updates, security monitoring, backups, and technical support. The first month of basic support is included in most packages.",
+    question: "Kya aap website launch ke baad bhi support dete hain?",
+    answer: "Bilkul! Main har project ke saath 1 month free support deta hoon jismein bug fixes, minor changes, aur WordPress/plugin updates shamil hain. Uske baad monthly maintenance packages available hain jo include karte hain security monitoring, regular backups, speed optimization, aur content updates.",
   },
   {
-    question: "What is your SEO process?",
-    answer: "My SEO process includes keyword research, on-page optimization (meta tags, headings, content), technical SEO (speed, mobile-friendliness, schema markup), and setting up Google Analytics & Search Console for tracking.",
+    question: "SEO se meri website Google pe rank karegi?",
+    answer: "Main har website ke saath proper on-page SEO karta hoon — meta titles, descriptions, heading structure, image alt tags, schema markup, XML sitemap, aur Google Search Console setup. Technical SEO bhi cover hota hai jaise page speed optimization, mobile-friendliness, aur Core Web Vitals. Results depend karte hain competition pe, lekin mere clients consistently Google pe first page pe rank kar rahe hain apne target keywords ke liye.",
   },
   {
-    question: "Can you help with an existing WordPress website?",
-    answer: "Absolutely! I can help redesign, optimize, fix issues, add new features, or improve the SEO of your existing WordPress site. I'll first audit your site and provide recommendations.",
+    question: "Kya aap existing WordPress website fix ya redesign kar sakte hain?",
+    answer: "Haan, yeh mera common kaam hai. Bohat se clients aate hain jinki website slow hai, design outdated hai, ya SEO bilkul nahi hai. Main pehle aapki site ka full audit karta hoon — speed, security, SEO, aur design check karta hoon — phir detailed recommendations deta hoon with pricing. Redesign se lekar complete migration tak, sab handle karta hoon.",
   },
   {
-    question: "What payment methods do you accept?",
-    answer: "I accept bank transfers, JazzCash, Easypaisa, and for international clients - PayPal and Wise. Payment is typically 50% upfront and 50% upon completion.",
+    question: "Payment kaise hoti hai?",
+    answer: "Pakistan mein bank transfer, JazzCash, aur Easypaisa accept karta hoon. International clients ke liye PayPal aur Wise available hai. Payment structure simple hai — 50% advance project start karne se pehle, aur 50% project complete hone ke baad jab aap satisfied ho.",
   },
   {
-    question: "Will my website be mobile-friendly?",
-    answer: "100% yes! All websites I build are fully responsive and optimized for mobile, tablet, and desktop. Mobile-friendliness is also crucial for SEO and is always a priority.",
+    question: "Kya website mobile pe bhi achi dikhegi?",
+    answer: "100%. Main har website mobile-first approach se banata hoon kyunke aaj kal 70%+ traffic mobile se aata hai. Responsive design, fast loading on 3G/4G, aur touch-friendly navigation — yeh sab by default included hota hai. Google bhi mobile-first indexing use karta hai, to yeh SEO ke liye bhi zaroori hai.",
+  },
+  {
+    question: "WooCommerce aur Shopify mein kya farq hai? Mere liye kya better hai?",
+    answer: "WooCommerce best hai agar aapko full control chahiye, custom features chahiye, aur long-term mein hosting cost save karna ho — yeh WordPress pe chalta hai. Shopify better hai agar aap quickly start karna chahte hain aur technical cheezon se door rehna chahte hain — lekin monthly fee lagti hai. Main dono pe kaam karta hoon aur aapke business ke hisaab se best option suggest karunga.",
   },
 ];
 
