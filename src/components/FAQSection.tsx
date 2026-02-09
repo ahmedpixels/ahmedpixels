@@ -43,22 +43,28 @@ const FAQSection = memo(() => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="faq" className="section-padding bg-section-dark" ref={ref} aria-labelledby="faq-heading">
-      <div className="container-custom max-w-4xl">
+    <section id="faq" className="section-padding bg-hero-bg relative overflow-hidden" ref={ref} aria-labelledby="faq-heading">
+      {/* Background effects */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-[180px]" />
+      </div>
+
+      <div className="container-custom max-w-4xl relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full border border-primary/20 text-primary font-semibold text-xs uppercase tracking-[0.15em] mb-6">
+            <span className="w-1.5 h-1.5 bg-primary rounded-full" />
             FAQ
           </span>
           <h2 id="faq-heading" className="heading-lg text-hero-text mt-4">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
-          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-4">
+          <p className="body-lg text-hero-muted max-w-2xl mx-auto mt-5">
             Got questions? Here are answers to the most common ones.
           </p>
         </motion.div>
@@ -67,28 +73,28 @@ const FAQSection = memo(() => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="relative bg-hero-bg/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-border/20 hover:border-primary/30 transition-colors duration-300"
+                className="premium-card overflow-hidden group"
               >
                 {/* Gradient accent on left */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/60" />
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary to-accent opacity-40 group-hover:opacity-100 transition-opacity" />
                 
-                <div className="relative z-10 px-6">
-                  <AccordionTrigger className="text-left text-white font-semibold hover:text-white transition-colors py-5">
-                    <span className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white text-sm font-bold shrink-0">
+                <div className="relative z-10 px-7">
+                  <AccordionTrigger className="text-left text-hero-text font-semibold hover:text-primary transition-colors py-6 text-[15px]">
+                    <span className="flex items-center gap-4">
+                      <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground text-xs font-bold shrink-0">
                         {String(index + 1).padStart(2, '0')}
                       </span>
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/60 pb-5 leading-relaxed pl-11">
+                  <AccordionContent className="text-hero-muted pb-6 leading-relaxed pl-[52px] text-sm">
                     {faq.answer}
                   </AccordionContent>
                 </div>
@@ -98,17 +104,24 @@ const FAQSection = memo(() => {
         </motion.div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-hero-muted mb-4">Still have questions?</p>
-          <a
+        <motion.div 
+          className="text-center mt-14"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
+        >
+          <p className="text-hero-muted mb-5 text-sm">Still have questions?</p>
+          <motion.a
             href="https://wa.me/923216479192?text=Hi%20Ahmed"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Ask Me Directly
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
