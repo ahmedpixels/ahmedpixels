@@ -135,33 +135,67 @@ const DemoSeoPage = memo(() => {
         <meta name="twitter:creator" content="@ahmedpixels" />
 
         {/* Additional SEO */}
-        <meta name="keywords" content={`WordPress Developer ${city}, Web Developer ${city}, WooCommerce Developer ${city}, SEO Expert ${city}, Website Development ${city}, WordPress Developer Pakistan`} />
+        <meta name="keywords" content={`WordPress Developer ${city}, Web Developer ${city}, WooCommerce Developer ${city}, SEO Expert ${city}, Website Development ${city}, WordPress Developer Pakistan, Best WordPress Developer ${city}, Freelance Web Developer ${city}, WordPress Website ${city}, E-commerce Website ${city}, Website Designer ${city}`} />
         <meta name="geo.region" content="PK-PB" />
         <meta name="geo.placename" content={city} />
+        <meta name="geo.position" content="31.5204;74.3587" />
+        <meta name="ICBM" content="31.5204, 74.3587" />
         <meta name="author" content="Ahmed" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
 
+        {/* WebPage Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: `${service} in ${city}`,
+            "@type": "WebPage",
+            name: pageTitle,
             description: pageDesc,
             url: `https://ahmedpixels.com/${slug}`,
-            provider: {
-              "@type": "Person",
-              name: "Ahmed",
-              url: "https://ahmedpixels.com",
-              telephone: "+923216479192",
-              email: "ahmedpixelspro@gmail.com",
-              image: "https://ahmedpixels.com/favicon.png",
-              address: { "@type": "PostalAddress", addressLocality: city, addressRegion: "Punjab", addressCountry: "PK" },
-              sameAs: ["https://pk.linkedin.com/in/ahmedpixels", "https://www.instagram.com/itx_ahmed_.0/"],
-            },
-            areaServed: { "@type": "City", name: city, containedInPlace: { "@type": "Country", name: "Pakistan" } },
-            serviceType: "WordPress Development",
-            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "50", bestRating: "5" },
+            inLanguage: "en",
+            isPartOf: { "@type": "WebSite", name: "Ahmed - WordPress Developer", url: "https://ahmedpixels.com" },
+            about: { "@type": "Thing", name: `${service} in ${city}` },
+            speciality: "WordPress Development",
+            lastReviewed: "2026-02-12",
           })}
         </script>
+
+        {/* Service + LocalBusiness Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: `Ahmed - ${service} in ${city}`,
+            description: pageDesc,
+            url: `https://ahmedpixels.com/${slug}`,
+            image: "https://ahmedpixels.com/og-image.png",
+            telephone: "+923216479192",
+            email: "ahmedpixelspro@gmail.com",
+            priceRange: "PKR 30,000 - 200,000+",
+            address: { "@type": "PostalAddress", addressLocality: city, addressRegion: "Punjab", addressCountry: "PK", postalCode: "54000" },
+            geo: { "@type": "GeoCoordinates", latitude: "31.5204", longitude: "74.3587" },
+            areaServed: { "@type": "City", name: city, containedInPlace: { "@type": "AdministrativeArea", name: "Punjab, Pakistan" } },
+            sameAs: ["https://pk.linkedin.com/in/ahmedpixels", "https://www.instagram.com/itx_ahmed_.0/"],
+            openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "09:00", closes: "18:00" },
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "50", bestRating: "5" },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "WordPress Development Services",
+              itemListElement: relatedServices.map((s, i) => ({
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: s.title, description: s.desc },
+              })),
+            },
+            review: testimonials.map((t) => ({
+              "@type": "Review",
+              author: { "@type": "Person", name: t.name },
+              reviewBody: t.content,
+              reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            })),
+          })}
+        </script>
+
+        {/* FAQ Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -173,6 +207,8 @@ const DemoSeoPage = memo(() => {
             })),
           })}
         </script>
+
+        {/* Breadcrumb Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -180,7 +216,7 @@ const DemoSeoPage = memo(() => {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://ahmedpixels.com" },
               { "@type": "ListItem", position: 2, name: "Services", item: "https://ahmedpixels.com/services" },
-              { "@type": "ListItem", position: 3, name: `${service} in ${city}` },
+              { "@type": "ListItem", position: 3, name: `${service} in ${city}`, item: `https://ahmedpixels.com/${slug}` },
             ],
           })}
         </script>
@@ -647,13 +683,23 @@ const DemoSeoPage = memo(() => {
               Also Available In
             </h2>
             <div className="flex flex-wrap gap-3">
-              {["Karachi", "Islamabad", "Rawalpindi", "Faisalabad", "Multan", "Peshawar", "Quetta", "Sialkot"].map((c) => (
-                <span
-                  key={c}
-                  className="px-4 py-2 rounded-full border border-border/20 text-sm text-hero-muted hover:text-primary hover:border-primary/40 transition-colors cursor-pointer"
+              {[
+                { name: "Karachi", slug: "wordpress-developer-in-karachi" },
+                { name: "Islamabad", slug: "wordpress-developer-in-islamabad" },
+                { name: "Rawalpindi", slug: "wordpress-developer-in-rawalpindi" },
+                { name: "Faisalabad", slug: "wordpress-developer-in-faisalabad" },
+                { name: "Multan", slug: "wordpress-developer-in-multan" },
+                { name: "Peshawar", slug: "wordpress-developer-in-peshawar" },
+                { name: "Quetta", slug: "wordpress-developer-in-quetta" },
+                { name: "Sialkot", slug: "wordpress-developer-in-sialkot" },
+              ].map((c) => (
+                <a
+                  key={c.name}
+                  href={`/${c.slug}`}
+                  className="px-4 py-2 rounded-full border border-border/20 text-sm text-hero-muted hover:text-primary hover:border-primary/40 transition-colors"
                 >
-                  {service} in {c}
-                </span>
+                  {service} in {c.name}
+                </a>
               ))}
             </div>
           </div>
