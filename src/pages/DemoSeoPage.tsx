@@ -112,26 +112,54 @@ const DemoSeoPage = memo(() => {
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDesc} />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={`https://ahmedpixels.com/${slug}`} />
+
+        {/* Open Graph */}
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDesc} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://ahmedpixels.com/${slug}`} />
+        <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Ahmed - WordPress Developer" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
+        <meta name="twitter:creator" content="@ahmedpixels" />
+
+        {/* Additional SEO */}
+        <meta name="keywords" content={`WordPress Developer ${city}, Web Developer ${city}, WooCommerce Developer ${city}, SEO Expert ${city}, Website Development ${city}, WordPress Developer Pakistan`} />
+        <meta name="geo.region" content="PK-PB" />
+        <meta name="geo.placename" content={city} />
+        <meta name="author" content="Ahmed" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
             name: `${service} in ${city}`,
             description: pageDesc,
+            url: `https://ahmedpixels.com/${slug}`,
             provider: {
               "@type": "Person",
               name: "Ahmed",
               url: "https://ahmedpixels.com",
-              address: { "@type": "PostalAddress", addressLocality: city, addressCountry: "Pakistan" },
+              telephone: "+923216479192",
+              email: "ahmedpixelspro@gmail.com",
+              image: "https://ahmedpixels.com/favicon.png",
+              address: { "@type": "PostalAddress", addressLocality: city, addressRegion: "Punjab", addressCountry: "PK" },
+              sameAs: ["https://pk.linkedin.com/in/ahmedpixels", "https://www.instagram.com/itx_ahmed_.0/"],
             },
-            areaServed: { "@type": "City", name: city },
+            areaServed: { "@type": "City", name: city, containedInPlace: { "@type": "Country", name: "Pakistan" } },
             serviceType: "WordPress Development",
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "50", bestRating: "5" },
           })}
         </script>
         <script type="application/ld+json">
