@@ -39,7 +39,7 @@ const Index = () => {
           content="I craft high-performance websites that rank and convert. Transform your ideas into stunning digital experiences."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ahmedpixels.com/" />
+        <meta property="og:url" content="https://ahmedpixels.com" />
         <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -47,14 +47,14 @@ const Index = () => {
         <meta name="twitter:title" content="Ahmed - WordPress Developer & SEO Specialist" />
         <meta name="twitter:description" content="I craft high-performance websites that rank and convert." />
         <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
-        <link rel="canonical" href="https://ahmedpixels.com/" />
+        <link rel="canonical" href="https://ahmedpixels.com" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Ahmed",
             "jobTitle": "WordPress Developer & SEO Specialist",
-            "url": "https://ahmedpixels.com/",
+            "url": "https://ahmedpixels.com",
             "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "Pakistan" }
           })}
         </script>
