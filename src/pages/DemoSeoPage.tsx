@@ -182,20 +182,20 @@ const DemoSeoPage = memo(() => {
           </div>
 
           <div className="container-custom relative z-10 px-6 md:px-12 lg:px-16">
-            {/* Breadcrumb */}
-            <nav className="absolute top-24 left-6 md:left-12 lg:left-16 text-sm text-hero-muted/60" aria-label="Breadcrumb">
-              <ol className="flex items-center gap-1.5">
-                <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
-                <li>/</li>
-                <li><a href="/services" className="hover:text-primary transition-colors">Services</a></li>
-                <li>/</li>
-                <li className="text-hero-muted font-medium">{service} in {city}</li>
-              </ol>
-            </nav>
-
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-28">
               {/* Left Content */}
               <div className="order-2 lg:order-1 animate-fade-in">
+                {/* Breadcrumb */}
+                <nav className="text-sm text-hero-muted/50 mb-5" aria-label="Breadcrumb">
+                  <ol className="flex items-center gap-1.5 flex-wrap">
+                    <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
+                    <li className="text-hero-muted/30">/</li>
+                    <li><a href="/services" className="hover:text-primary transition-colors">Services</a></li>
+                    <li className="text-hero-muted/30">/</li>
+                    <li className="text-primary font-medium">{service} in {city}</li>
+                  </ol>
+                </nav>
+
                 {/* Location Badge */}
                 <div className="flex items-center gap-2 mb-6">
                   <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
