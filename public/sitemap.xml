@@ -92,5 +92,17 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- SEO Landing Page: WordPress Developer in Lahore -->
+  <url>
+    <loc>https://ahmedpixels.com/wordpress-developer-in-lahore</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ahmedpixels.com/og-image.png</image:loc>
+      <image:title>WordPress Developer in Lahore - Ahmed</image:title>
+    </image:image>
+  </url>
   
 </urlset>
