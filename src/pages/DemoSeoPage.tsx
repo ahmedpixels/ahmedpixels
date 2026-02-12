@@ -176,11 +176,11 @@ const DemoSeoPage = memo(() => {
                     Get a Free Quote
                   </a>
                   <a
-                    href="/contact"
+                    href="tel:+923216479192"
                     className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-xl font-semibold text-foreground hover:bg-card transition-colors"
                   >
                     <Phone size={18} />
-                    Contact Me
+                    Call Now
                   </a>
                 </div>
               </motion.div>
@@ -234,20 +234,26 @@ const DemoSeoPage = memo(() => {
                   ))}
                 </ul>
               </div>
-              <div className="bg-background rounded-2xl border border-border p-8">
-                <h3 className="text-xl font-heading font-bold text-foreground mb-4">Get a Free Consultation</h3>
-                <p className="text-sm text-muted-foreground mb-6">
-                  Tell me about your project and I'll send you a custom quote within 24 hours.
-                </p>
-                <div className="space-y-4">
-                  <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30" />
-                  <input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30" />
-                  <input type="tel" placeholder="Phone (optional)" className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30" />
-                  <textarea placeholder="Tell me about your project..." rows={3} className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" />
-                  <button className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
-                    Send Message <ArrowRight size={16} />
-                  </button>
+              <div className="bg-background rounded-2xl border border-border p-8 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                  <MessageCircle size={32} className="text-primary" />
                 </div>
+                <h3 className="text-xl font-heading font-bold text-foreground mb-3">Get a Free Consultation</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Send me a message on WhatsApp and I'll reply with a custom quote within 24 hours. No forms, no waiting.
+                </p>
+                <a
+                  href={`https://wa.me/923216479192?text=${encodeURIComponent(`Hi Ahmed, I need a ${service} in ${city}. Can you share a quote?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 transition-opacity w-full justify-center"
+                >
+                  <MessageCircle size={20} />
+                  Chat on WhatsApp
+                </a>
+                <p className="text-xs text-muted-foreground mt-4">
+                  Or call directly: <a href="tel:+923216479192" className="text-primary font-medium">+92 321 6479192</a>
+                </p>
               </div>
             </div>
           </div>
