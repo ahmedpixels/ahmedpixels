@@ -38,6 +38,20 @@ body {
   }
 }
 
+/* Mobile performance: reduce expensive effects */
+@media (max-width: 768px) {
+  .backdrop-blur-xl,
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
 /* Fonts are preloaded in index.html for better performance */
 @layer base {
   :root {

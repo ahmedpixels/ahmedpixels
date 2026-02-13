@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin } from "lucide-react";
 import ahmedPortrait from "@/assets/ahmed-portrait.png";
 import OptimizedImage from "./OptimizedImage";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Lazy load particles for better initial load
 const ParticlesBackground = lazy(() => import("./ParticlesBackground"));
 
 const HeroSection = memo(() => {
   const [currentRole, setCurrentRole] = useState(0);
+  const isMobile = useIsMobile();
   
   const roles = [
     "WordPress Developer",
@@ -27,16 +29,18 @@ const HeroSection = memo(() => {
 
   return (
     <section className="min-h-screen bg-hero-bg relative overflow-hidden flex items-center">
-      {/* Lazy loaded particles */}
-      <Suspense fallback={null}>
-        <ParticlesBackground />
-      </Suspense>
+      {/* Lazy loaded particles - disabled on mobile for performance */}
+      {!isMobile && (
+        <Suspense fallback={null}>
+          <ParticlesBackground />
+        </Suspense>
+      )}
       
       {/* Static gradient background - no animations */}
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[60px] md:blur-[150px]" />
+        <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[60px] md:blur-[120px]" />
         
         {/* Static grid pattern */}
         <div 
@@ -151,8 +155,8 @@ const HeroSection = memo(() => {
               <div className="absolute inset-[-20px] rounded-full border-2 border-dashed border-primary/20" />
               <div className="absolute inset-[-40px] rounded-full border border-primary/10" />
 
-              {/* Glow effect - static */}
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] scale-90" />
+              {/* Glow effect - static, reduced on mobile */}
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[40px] md:blur-[80px] scale-90" />
               
               {/* Image container */}
               <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
