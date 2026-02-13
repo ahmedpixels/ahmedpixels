@@ -1,6 +1,7 @@
 import { memo, useState, useRef, forwardRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink, Eye, ArrowRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
 // Import static images
@@ -56,7 +57,7 @@ const projects = [
   },
 ];
 
-const EyeFrameCard = memo(forwardRef<HTMLAnchorElement, { project: typeof projects[0]; index: number }>(({ project, index }, forwardedRef) => {
+const EyeFrameCard = memo(forwardRef<HTMLAnchorElement, { project: typeof projects[0]; index: number; isMobile: boolean }>(({ project, index, isMobile }, forwardedRef) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const internalRef = useRef<HTMLAnchorElement>(null);
@@ -68,9 +69,9 @@ const EyeFrameCard = memo(forwardRef<HTMLAnchorElement, { project: typeof projec
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: isMobile ? 20 : 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0 : index * 0.1 }}
       className="group relative block cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background rounded-2xl"
       aria-label={`View ${project.title} - ${project.type}`}
       onMouseEnter={() => setIsHovered(true)}
@@ -78,14 +79,16 @@ const EyeFrameCard = memo(forwardRef<HTMLAnchorElement, { project: typeof projec
     >
       {/* Eye Frame Container */}
       <div className="relative">
-        {/* Outer Glow Ring */}
-        <motion.div 
-          className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/50 via-primary to-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
-          animate={{ 
-            scale: isHovered ? [1, 1.02, 1] : 1,
-          }}
-          transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0 }}
-        />
+        {/* Outer Glow Ring - disabled on mobile */}
+        {!isMobile && (
+          <motion.div 
+            className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/50 via-primary to-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
+            animate={{ 
+              scale: isHovered ? [1, 1.02, 1] : 1,
+            }}
+            transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0 }}
+          />
+        )}
         
         {/* Main Frame */}
         <div className="relative bg-card border-2 border-border group-hover:border-primary/60 rounded-2xl overflow-hidden transition-all duration-300 shadow-lg group-hover:shadow-primary/20 group-hover:shadow-2xl">
@@ -109,8 +112,8 @@ const EyeFrameCard = memo(forwardRef<HTMLAnchorElement, { project: typeof projec
               <motion.img
                 src={project.screenshot}
                 alt={`${project.title} website preview`}
-                className={`w-full h-full object-cover object-top transition-all duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                animate={{
+                className={`w-full h-full object-cover object-top transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                animate={isMobile ? {} : {
                   scale: isHovered ? 1.05 : 1,
                 }}
                 transition={{ duration: 0.5 }}
@@ -153,6 +156,7 @@ EyeFrameCard.displayName = "EyeFrameCard";
 const PortfolioSection = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isMobile = useIsMobile();
 
   return (
     <section id="portfolio" className="section-padding bg-section-light" ref={ref} aria-labelledby="portfolio-heading">
@@ -179,7 +183,7 @@ const PortfolioSection = memo(() => {
         {/* Projects Grid - 3 Columns */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" role="list" aria-label="Portfolio projects">
           {projects.map((project, index) => (
-            <EyeFrameCard key={project.title} project={project} index={index} />
+            <EyeFrameCard key={project.title} project={project} index={index} isMobile={isMobile} />
           ))}
         </div>
 
