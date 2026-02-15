@@ -1,0 +1,84 @@
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
+
+const SYSTEM_PROMPT = `You are Ahmed's AI assistant on ahmedpixels.com — a WordPress developer and SEO specialist based in Lahore, Pakistan.
+
+Your role:
+- Answer questions about Ahmed's services: WordPress Development, WooCommerce, Theme Customization, SEO Optimization, Website Maintenance, and Landing Pages.
+- Help visitors understand pricing, timelines, and process.
+- Encourage visitors to schedule a call or send a message via WhatsApp (+923244168879).
+- Keep responses concise (2-4 sentences max), friendly, and professional.
+- If someone wants to schedule a call, provide the WhatsApp link: https://wa.me/923244168879
+- If asked about something unrelated to web development/SEO services, politely redirect to Ahmed's services.
+
+Key info:
+- Ahmed has 3+ years of WordPress experience
+- Portfolio includes: Eleeva Adhesives, Jeddah Auto Spare Parts, SilkSpool, ShineWallStone, PixelHash Tech, Miss Peony
+- Services: WordPress Development, WooCommerce stores, Theme Customization, SEO (On-Page, Technical, Local), Website Maintenance, Landing Pages
+- Languages: English, Urdu
+- Response language: Match the visitor's language (English or Urdu)
+
+Always end with a soft CTA like "Would you like to schedule a quick call?" or "Want me to connect you with Ahmed on WhatsApp?"`;
+
+serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders });
+  }
+
+  try {
+    const { messages } = await req.json();
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
+
+    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "google/gemini-3-flash-preview",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          ...messages,
+        ],
+        stream: true,
+      }),
+    });
+
+    if (!response.ok) {
+      if (response.status === 429) {
+        return new Response(JSON.stringify({ error: "Too many requests, please try again later." }), {
+          status: 429,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      if (response.status === 402) {
+        return new Response(JSON.stringify({ error: "Service temporarily unavailable." }), {
+          status: 402,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      const t = await response.text();
+      console.error("AI gateway error:", response.status, t);
+      return new Response(JSON.stringify({ error: "AI service error" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(response.body, {
+      headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
+    });
+  } catch (e) {
+    console.error("chatbot error:", e);
+    return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+});

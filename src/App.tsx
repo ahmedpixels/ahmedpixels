@@ -14,6 +14,7 @@ import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
 import DemoSeoPage from "./pages/DemoSeoPage";
 import NotFound from "./pages/NotFound";
+import ChatbotWidget from "@/components/ChatbotWidget";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
+          <ChatbotWidget />
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
