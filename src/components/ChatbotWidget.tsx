@@ -57,7 +57,7 @@ const ChatbotWidget = () => {
       });
 
       if (!resp.ok || !resp.body) {
-        upsertAssistant("Sorry, I'm having trouble connecting. Please try WhatsApp: [+92 324 4168879](https://wa.me/923244168879)");
+        upsertAssistant("Sorry, I'm having trouble connecting. Please try WhatsApp: [+92 321 6479192](https://wa.me/923216479192)");
         setIsLoading(false);
         return;
       }
@@ -91,7 +91,7 @@ const ChatbotWidget = () => {
         }
       }
     } catch {
-      upsertAssistant("Connection error. Try WhatsApp: [+92 324 4168879](https://wa.me/923244168879)");
+      upsertAssistant("Connection error. Try WhatsApp: [+92 321 6479192](https://wa.me/923216479192)");
     }
     setIsLoading(false);
   }, []);
@@ -150,7 +150,7 @@ const ChatbotWidget = () => {
               </div>
               <div className="flex items-center gap-1">
                 <a
-                  href="https://wa.me/923244168879"
+                  href="https://wa.me/923216479192"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full hover:bg-primary-foreground/10 transition-colors"
