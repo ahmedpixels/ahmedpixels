@@ -7,6 +7,8 @@ import ahmedPortrait from "@/assets/ahmed-portrait.png";
 type Message = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chatbot`;
+const STORAGE_KEY = "ahmedpixels_chat_history";
+const AUTO_POPUP_KEY = "ahmedpixels_auto_popup_shown";
 
 const QUICK_ACTIONS = [
   { label: "📋 Services", message: "What services does Ahmed offer?" },
@@ -14,22 +16,59 @@ const QUICK_ACTIONS = [
   { label: "📞 Schedule Call", message: "I want to schedule a call with Ahmed" },
 ];
 
+const loadMessages = (): Message[] => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveMessages = (msgs: Message[]) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
+  } catch {}
+};
+
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(loadMessages);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Persist messages to localStorage
+  useEffect(() => {
+    saveMessages(messages);
+  }, [messages]);
+
+  // Auto-scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // Focus input on open
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
+  }, [isOpen]);
+
+  // Auto popup after 30 seconds (once per session)
+  useEffect(() => {
+    const alreadyShown = sessionStorage.getItem(AUTO_POPUP_KEY);
+    if (alreadyShown) return;
+
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setIsOpen(true);
+        sessionStorage.setItem(AUTO_POPUP_KEY, "1");
+      }
+    }, 30000);
+
+    return () => clearTimeout(timer);
   }, [isOpen]);
 
   const streamChat = useCallback(async (allMessages: Message[]) => {
@@ -109,6 +148,11 @@ const ChatbotWidget = () => {
     [messages, isLoading, streamChat]
   );
 
+  const clearChat = useCallback(() => {
+    setMessages([]);
+    localStorage.removeItem(STORAGE_KEY);
+  }, []);
+
   return (
     <>
       {/* Floating Button */}
@@ -157,6 +201,16 @@ const ChatbotWidget = () => {
                 </div>
               </div>
               <div className="flex items-center gap-1">
+                {messages.length > 0 && (
+                  <button
+                    onClick={clearChat}
+                    className="p-2 rounded-full hover:bg-white/10 transition-colors text-[11px] text-white/80"
+                    aria-label="Clear chat"
+                    title="Clear chat history"
+                  >
+                    🗑️
+                  </button>
+                )}
                 <a
                   href="https://wa.me/923216479192"
                   target="_blank"
@@ -227,14 +281,17 @@ const ChatbotWidget = () => {
                 </div>
               ))}
 
+              {/* Typing Indicator */}
               {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
-                <div className="flex justify-start">
-                  <div className="rounded-xl rounded-bl-sm px-4 py-2 text-sm" style={{ background: "hsl(270, 20%, 12%)" }}>
-                    <span className="flex gap-1">
+                <div className="flex justify-start items-end gap-2">
+                  <img src={ahmedPortrait} alt="" className="w-6 h-6 rounded-full object-cover border border-primary/30" />
+                  <div className="rounded-xl rounded-bl-sm px-4 py-2.5" style={{ background: "hsl(270, 20%, 12%)" }}>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[11px] text-white/50 mr-1">typing</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: "0ms" }} />
                       <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: "150ms" }} />
                       <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: "300ms" }} />
-                    </span>
+                    </div>
                   </div>
                 </div>
               )}
