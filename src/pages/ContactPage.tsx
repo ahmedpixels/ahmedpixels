@@ -16,7 +16,7 @@ const ContactPage = () => {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ahmed-pixels/", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
     { icon: MessageCircle, href: "https://wa.me/923216479192?text=Hi%20Ahmed", label: "WhatsApp" },
   ];

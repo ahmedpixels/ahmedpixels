@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://ahmedpixels.com</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -17,66 +17,23 @@
   <!-- About Page -->
   <url>
     <loc>https://ahmedpixels.com/about</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Services Main Page -->
+  <!-- Services Page -->
   <url>
     <loc>https://ahmedpixels.com/services</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  
-  <!-- Individual Service Pages -->
-  <url>
-    <loc>https://ahmedpixels.com/services/wordpress-development</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahmedpixels.com/services/woocommerce</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahmedpixels.com/services/theme-customization</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahmedpixels.com/services/maintenance</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahmedpixels.com/services/seo-optimization</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahmedpixels.com/services/landing-pages</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   
   <!-- Projects/Portfolio Page -->
   <url>
     <loc>https://ahmedpixels.com/projects</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -88,7 +45,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://ahmedpixels.com/contact</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -96,7 +53,7 @@
   <!-- SEO Landing Page: WordPress Developer in Lahore -->
   <url>
     <loc>https://ahmedpixels.com/wordpress-developer-in-lahore</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
