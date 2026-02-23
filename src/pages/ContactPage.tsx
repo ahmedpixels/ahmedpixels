@@ -26,9 +26,11 @@ const ContactPage = () => {
       <Helmet>
         <title>Contact Ahmed | WordPress Developer & SEO Specialist - Lahore</title>
         <meta name="description" content="Get in touch with Ahmed for WordPress development, SEO services, and web projects. WhatsApp: +923216479192. Email: ahmedpixelspro@gmail.com. Fast response within 24 hours." />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://ahmedpixels.com/contact" />
         <meta property="og:title" content="Contact Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="Get in touch for WordPress development and SEO services. Fast response within 24 hours." />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ahmedpixels.com/contact" />
         <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
@@ -73,7 +75,7 @@ const ContactPage = () => {
                 "areaServed": "Worldwide"
               },
               "sameAs": [
-                "https://pk.linkedin.com/in/ahmedpixels",
+                "https://www.linkedin.com/in/ahmed-pixels/",
                 "https://www.instagram.com/itx_ahmed_.0/"
               ]
             }
