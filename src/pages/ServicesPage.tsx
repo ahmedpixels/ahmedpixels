@@ -187,9 +187,11 @@ const ServicesPage = () => {
           name="description"
           content="Professional WordPress development services in Lahore, Pakistan. Custom websites, WooCommerce stores, theme customization, SEO optimization, and ongoing maintenance support."
         />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://ahmedpixels.com/services" />
         <meta property="og:title" content="WordPress Development Services | Ahmed" />
         <meta property="og:description" content="Professional WordPress development services including custom websites, WooCommerce, and SEO optimization." />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ahmedpixels.com/services" />
         <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />

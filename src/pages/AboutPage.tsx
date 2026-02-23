@@ -51,9 +51,11 @@ const AboutPage = () => {
       <Helmet>
         <title>About Ahmed | WordPress Developer & SEO Specialist - Lahore</title>
         <meta name="description" content="Learn about Ahmed, a WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience. 50+ projects completed with 100% client satisfaction." />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://ahmedpixels.com/about" />
         <meta property="og:title" content="About Ahmed | WordPress Developer & SEO Specialist" />
         <meta property="og:description" content="WordPress Developer & SEO Specialist based in Lahore, Pakistan with 2+ years of experience." />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ahmedpixels.com/about" />
         <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
