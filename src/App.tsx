@@ -12,7 +12,7 @@ import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
-import DemoSeoPage from "./pages/DemoSeoPage";
+
 import SitemapCheckPage from "./pages/SitemapCheckPage";
 import NotFound from "./pages/NotFound";
 import ChatbotWidget from "@/components/ChatbotWidget";
@@ -55,7 +55,7 @@ const App = () => {
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/wordpress-developer-in-lahore" element={<DemoSeoPage />} />
+              
               <Route path="/sitemap-check" element={<SitemapCheckPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
