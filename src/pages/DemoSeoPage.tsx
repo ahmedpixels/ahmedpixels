@@ -156,7 +156,7 @@ const DemoSeoPage = memo(() => {
             isPartOf: { "@type": "WebSite", name: "Ahmed - WordPress Developer", url: "https://ahmedpixels.com" },
             about: { "@type": "Thing", name: `${service} in ${city}` },
             speciality: "WordPress Development",
-            lastReviewed: "2026-02-12",
+            lastReviewed: "2026-03-01",
           })}
         </script>
 

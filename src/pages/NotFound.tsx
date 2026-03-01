@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Home } from "lucide-react";
 
@@ -11,6 +12,11 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
+    <>
+      <Helmet>
+        <title>Page Not Found | ahmedpixels.com</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="min-h-screen bg-hero-bg flex items-center justify-center px-6">
       <div className="text-center">
         <motion.div
@@ -45,6 +51,7 @@ const NotFound = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 
