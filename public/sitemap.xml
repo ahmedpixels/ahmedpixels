@@ -2,10 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Homepage -->
   <url>
     <loc>https://ahmedpixels.com</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,26 +13,23 @@
     </image:image>
   </url>
   
-  <!-- About Page -->
   <url>
     <loc>https://ahmedpixels.com/about</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Services Page -->
   <url>
     <loc>https://ahmedpixels.com/services</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Projects/Portfolio Page -->
   <url>
     <loc>https://ahmedpixels.com/projects</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -42,18 +38,16 @@
     </image:image>
   </url>
   
-  <!-- Contact Page -->
   <url>
     <loc>https://ahmedpixels.com/contact</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- SEO Landing Page: WordPress Developer in Lahore -->
   <url>
     <loc>https://ahmedpixels.com/wordpress-developer-in-lahore</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>

@@ -1,24 +1,20 @@
-# Robots.txt for Ahmed - WordPress Developer Portfolio
-# https://ahmedpixels.com
+# Robots.txt for ahmedpixels.com
+# Updated: 2026-03-01
 
-# Default rules for all bots
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_
-Disallow: /*?*
 
-# Search Engine Bots - Full Access
+# Googlebot - Full Access
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
 User-agent: Slurp
 Allow: /
@@ -29,7 +25,7 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
-# Social Media Bots - Full Access for Link Previews
+# Social Media Bots
 User-agent: Twitterbot
 Allow: /
 
@@ -48,7 +44,7 @@ Allow: /
 User-agent: TelegramBot
 Allow: /
 
-# Block SEO Crawler Bots (Resource Protection)
+# Block SEO Crawler Bots
 User-agent: AhrefsBot
 Disallow: /
 
@@ -92,10 +88,7 @@ Disallow: /
 User-agent: Amazonbot
 Disallow: /
 
-User-agent: Omgilibot
-Disallow: /
-
-# Block Spam & Scraper Bots
+# Block Spam Bots
 User-agent: PetalBot
 Disallow: /
 
@@ -105,5 +98,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-# Sitemap Location
 Sitemap: https://ahmedpixels.com/sitemap.xml
