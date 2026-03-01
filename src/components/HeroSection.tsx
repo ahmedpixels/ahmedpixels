@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, MapPin } from "lucide-react";
-import ahmedPortrait from "@/assets/ahmed-portrait.png";
+import ahmedPortrait from "@/assets/ahmed-portrait-optimized.jpg";
 import OptimizedImage from "./OptimizedImage";
 import { useIsMobile } from "@/hooks/use-mobile";
 

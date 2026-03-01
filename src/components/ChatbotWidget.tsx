@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, Phone, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import ahmedPortrait from "@/assets/ahmed-portrait.png";
+import ahmedPortrait from "@/assets/ahmed-portrait-optimized.jpg";
 
 type Message = { role: "user" | "assistant"; content: string };
 
