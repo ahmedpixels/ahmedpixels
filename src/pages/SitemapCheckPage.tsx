@@ -40,12 +40,12 @@ interface ValidationResult {
 }
 
 const SITEMAP_URLS: SitemapUrl[] = [
-  { loc: "https://ahmedpixels.com", lastmod: "2026-02-17", changefreq: "weekly", priority: "1.0", status: "pending", issues: [] },
-  { loc: "https://ahmedpixels.com/about", lastmod: "2026-02-17", changefreq: "monthly", priority: "0.8", status: "pending", issues: [] },
-  { loc: "https://ahmedpixels.com/services", lastmod: "2026-02-17", changefreq: "monthly", priority: "0.9", status: "pending", issues: [] },
-  { loc: "https://ahmedpixels.com/projects", lastmod: "2026-02-17", changefreq: "weekly", priority: "0.8", status: "pending", issues: [] },
-  { loc: "https://ahmedpixels.com/contact", lastmod: "2026-02-17", changefreq: "monthly", priority: "0.7", status: "pending", issues: [] },
-  { loc: "https://ahmedpixels.com/wordpress-developer-in-lahore", lastmod: "2026-02-17", changefreq: "weekly", priority: "0.9", status: "pending", issues: [] },
+  { loc: "https://ahmedpixels.com", lastmod: "2026-03-01", changefreq: "weekly", priority: "1.0", status: "pending", issues: [] },
+  { loc: "https://ahmedpixels.com/about", lastmod: "2026-03-01", changefreq: "monthly", priority: "0.8", status: "pending", issues: [] },
+  { loc: "https://ahmedpixels.com/services", lastmod: "2026-03-01", changefreq: "monthly", priority: "0.9", status: "pending", issues: [] },
+  { loc: "https://ahmedpixels.com/projects", lastmod: "2026-03-01", changefreq: "weekly", priority: "0.8", status: "pending", issues: [] },
+  { loc: "https://ahmedpixels.com/contact", lastmod: "2026-03-01", changefreq: "monthly", priority: "0.7", status: "pending", issues: [] },
+  { loc: "https://ahmedpixels.com/wordpress-developer-in-lahore", lastmod: "2026-03-01", changefreq: "weekly", priority: "0.9", status: "pending", issues: [] },
 ];
 
 const StatusIcon = memo(({ status }: { status: UrlStatus }) => {
