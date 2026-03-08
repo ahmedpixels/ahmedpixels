@@ -1,0 +1,1 @@
+CREATE POLICY "Deny public reads" ON public.contact_messages FOR SELECT TO anon USING (false);
