@@ -5,6 +5,35 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+// --- Rate limiting (in-memory, per-IP) ---
+const MAX_REQUESTS_PER_MINUTE = 10;
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + 60_000 });
+    return false;
+  }
+  entry.count++;
+  return entry.count > MAX_REQUESTS_PER_MINUTE;
+}
+
+// --- Input validation ---
+const MAX_MESSAGES = 20;
+const MAX_MSG_LENGTH = 2000;
+
+function validateAndSanitizeMessages(messages: unknown): { role: string; content: string }[] | null {
+  if (!Array.isArray(messages)) return null;
+  if (messages.length === 0 || messages.length > MAX_MESSAGES) return null;
+
+  return messages.map((m) => ({
+    role: m?.role === "user" ? "user" : "assistant",
+    content: String(m?.content ?? "").slice(0, MAX_MSG_LENGTH),
+  }));
+}
+
 const SYSTEM_PROMPT = `You are Ahmed's AI assistant on ahmedpixels.com — a WordPress developer and SEO specialist based in Lahore, Pakistan.
 
 Your role:
@@ -55,13 +84,33 @@ Response style:
 - Be enthusiastic but genuine — no hype, just facts
 - Always end with a clear CTA: schedule a call, send WhatsApp message, or ask another question
 - If someone seems interested, proactively suggest the free consultation call`;
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { messages } = await req.json();
+    // Rate limiting
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    if (isRateLimited(ip)) {
+      return new Response(JSON.stringify({ error: "Too many requests, please try again later." }), {
+        status: 429,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const body = await req.json();
+    
+    // Validate and sanitize messages
+    const sanitizedMessages = validateAndSanitizeMessages(body?.messages);
+    if (!sanitizedMessages) {
+      return new Response(JSON.stringify({ error: "Invalid messages format." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -75,7 +124,7 @@ serve(async (req) => {
         model: "google/gemini-3-flash-preview",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
-          ...messages,
+          ...sanitizedMessages,
         ],
         stream: true,
       }),
@@ -106,8 +155,8 @@ serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {
-    console.error("chatbot error:", e);
-    return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {
+    console.error("chatbot error:", e instanceof Error ? e.message : "Unknown error");
+    return new Response(JSON.stringify({ error: "Something went wrong." }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
