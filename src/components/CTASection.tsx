@@ -61,7 +61,7 @@ const CTASection = memo(function CTASection({
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="https://wa.me/923216479192?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20discussing%20a%20project."
+                href="https://wa.me/ahmedpixels?text=Hi%20Ahmed%2C%20I%27m%20interested%20in%20discussing%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

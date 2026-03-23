@@ -110,7 +110,7 @@ const HeroSection = memo(() => {
             {/* CTA Buttons */}
             <nav className="flex flex-wrap gap-4" aria-label="Primary actions">
               <a
-                href="https://wa.me/923216479192?text=Hi%20Ahmed"
+                href="https://wa.me/ahmedpixels?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"

@@ -104,7 +104,7 @@ _Sent from AhmedPixels.com_`;
 
     // Encode and open WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/923216479192?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/ahmedpixels?text=${encodedMessage}`;
     
     // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');

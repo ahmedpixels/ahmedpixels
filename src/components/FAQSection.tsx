@@ -97,7 +97,7 @@ const FAQSection = memo(() => {
         <div className="text-center mt-12">
           <p className="text-hero-muted mb-4">Still have questions?</p>
           <a
-            href="https://wa.me/923216479192?text=Hi%20Ahmed"
+            href="https://wa.me/ahmedpixels?text=Hi%20Ahmed"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
