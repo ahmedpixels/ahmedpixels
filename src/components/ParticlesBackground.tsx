@@ -38,7 +38,7 @@ const ParticlesBackground = memo(() => {
     resizeCanvas();
 
     // Debounced resize handler
-    let resizeTimeout: NodeJS.Timeout;
+    let resizeTimeout: ReturnType<typeof setTimeout>;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(resizeCanvas, 150);
