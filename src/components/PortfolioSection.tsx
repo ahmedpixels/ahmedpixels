@@ -202,7 +202,7 @@ const PortfolioSection = memo(() => {
             <ArrowRight size={18} />
           </Link>
           <a
-            href="https://wa.me/923216479192?text=Hi%20Ahmed"
+            href="https://wa.me/ahmedpixels?text=Hi%20Ahmed"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-card border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background"

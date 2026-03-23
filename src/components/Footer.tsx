@@ -18,7 +18,7 @@ const services = [
 const socialLinks = [
   { icon: Linkedin, href: "https://pk.linkedin.com/in/ahmedpixels", label: "LinkedIn" },
   { icon: Instagram, href: "https://www.instagram.com/itx_ahmed_.0/", label: "Instagram" },
-  { icon: MessageCircle, href: "https://wa.me/923216479192?text=Hi%20Ahmed", label: "WhatsApp" },
+  { icon: MessageCircle, href: "https://wa.me/ahmedpixels?text=Hi%20Ahmed", label: "WhatsApp" },
 ];
 
 const Footer = memo(() => {
@@ -116,7 +116,7 @@ const Footer = memo(() => {
                 <li className="flex items-start gap-3">
                   <Phone className="text-primary mt-1 flex-shrink-0" size={18} aria-hidden="true" />
                   <a 
-                    href="https://wa.me/923216479192?text=Hi%20Ahmed"
+                    href="https://wa.me/ahmedpixels?text=Hi%20Ahmed"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-hero-text/60 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
@@ -141,7 +141,7 @@ const Footer = memo(() => {
             {/* CTA Button */}
             <div className="mt-6">
               <a
-                href="https://wa.me/923216479192?text=Hi%20Ahmed"
+                href="https://wa.me/ahmedpixels?text=Hi%20Ahmed"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"

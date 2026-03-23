@@ -96,7 +96,7 @@ const ChatbotWidget = () => {
       });
 
       if (!resp.ok || !resp.body) {
-        upsertAssistant("Sorry, I'm having trouble connecting. Please try WhatsApp: [+92 321 6479192](https://wa.me/923216479192)");
+        upsertAssistant("Sorry, I'm having trouble connecting. Please try WhatsApp: [+92 321 6479192](https://wa.me/ahmedpixels)");
         setIsLoading(false);
         return;
       }
@@ -130,7 +130,7 @@ const ChatbotWidget = () => {
         }
       }
     } catch {
-      upsertAssistant("Connection error. Try WhatsApp: [+92 321 6479192](https://wa.me/923216479192)");
+      upsertAssistant("Connection error. Try WhatsApp: [+92 321 6479192](https://wa.me/ahmedpixels)");
     }
     setIsLoading(false);
   }, []);
@@ -218,7 +218,7 @@ const ChatbotWidget = () => {
                     </button>
                   )}
                   <a
-                    href="https://wa.me/923216479192"
+                    href="https://wa.me/ahmedpixels"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-lg hover:bg-white/10 transition-colors"
