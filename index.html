@@ -6,66 +6,81 @@
     <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="color-scheme" content="dark light" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Favicons (multiple sizes for proper indexing) -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    
-    <!-- LCP image is loaded via JS import for proper Vite hashing -->
-    
-    <!-- DNS Prefetch for external resources -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    
-    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Preload critical fonts with font-display: swap for better LCP -->
+
+    <!-- Preload critical fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
-    
-    <title>Ahmed | Professional WordPress Developer & SEO Specialist - Lahore, Pakistan</title>
-    <meta name="description" content="Ahmed is a Professional WordPress Developer & SEO Specialist in Lahore, Pakistan. I build fast, secure & scalable WordPress websites that rank and convert. 50+ projects, 100% satisfaction." />
-    <meta name="author" content="Ahmed" />
+
+    <title>Ahmed Pixels | WordPress Developer & SEO Specialist in Lahore, Pakistan</title>
+    <meta name="description" content="Ahmed Pixels — Professional WordPress Developer & SEO Specialist in Lahore, Pakistan. Custom WordPress, WooCommerce, Shopify & SEO services. 50+ projects, 100% satisfaction. Get a free quote today!" />
+    <meta name="author" content="Ahmed Pixels" />
+    <meta name="publisher" content="Ahmed Pixels" />
+    <meta name="copyright" content="Ahmed Pixels" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <!-- Canonical is set dynamically per page via React Helmet -->
+    <meta name="bingbot" content="index, follow" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- hreflang for international targeting -->
+    <link rel="alternate" hreflang="en" href="https://ahmedpixels.com" />
+    <link rel="alternate" hreflang="x-default" href="https://ahmedpixels.com" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Ahmed | Professional WordPress Developer & SEO Specialist" />
-    <meta property="og:description" content="Professional WordPress Developer & SEO Specialist in Lahore, Pakistan. I build fast, secure & scalable WordPress websites. 50+ projects delivered." />
+    <meta property="og:title" content="Ahmed Pixels | WordPress Developer & SEO Specialist" />
+    <meta property="og:description" content="Professional WordPress Developer & SEO Specialist in Lahore, Pakistan. Custom WordPress, WooCommerce & Shopify development. 50+ projects delivered." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ahmedpixels.com" />
     <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
+    <meta property="og:image:secure_url" content="https://ahmedpixels.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ahmed Pixels - WordPress Developer & SEO Specialist in Lahore Pakistan" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Ahmed - WordPress Developer" />
+    <meta property="og:site_name" content="Ahmed Pixels" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ahmed | Professional WordPress Developer & SEO Specialist" />
-    <meta name="twitter:description" content="Professional WordPress Developer & SEO Specialist in Lahore, Pakistan. I build fast, secure & scalable WordPress websites." />
+    <meta name="twitter:title" content="Ahmed Pixels | WordPress Developer & SEO Specialist" />
+    <meta name="twitter:description" content="Professional WordPress Developer & SEO Specialist in Lahore, Pakistan. Custom WordPress, WooCommerce & Shopify development." />
     <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Ahmed Pixels - WordPress Developer & SEO Specialist" />
     <meta name="twitter:creator" content="@ahmedpixels" />
+    <meta name="twitter:site" content="@ahmedpixels" />
 
     <!-- Additional SEO -->
-    <meta name="keywords" content="WordPress Developer Lahore, SEO Specialist Pakistan, Web Developer, E-commerce Developer, WooCommerce Expert, Shopify Developer, Website Development Pakistan" />
+    <meta name="keywords" content="Ahmed Pixels, WordPress Developer Lahore, SEO Specialist Pakistan, Web Developer Lahore, E-commerce Developer, WooCommerce Expert, Shopify Developer Pakistan, Website Development Lahore, Freelance WordPress Developer, Best WordPress Developer Pakistan" />
     <meta name="geo.region" content="PK-PB" />
-    <meta name="geo.placename" content="Lahore" />
+    <meta name="geo.placename" content="Lahore, Punjab, Pakistan" />
     <meta name="geo.position" content="31.5204;74.3587" />
     <meta name="ICBM" content="31.5204, 74.3587" />
     <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD: Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://ahmedpixels.com/#person",
       "name": "Ahmed",
+      "alternateName": "Ahmed Pixels",
       "jobTitle": "WordPress Developer & SEO Specialist",
       "url": "https://ahmedpixels.com",
       "image": "https://ahmedpixels.com/favicon.png",
@@ -74,21 +89,89 @@
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Lahore",
-        "addressCountry": "Pakistan"
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
       },
       "sameAs": [
         "https://pk.linkedin.com/in/ahmedpixels",
         "https://www.instagram.com/itx_ahmed_.0/"
       ],
-      "knowsAbout": ["WordPress Development", "SEO", "WooCommerce", "E-commerce", "Web Development"],
-      "offers": {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "WordPress Development Services",
-          "description": "Professional WordPress development, WooCommerce, SEO optimization, and website maintenance services."
-        }
+      "knowsAbout": ["WordPress Development", "SEO", "WooCommerce", "Shopify", "E-commerce", "Web Development", "On-Page SEO", "Technical SEO"],
+      "worksFor": { "@id": "https://ahmedpixels.com/#organization" }
+    }
+    </script>
+
+    <!-- JSON-LD: Organization / LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+      "@id": "https://ahmedpixels.com/#organization",
+      "name": "Ahmed Pixels",
+      "alternateName": "Ahmed Pixels - WordPress Developer",
+      "url": "https://ahmedpixels.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ahmedpixels.com/favicon.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://ahmedpixels.com/og-image.png",
+      "description": "Professional WordPress Development & SEO services. Custom WordPress, WooCommerce, Shopify & SEO optimization for businesses worldwide.",
+      "telephone": "+923216479192",
+      "email": "ahmedpixelspro@gmail.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.5204,
+        "longitude": 74.3587
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Pakistan" },
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "United Arab Emirates" },
+        { "@type": "Country", "name": "Saudi Arabia" },
+        { "@type": "Place", "name": "Worldwide" }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://pk.linkedin.com/in/ahmedpixels",
+        "https://www.instagram.com/itx_ahmed_.0/"
+      ],
+      "founder": { "@id": "https://ahmedpixels.com/#person" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "50",
+        "bestRating": "5",
+        "worstRating": "1"
       }
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite with SearchAction (sitelinks searchbox) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://ahmedpixels.com/#website",
+      "url": "https://ahmedpixels.com",
+      "name": "Ahmed Pixels",
+      "description": "WordPress Developer & SEO Specialist in Lahore, Pakistan",
+      "publisher": { "@id": "https://ahmedpixels.com/#organization" },
+      "inLanguage": "en-US"
     }
     </script>
   </head>

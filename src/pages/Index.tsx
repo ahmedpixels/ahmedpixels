@@ -24,38 +24,77 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Ahmed - WordPress Developer & SEO Specialist | Lahore, Pakistan</title>
+        <title>Ahmed Pixels | WordPress Developer & SEO Specialist - Lahore, Pakistan</title>
         <meta
           name="description"
-          content="Professional WordPress Developer and SEO Specialist based in Lahore, Pakistan. I create high-performance websites including E-commerce, B2B, Tech, and Shopify stores that rank and convert."
+          content="Hire Ahmed Pixels — top WordPress Developer & SEO Specialist in Lahore, Pakistan. Custom WordPress, WooCommerce, Shopify & SEO services. 50+ projects delivered. Get a free quote today!"
         />
         <meta
           name="keywords"
-          content="WordPress Developer, SEO Specialist, Web Developer Lahore, E-commerce Developer, Shopify Expert, B2B Website, Pakistan"
+          content="Ahmed Pixels, WordPress Developer Lahore, SEO Specialist Pakistan, WooCommerce Expert, Shopify Developer, E-commerce Website, Web Developer Lahore, Freelance WordPress Developer Pakistan"
         />
-        <meta property="og:title" content="Ahmed - WordPress Developer & SEO Specialist" />
+        <meta property="og:title" content="Ahmed Pixels | WordPress Developer & SEO Specialist" />
         <meta
           property="og:description"
-          content="I craft high-performance websites that rank and convert. Transform your ideas into stunning digital experiences."
+          content="I craft high-performance WordPress websites that rank and convert. 50+ projects delivered with 100% client satisfaction."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ahmedpixels.com" />
         <meta property="og:image" content="https://ahmedpixels.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Ahmed Pixels - WordPress Developer & SEO Specialist in Lahore Pakistan" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ahmed - WordPress Developer & SEO Specialist" />
-        <meta name="twitter:description" content="I craft high-performance websites that rank and convert." />
+        <meta name="twitter:title" content="Ahmed Pixels | WordPress Developer & SEO Specialist" />
+        <meta name="twitter:description" content="I craft high-performance WordPress websites that rank and convert." />
         <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
         <link rel="canonical" href="https://ahmedpixels.com" />
+        <link rel="alternate" hreflang="en" href="https://ahmedpixels.com" />
+        <link rel="alternate" hreflang="x-default" href="https://ahmedpixels.com" />
+
+        {/* WebPage schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Ahmed",
-            "jobTitle": "WordPress Developer & SEO Specialist",
+            "@type": "WebPage",
+            "@id": "https://ahmedpixels.com/#webpage",
             "url": "https://ahmedpixels.com",
-            "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "Pakistan" }
+            "name": "Ahmed Pixels - WordPress Developer & SEO Specialist",
+            "description": "Professional WordPress Developer & SEO Specialist in Lahore, Pakistan.",
+            "isPartOf": { "@id": "https://ahmedpixels.com/#website" },
+            "about": { "@id": "https://ahmedpixels.com/#person" },
+            "primaryImageOfPage": { "@type": "ImageObject", "url": "https://ahmedpixels.com/og-image.png" },
+            "inLanguage": "en-US"
+          })}
+        </script>
+
+        {/* Service catalog with AggregateRating for rich snippets */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "WordPress Development & SEO Services",
+            "provider": { "@id": "https://ahmedpixels.com/#organization" },
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Web Development Services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom WordPress Development" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WooCommerce E-commerce Development" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Shopify Store Development" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Optimization" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Maintenance & Support" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Theme Customization" } }
+              ]
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "50",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
           })}
         </script>
       </Helmet>
