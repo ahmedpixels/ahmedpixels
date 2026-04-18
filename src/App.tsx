@@ -12,7 +12,6 @@ import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
-import WhoIsAhmedPixelsPage from "./pages/WhoIsAhmedPixelsPage";
 
 import SitemapCheckPage from "./pages/SitemapCheckPage";
 import NotFound from "./pages/NotFound";
