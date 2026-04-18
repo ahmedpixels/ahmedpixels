@@ -49,8 +49,8 @@ const Index = () => {
         <meta name="twitter:description" content="I craft high-performance WordPress websites that rank and convert." />
         <meta name="twitter:image" content="https://ahmedpixels.com/og-image.png" />
         <link rel="canonical" href="https://ahmedpixels.com" />
-        <link rel="alternate" hreflang="en" href="https://ahmedpixels.com" />
-        <link rel="alternate" hreflang="x-default" href="https://ahmedpixels.com" />
+        <link rel="alternate" hrefLang="en" href="https://ahmedpixels.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://ahmedpixels.com" />
 
         {/* WebPage schema */}
         <script type="application/ld+json">
