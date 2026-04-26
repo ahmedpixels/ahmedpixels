@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import LoadingScreen from "@/components/LoadingScreen";
+import SiteGate from "@/components/SiteGate";
 import Index from "./pages/Index";
 import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -41,28 +42,30 @@ const App = () => {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <AnimatePresence mode="wait">
-            {isLoading && !hasVisited && (
-              <LoadingScreen onComplete={handleLoadingComplete} />
-            )}
-          </AnimatePresence>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/who-is-ahmed-pixels" element={<Navigate to="/about" replace />} />
-              
-              <Route path="/sitemap-check" element={<SitemapCheckPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-          <ChatbotWidget />
+          <SiteGate>
+            <AnimatePresence mode="wait">
+              {isLoading && !hasVisited && (
+                <LoadingScreen onComplete={handleLoadingComplete} />
+              )}
+            </AnimatePresence>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/who-is-ahmed-pixels" element={<Navigate to="/about" replace />} />
+                
+                <Route path="/sitemap-check" element={<SitemapCheckPage />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+            <ChatbotWidget />
+          </SiteGate>
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
