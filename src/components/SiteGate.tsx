@@ -1,5 +1,5 @@
 import { useState, useEffect, FormEvent } from "react";
-import { Lock, Mail, Eye, EyeOff, Sparkles, Loader2 } from "lucide-react";
+import { Lock, Mail, Eye, EyeOff, Sparkles, Loader2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -181,10 +181,28 @@ const SiteGate = ({ children }: SiteGateProps) => {
                 </Button>
               </form>
 
-              <p className="mt-6 text-center text-[11px] text-white/40">
+              <div className="mt-6 flex items-center gap-3">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-[10px] uppercase tracking-widest text-white/40">
+                  Or
+                </span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+
+              <a
+                href="https://wa.me/923174718027?text=Hi%20Ahmed%2C%20I%27d%20like%20to%20request%20access%20to%20view%20your%20portfolio."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex h-11 w-full items-center justify-center gap-2 rounded-md border border-white/15 bg-white/5 text-sm font-semibold text-white transition-all hover:scale-[1.01] hover:border-[hsl(280_90%_65%/0.5)] hover:bg-white/10"
+              >
+                <MessageCircle className="h-4 w-4 text-[hsl(280_90%_75%)]" />
+                Request Access to View Portfolio
+              </a>
+
+              <p className="mt-5 text-center text-[11px] text-white/40">
                 This site is currently under construction.
                 <br />
-                Please contact the owner for access.
+                Click above to request access from the owner.
               </p>
             </div>
           </div>
