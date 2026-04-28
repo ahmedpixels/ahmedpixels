@@ -190,7 +190,7 @@ const SiteGate = ({ children }: SiteGateProps) => {
               </div>
 
               <a
-                href="https://wa.me/923174718027?text=Hi%20Ahmed%2C%20I%27d%20like%20to%20request%20access%20to%20view%20your%20portfolio."
+                href="https://wa.me/923216479192?text=Hi%20Ahmed%2C%20I%27d%20like%20to%20request%20access%20to%20view%20your%20portfolio."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 flex h-11 w-full items-center justify-center gap-2 rounded-md border border-white/15 bg-white/5 text-sm font-semibold text-white transition-all hover:scale-[1.01] hover:border-[hsl(280_90%_65%/0.5)] hover:bg-white/10"
