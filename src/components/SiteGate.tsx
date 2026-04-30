@@ -1,20 +1,18 @@
 import { useState, useEffect, FormEvent } from "react";
-import { Lock, Mail, Eye, EyeOff, Sparkles, Loader2, MessageCircle } from "lucide-react";
+import { Lock, Mail, Eye, EyeOff, Sparkles, Loader2, MessageCircle, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-
-const ACCESS_EMAIL = "ahmedpixelspro@gmail.com";
-const ACCESS_PASSWORD = "@Pixels7078";
-const STORAGE_KEY = "ap_site_access_v1";
+import { supabase } from "@/integrations/supabase/client";
+import type { Session } from "@supabase/supabase-js";
 
 interface SiteGateProps {
   children: React.ReactNode;
 }
 
 const SiteGate = ({ children }: SiteGateProps) => {
-  const [authorized, setAuthorized] = useState(false);
+  const [session, setSession] = useState<Session | null>(null);
   const [checked, setChecked] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,40 +20,68 @@ const SiteGate = ({ children }: SiteGateProps) => {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    // Set up listener FIRST
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, sess) => {
+      setSession(sess);
+    });
+
+    // Then fetch existing session
+    supabase.auth.getSession().then(({ data }) => {
+      setSession(data.session);
+      setChecked(true);
+    });
+
+    // Trigger one-time owner provisioning (idempotent on the server)
     try {
-      const granted = localStorage.getItem(STORAGE_KEY);
-      if (granted === "true") setAuthorized(true);
+      const provisioned = localStorage.getItem("ap_owner_provisioned_v1");
+      if (!provisioned) {
+        supabase.functions.invoke("setup-owner").then(({ error }) => {
+          if (!error) localStorage.setItem("ap_owner_provisioned_v1", "1");
+        });
+      }
     } catch {
       // ignore
     }
-    setChecked(true);
+
+    return () => sub.subscription.unsubscribe();
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+    setSubmitting(false);
 
-    setTimeout(() => {
-      if (
-        email.trim().toLowerCase() === ACCESS_EMAIL.toLowerCase() &&
-        password === ACCESS_PASSWORD
-      ) {
-        try {
-          localStorage.setItem(STORAGE_KEY, "true");
-        } catch {
-          // ignore
-        }
-        toast.success("Access granted. Welcome back!");
-        setAuthorized(true);
-      } else {
-        toast.error("Invalid credentials. Access denied.");
-      }
-      setSubmitting(false);
-    }, 600);
+    if (error) {
+      toast.error("Invalid credentials. Access denied.");
+      return;
+    }
+    toast.success("Access granted. Welcome back!");
   };
 
   if (!checked) return null;
-  if (authorized) return <>{children}</>;
+
+  if (session) {
+    return (
+      <>
+        {children}
+        <button
+          onClick={async () => {
+            await supabase.auth.signOut();
+            toast.success("Signed out");
+          }}
+          className="fixed bottom-4 left-4 z-[9998] flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-xs text-white/70 backdrop-blur-md transition hover:bg-black/80 hover:text-white"
+          aria-label="Sign out"
+        >
+          <LogOut className="h-3 w-3" />
+          Lock
+        </button>
+      </>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-[9999] min-h-screen w-full overflow-auto bg-[hsl(270_30%_6%)] text-foreground">
