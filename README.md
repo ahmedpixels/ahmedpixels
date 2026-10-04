@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+# Hi there, I'm Ahmed 👋
 
-## Project info
+### 🚀 Founder @ **Ahmed Pixels** — AI + Web Development
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Welcome](./banner.png)
 
-## How can I edit this code?
+<p align="center">
+  <a href="https://ahmedxmd.com"><img src="https://img.shields.io/badge/Website-ahmedxmd.com-7C3AED?style=for-the-badge&logo=google-chrome&logoColor=white" /></a>
+  <a href="https://jolitools.com"><img src="https://img.shields.io/badge/JoliTools-jolitools.com-7C3AED?style=for-the-badge&logo=tools&logoColor=white" /></a>
+  <a href="mailto:info@ahmedxmd.com"><img src="https://img.shields.io/badge/Email-info@ahmedxmd.com-7C3AED?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+</p>
 
-There are several ways of editing your application.
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=ahmedpixels&label=Profile%20views&color=7C3AED&style=flat" alt="Profile views" />
+</p>
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 🧑‍💻 About me
 
-Changes made via Lovable will be committed automatically to this repo.
+I'm **Ahmed**, a developer from **Pakistan** 🇵🇰 building things for the web and WhatsApp.
 
-**Use your preferred IDE**
+- 🔭 Currently building **AHMED X** — a WhatsApp bot hosting platform ([ahmedxmd.com](https://ahmedxmd.com)) with 1900+ bot commands
+- 🛠️ Also building **JoliTools** — 135 free browser-based tools ([jolitools.com](https://jolitools.com))
+- 🌱 Into: AI, automation, and clean, fast web apps
+- 💜 Brand color: `#7C3AED`
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🛠️ Technologies
 
-Follow these steps:
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+</p>
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 📊 Statistics
 
-# Step 3: Install the necessary dependencies.
-npm i
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=ahmedpixels&show_icons=true&theme=radical&hide_border=true" alt="GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedpixels&layout=compact&theme=radical&hide_border=true" alt="Top languages" />
+</p>
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ahmedpixels&theme=radical&hide_border=true" alt="GitHub streak" />
+</p>
