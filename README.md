@@ -49,19 +49,18 @@ I'm **Ahmed**, a developer from **Pakistan** 🇵🇰 turning ideas into live pr
 
 ---
 
-### 🏆 GitHub Trophies
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=ahmedpixels&theme=radical&no-frame=true&margin-w=8" alt="Trophies" />
-</p>
-
 ### 📊 Statistics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ahmedpixels&show_icons=true&theme=radical&hide_border=true&count_private=true" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedpixels&layout=compact&theme=radical&hide_border=true" alt="Top languages" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=ahmedpixels&theme=radical&hide_border=true&area=true" alt="Activity graph" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ahmedpixels&theme=radical&hide_border=true" alt="GitHub streak" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=ahmedpixels&show_icons=true&theme=radical&hide_border=true&count_private=true&rank_icon=github" alt="GitHub stats" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=ahmedpixels&theme=radical&hide_border=true&date_format=j%20M%5B%20Y%5D" alt="GitHub streak" />
+</p>
+
+<p align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedpixels&layout=donut&theme=radical&hide_border=true" alt="Top languages" />
+  <img width="49%" src="https://github-profile-trophy.vercel.app/?username=ahmedpixels&theme=radical&no-frame=true&no-bg=true&margin-w=8&row=2&column=4" alt="Trophies" />
 </p>
