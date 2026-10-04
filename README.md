@@ -1,12 +1,12 @@
-# Hi there, I'm Ahmed 👋
-
-### 🚀 Founder @ **Ahmed Pixels** — AI + Web Development
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=Hi+there%2C+I'm+Ahmed+👋;AI+%2B+Web+Developer;Founder+%40+Ahmed+Pixels;Building+AHMED+X+%F0%9F%9A%80" alt="Typing animation" />
+</p>
 
 ![Welcome](./banner.png)
 
 <p align="center">
   <a href="https://ahmedxmd.com"><img src="https://img.shields.io/badge/Website-ahmedxmd.com-7C3AED?style=for-the-badge&logo=google-chrome&logoColor=white" /></a>
-  <a href="https://jolitools.com"><img src="https://img.shields.io/badge/JoliTools-jolitools.com-7C3AED?style=for-the-badge&logo=tools&logoColor=white" /></a>
+  <a href="https://jolitools.com"><img src="https://img.shields.io/badge/JoliTools-jolitools.com-7C3AED?style=for-the-badge&logo=wrench&logoColor=white" /></a>
   <a href="mailto:info@ahmedxmd.com"><img src="https://img.shields.io/badge/Email-info@ahmedxmd.com-7C3AED?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 </p>
 
@@ -18,16 +18,21 @@
 
 ### 🧑‍💻 About me
 
-I'm **Ahmed**, a developer from **Pakistan** 🇵🇰 building things for the web and WhatsApp.
+<img align="right" width="300" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="coding" />
 
-- 🔭 Currently building **AHMED X** — a WhatsApp bot hosting platform ([ahmedxmd.com](https://ahmedxmd.com)) with 1900+ bot commands
-- 🛠️ Also building **JoliTools** — 135 free browser-based tools ([jolitools.com](https://jolitools.com))
-- 🌱 Into: AI, automation, and clean, fast web apps
-- 💜 Brand color: `#7C3AED`
+I'm **Ahmed**, a developer from **Pakistan** 🇵🇰 turning ideas into live products.
+
+- 🔭 Building **AHMED X** — WhatsApp bot hosting platform with **1900+ commands** ([ahmedxmd.com](https://ahmedxmd.com))
+- 🛠️ Building **JoliTools** — 135 free browser tools, no signup ([jolitools.com](https://jolitools.com))
+- 🌱 Into: AI, automation & clean, fast web apps
+- 💜 Motto: *ship it, then polish it*
+- ⚡ Fun fact: my bots never sleep, neither do I 😄
+
+<br clear="right"/>
 
 ---
 
-### 🛠️ Technologies
+### 🛠️ Tech Stack
 
 <p>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
@@ -39,15 +44,21 @@ I'm **Ahmed**, a developer from **Pakistan** 🇵🇰 building things for the we
   <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/Baileys-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </p>
 
 ---
 
+### 🏆 GitHub Trophies
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=ahmedpixels&theme=radical&no-frame=true&margin-w=8" alt="Trophies" />
+</p>
+
 ### 📊 Statistics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ahmedpixels&show_icons=true&theme=radical&hide_border=true" alt="GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=ahmedpixels&show_icons=true&theme=radical&hide_border=true&count_private=true" alt="GitHub stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedpixels&layout=compact&theme=radical&hide_border=true" alt="Top languages" />
 </p>
 
